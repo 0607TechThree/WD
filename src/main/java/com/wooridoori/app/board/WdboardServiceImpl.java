@@ -36,12 +36,12 @@ public class WdboardServiceImpl implements WdboardService{
 	}
 
 	@Override
-	public void updateWdboardU(WdboardVO vo) {
+	public void updateWdboardlikeU(WdboardVO vo) {
 		wdboardDAO.updateWdblikeU(vo);
 	}
 
 	@Override
-	public void updateWdboardD(WdboardVO vo) {
+	public void updateWdboardlikeD(WdboardVO vo) {
 		wdboardDAO.updateWdblikeD(vo);
 	}
 }
