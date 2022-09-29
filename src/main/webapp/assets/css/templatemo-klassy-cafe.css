@@ -147,6 +147,7 @@ body {
 
 .main-white-button a {
   font-size: 13px;
+  width: 200px;
   color: #fb5849;
   background-color: #fff;
   padding: 12px 25px;
@@ -560,13 +561,6 @@ header
   .header-area .logo {
     margin-left: 30px;
   }
-  /* 로고 사이즈 */
-  .logo > img {
-	 height: 200px;
- 	 width: 80px;
- 	 object-fit: contain;
-}
-
   .header-area .menu-trigger {
     display: block !important;
   }
@@ -719,7 +713,7 @@ banner
   min-width: 100%;
   position: relative;
   display: inline-block;
-  max-width: none;
+  max-width: 100%;
 }
 
 *,
