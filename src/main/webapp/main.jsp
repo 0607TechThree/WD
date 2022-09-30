@@ -31,6 +31,17 @@ https://templatemo.com/tm-558-klassy-cafe
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
+<style type="text/css">
+.actionimg {
+	width: 20px;
+	height: 20px;
+	color: black;
+}
+.actionimg:hover{
+	filter: opacity(0.2) drop-shadow(0 0 0 red);
+}
+
+</style>
     </head>
     
     <body>
@@ -60,7 +71,8 @@ https://templatemo.com/tm-558-klassy-cafe
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li ><a href="#about" >blog</a></li>
+                            <li class="scroll-to-section"><a href="#offers" >blog</a></li>
+                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
                            	
                         <!-- 
                             <li class="submenu">
@@ -72,7 +84,6 @@ https://templatemo.com/tm-558-klassy-cafe
                                 </ul>
                             </li>
                         -->
-                            <li class="scroll-to-section"><a href="">mypage</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">OnedayClass</a>
                                 
@@ -85,7 +96,14 @@ https://templatemo.com/tm-558-klassy-cafe
                                 </ul>
                             </li>
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
+                             <li><a href="login.jsp">
+    	                         	<img class="actionimg" alt="로그인" src="img/login2.png" title="로그인 페이지로 이동">
+	                             </a>
+                             </li>
+                             <li><a href="joinfirst.jsp">
+    	                         	<img class="actionimg" alt="회원가입" src="img/join2.png" title="회원가입 페이지로 이동">
+	                             </a>
+                             </li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -159,42 +177,271 @@ https://templatemo.com/tm-558-klassy-cafe
     </div>
     <!-- ***** Main Banner Area End ***** -->
 
-    <!-- ***** About Area Starts ***** -->
-    <section class="section" id="about">
+    <!-- ***** Menu Area Starts ***** -->
+    <section class="section" id="offers">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="left-text-content">
-                        <div class="section-heading">
-                            <h6>About Us</h6>
-                            <h2>We Leave A Delicious Memory For You</h2>
-                        </div>
-                        <p>Klassy Cafe is one of the best <a href="https://templatemo.com/tag/restaurant" target="_blank" rel="sponsored">restaurant HTML templates</a> with Bootstrap v4.5.2 CSS framework. You can download and feel free to use this website template layout for your restaurant business. You are allowed to use this template for commercial purposes. <br><br>You are NOT allowed to redistribute the template ZIP file on any template donwnload website. Please contact us for more information.</p>
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="assets/images/about-thumb-01.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img src="assets/images/about-thumb-02.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img src="assets/images/about-thumb-03.jpg" alt="">
-                            </div>
-                        </div>
+                <div class="col-lg-4 offset-lg-4 text-center">
+                    <div class="section-heading">
+                        <h6>Klassy Week</h6>
+                        <h2>This Week’s Special Meal Offers</h2>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="right-content">
-                        <div class="thumb">
-                            <a rel="nofollow" href="http://youtube.com"><i class="fa fa-play"></i></a>
-                            <img src="assets/images/about-video-bg.jpg" alt="">
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row" id="tabs">
+                        <div class="col-lg-12">
+                            <div class="heading-tabs">
+                                <div class="row">
+                                    <div class="col-lg-6 offset-lg-3">
+                                        <ul>
+                                          <li><a href='#tabs-1'><img src="assets/images/tab-icon-01.png" alt="">Breakfast</a></li>
+                                          <li><a href='#tabs-2'><img src="assets/images/tab-icon-02.png" alt="">Lunch</a></a></li>
+                                          <li><a href='#tabs-3'><img src="assets/images/tab-icon-03.png" alt="">Dinner</a></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <section class='tabs-content'>
+                                <article id='tabs-1'>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="left-list">
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-01.png" alt="">
+                                                            <h4>Fresh Chicken Salad</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$10.50</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-02.png" alt="">
+                                                            <h4>Orange Juice</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$8.50</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-03.png" alt="">
+                                                            <h4>Fruit Salad</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$9.90</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="right-list">
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-04.png" alt="">
+                                                            <h4>Eggs Omelette</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$6.50</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-05.png" alt="">
+                                                            <h4>Dollma Pire</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$5.00</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-06.png" alt="">
+                                                            <h4>Omelette & Cheese</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$4.10</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>  
+                                <article id='tabs-2'>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="left-list">
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-04.png" alt="">
+                                                            <h4>Eggs Omelette</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$14</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-05.png" alt="">
+                                                            <h4>Dollma Pire</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$18</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-06.png" alt="">
+                                                            <h4>Omelette & Cheese</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$22</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="right-list">
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-01.png" alt="">
+                                                            <h4>Fresh Chicken Salad</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$10</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-02.png" alt="">
+                                                            <h4>Orange Juice</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$20</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-03.png" alt="">
+                                                            <h4>Fruit Salad</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$30</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>  
+                                <article id='tabs-3'>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="left-list">
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-05.png" alt="">
+                                                            <h4>Eggs Omelette</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$14</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-03.png" alt="">
+                                                            <h4>Orange Juice</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$18</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-02.png" alt="">
+                                                            <h4>Fruit Salad</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$10</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="right-list">
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-06.png" alt="">
+                                                            <h4>Fresh Chicken Salad</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$8.50</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-01.png" alt="">
+                                                            <h4>Dollma Pire</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$9</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="assets/images/tab-item-04.png" alt="">
+                                                            <h4>Omelette & Cheese</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <div class="price">
+                                                                <h6>$11</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>   
+                            </section>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ***** About Area Ends ***** -->
+    <!-- ***** Chefs Area Ends ***** -->
 
     <!-- ***** Menu Area Starts ***** -->
     <section class="section" id="menu">
@@ -466,271 +713,7 @@ https://templatemo.com/tm-558-klassy-cafe
     </section>
     <!-- ***** Reservation Area Ends ***** -->
 
-    <!-- ***** Menu Area Starts ***** -->
-    <section class="section" id="offers">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 offset-lg-4 text-center">
-                    <div class="section-heading">
-                        <h6>Klassy Week</h6>
-                        <h2>This Week’s Special Meal Offers</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="row" id="tabs">
-                        <div class="col-lg-12">
-                            <div class="heading-tabs">
-                                <div class="row">
-                                    <div class="col-lg-6 offset-lg-3">
-                                        <ul>
-                                          <li><a href='#tabs-1'><img src="assets/images/tab-icon-01.png" alt="">Breakfast</a></li>
-                                          <li><a href='#tabs-2'><img src="assets/images/tab-icon-02.png" alt="">Lunch</a></a></li>
-                                          <li><a href='#tabs-3'><img src="assets/images/tab-icon-03.png" alt="">Dinner</a></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <section class='tabs-content'>
-                                <article id='tabs-1'>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="left-list">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-01.png" alt="">
-                                                            <h4>Fresh Chicken Salad</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$10.50</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-02.png" alt="">
-                                                            <h4>Orange Juice</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$8.50</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-03.png" alt="">
-                                                            <h4>Fruit Salad</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$9.90</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="right-list">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-04.png" alt="">
-                                                            <h4>Eggs Omelette</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$6.50</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-05.png" alt="">
-                                                            <h4>Dollma Pire</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$5.00</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-06.png" alt="">
-                                                            <h4>Omelette & Cheese</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$4.10</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>  
-                                <article id='tabs-2'>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="left-list">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-04.png" alt="">
-                                                            <h4>Eggs Omelette</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$14</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-05.png" alt="">
-                                                            <h4>Dollma Pire</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$18</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-06.png" alt="">
-                                                            <h4>Omelette & Cheese</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$22</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="right-list">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-01.png" alt="">
-                                                            <h4>Fresh Chicken Salad</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$10</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-02.png" alt="">
-                                                            <h4>Orange Juice</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$20</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-03.png" alt="">
-                                                            <h4>Fruit Salad</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$30</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>  
-                                <article id='tabs-3'>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="left-list">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-05.png" alt="">
-                                                            <h4>Eggs Omelette</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$14</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-03.png" alt="">
-                                                            <h4>Orange Juice</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$18</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-02.png" alt="">
-                                                            <h4>Fruit Salad</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$10</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="right-list">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-06.png" alt="">
-                                                            <h4>Fresh Chicken Salad</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$8.50</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-01.png" alt="">
-                                                            <h4>Dollma Pire</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$9</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-04.png" alt="">
-                                                            <h4>Omelette & Cheese</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$11</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>   
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Chefs Area Ends ***** --> 
+     
     
     <!-- ***** Footer Start ***** -->
     <footer>
