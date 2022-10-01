@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/joinfirst.css" type="text/css">
-<title>회원가입약관 | 샘플페이지</title>
+<title>회원가입약관 </title>
 
 </head>
 <body>
@@ -17,7 +17,7 @@
 		</center>
 		<!-- 상단 시작 { -->
 		<div id="hd">
-    		<h1 id="hd_h1">회원가입약관</h1>
+    		<h2 id="hd_h1">회원가입약관</h2>
 		</div>
 		<!-- } 상단 끝 -->
 		<hr>
@@ -27,38 +27,48 @@
     		<div id="container_wr">
    
     			<div id="container">
-        			<h2 class="sctt">회원가입약관</h2>
+        			
 						<!-- 회원가입약관 동의 시작 { -->
 						<div class="register">
     						<form  name="fregister" id="fregister" action="" onsubmit="return fregister_submit(this);" method="POST" autocomplete="off">
-								<p><i class="fa fa-check-circle" aria-hidden="true"></i> 회원가입약관 및 개인정보처리방침안내의 내용에 동의하셔야 회원가입 하실 수 있습니다.</p>
+								<p class="join-text"><i class="fa fa-check-circle" aria-hidden="true"></i> 회원가입약관 및 개인정보처리방침안내의 내용에 동의하셔야 회원가입 하실 수 있습니다.</p>
         					<section id="fregister_term">
-        						<h2>회원가입약관</h2>
+        						<h4 >개인정보수집·이용동의 </h4>
         						<textarea readonly class="joinarea">
-        							약관내용
+        							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+        							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+        							non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
  								</textarea>
 						        <fieldset class="fregister_agree">
 						            <input type="checkbox" name="agree" value="1" id="agree11" class="selec_chk">
-						            <label for="agree11"><span></span><b class="sound_only">회원가입약관의 내용에 동의합니다.</b></label>
+						            <label for="agree11"><span></span><b class="sound_only check-text">회원가입약관의 내용에 동의합니다.</b></label>
 						        </fieldset>
 						    </section>
 
     						<section id="fregister_private">
-						        <h2>개인정보처리방침안내</h2>
+						        <h4>개인정보처리방침안내</h4>
 						        <textarea readonly class="joinarea">
-						        약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2약관내용2
+						    	     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+        							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+        							non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 						 		</textarea>
 						
 						        <fieldset class="fregister_agree">
 						            <input type="checkbox" name="agree2" value="1" id="agree21" class="selec_chk">
-						            <label for="agree21"><span></span><b class="sound_only">개인정보처리방침안내의 내용에 동의합니다.</b></label>
+						            <label for="agree21"><span></span><b class="sound_only check-text">개인정보처리방침안내의 내용에 동의합니다.</b></label>
 								</fieldset>
 						    </section>
 	
-							<div id="fregister_chkall" class="chk_all fregister_agree">
-						        <input type="checkbox" name="chk_all" id="chk_all" class="selec_chk">
-						        <label for="chk_all"><span></span>회원가입 약관에 모두 동의합니다</label>
-						        <a href="" class="btn_close" style="text-align: right">선택취소</a>
+							<div id="fregister_chkall " class="chk_all fregister_agree">
+						        <input type="checkbox" name="chk_all" id="chk_all" class="selec_chk ">
+						        <label for="chk_all"  class="check-text "><span></span >회원가입 약관에 모두 동의합니다</label>
+						        <a href="" class="btn_close" style="text-align: right">선택해제</a>
 						    </div>
 							    
 						    <div class="btn_confirm">

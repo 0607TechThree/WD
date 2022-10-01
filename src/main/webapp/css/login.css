@@ -25,6 +25,8 @@
 	font-size: 20px;
 	line-height: 20px;
 	text-align: center;
+	color:#666666;
+	letter-spacing: 5px;
 }
 
 .lomain {
@@ -66,15 +68,19 @@
 }
 
 #userid::placeholder {
-	color: #666666;
+	color: #e9e9e9;
 	letter-spacing: 1px;
 }
 
 #userPs::placeholder {
-	color: #666666;
+	color: #e9e9e9;
 	letter-spacing: 1px;
 }
 
+.sns-text{
+	color : gray;
+	font-size:12px;
+}
 .pw-box {
 	margin-top: 10px;
 	padding-bottom: 12px;
@@ -90,7 +96,7 @@
 }
 
 .fidpw {
-	color: #666666;;
+	color: #666666;
 }
 
 .ff-idpw {
