@@ -626,7 +626,7 @@ https://templatemo.com/tm-558-klassy-cafe
             });
         });
 	function winopen(){
-		window.open("opensocket.do?mid=1", "","width=330, height=430");
+		window.open("opensocket.do?id=1", "","width=330, height=430");
 	}
     </script>
   </body>

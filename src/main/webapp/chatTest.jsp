@@ -104,8 +104,11 @@ body {
   outline: 0;
   padding: 0 12px;
   height: 40px;
-  width: 100%;
+  width: 70%;
   font-size: 1em;
+}
+footer{
+display: flex;
 }
 </style>
 </head>
@@ -121,17 +124,14 @@ body {
   <footer>
     <input id="messageinput" type="text" placeholder="Type a message...">
   <input type="text" id="sender" value="${sessionScope.id}" style="display: none;">
-    <button type="button" onclick="javascript:send();">메세지 전송</button>
+    <button type="button" onclick="javascript:send(1);">메세지 전송</button>
   </footer>
 </div>
 <script src="assets/js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 	 var ws;
      var messages = document.getElementById("messages");
-     var scrollToBottom = (messages.scrollHeight - messages.scrollTop - messages.clientHeight < 80);
 $( document ).ready(function() {
-     
-     function openSocket(){
          if(ws !== undefined && ws.readyState !== WebSocket.CLOSED ){
              writeResponse("WebSocket is already opened.");
              return;
@@ -155,13 +155,42 @@ $( document ).ready(function() {
          ws.onclose = function(event){
              writeResponse("대화 종료");
          }
-         
-     }
 });
-function send(){
+function send(itsMe){
     // var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
+     var messageList = document.getElementById("messages");
+     var scrollToBottom = (messages.scrollHeight - messages.scrollTop - messages.clientHeight < 80);
+	 var lastMessage = messageList.children[messageList.children.length];
+     var message = document.getElementById("messageinput");
+     var newMessage = document.createElement("span");
+	 var className;
+	  newMessage.innerHTML = message;
+	  if(itsMe)
+	  {
+	    className = "me";
+	    scrollToBottom = true;
+	  }else
+	  {
+		    className = "not-me";
+		  }
+	  if(lastMessage && lastMessage.classList.contains(className))
+	  {
+	    lastMessage.appendChild(document.createElement("br"));
+	    lastMessage.appendChild(newMessage);
+	  }
+	  else
+	  {
+	    var messageBlock = document.createElement("div");
+	    messageBlock.classList.add(className);
+	    messageBlock.appendChild(newMessage);
+	    messageList.appendChild(messageBlock);
+	  }
+ 
+     if(scrollToBottom)
+       messageList.scrollTop = messageList.scrollHeight;
+     
      var text = document.getElementById("messageinput").value+","+document.getElementById("sender").value;
-     ws.send(text);
+       ws.send(text);
      text = "";
  }
  
@@ -170,7 +199,7 @@ function send(){
  }
  
  function writeResponse(text){
-     messages.innerHTML += "<br/>"+text;
+       messages.innerHTML += "<br/>"+text;
  }
  function close(){
 	 window.close();
