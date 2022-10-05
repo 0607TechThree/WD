@@ -77,7 +77,7 @@
 	<div id="loginwrap">
 	<div class="locontent">
 	<a href="main.jsp"><img id="logo" alt="로고" src="img/wdmainlogo.png" ></a>
-		<div class="login">로그인</div>
+		<!-- <div class="login">로그인</div> -->
 		<div class="lomain">
 			<form action="tuserselectone.do" onsubmit="return Validation();" method="post">
 				<div class="idpw">
@@ -97,7 +97,6 @@
 					<input type="hidden" name="location" value="${location}">
 				</div>
 				<div class="find-idpw">
-					<span>sns 로그인 시 최초 1회 회원가입을 진행해야 합니다</span>
 				</div>
 				<div>
 					<div><div id="naverIdLogin"></div></div>
@@ -105,6 +104,7 @@
 						src="img/kakaologin.png" onclick="kakaoLogin();"
 						style="cursor: pointer; width: 340px; height: auto;" title="카카오아이디로 로그인"></span></a></div>
 				</div>
+					<span class = "sns-text">sns 로그인 시 최초 1회 회원가입을 진행해야 합니다</span>
 				<div class="bt-idpw">
 					<button class="bt-id" type="submit" height="54" radius="3">
 						<span class="btn-idpw">로그인</span>
