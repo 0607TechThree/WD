@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,19 +8,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>게시판</title>
-<script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+<script
+	src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
 
 </head>
 <body>
-	<form action="NewFile.jsp" method="post">
-	<input type="hidden" value="" name="form" id="form1">
-<div class="form-group" id="form">
-       <label class="col-form-label" for="editor"><span>*</span> 게시판</label>
-       <textarea id="editor" name="editor" rows="20" cols="12"></textarea>
-    </div>
-<input type="submit" value="등록">
+	<form action="ckresult.jsp" method="post">
+		<input type="hidden" value="" name="form" id="form1">
+		<div class="form-group" id="form">
+			<label class="col-form-label" for="editor"><span>*</span> 게시판</label>
+			<textarea id="writeEditor" name="writeEditor" rows="20" cols="12"></textarea>
+		</div>
+		<input type="submit" value="등록">
 	</form>
-<script>
+	<a href="javascript:getDataFromTheEditor();">콘솔(눌러야 값 등록됨 / 아직 안 합침)</a>
+	<script>
 class MyUploadAdapter {
     constructor( loader ) {
         // The file loader instance to use during the upload.
@@ -54,13 +57,14 @@ class MyUploadAdapter {
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState == XMLHttpRequest.DONE) {
-                console.log(xhr.responseText);
-                console.log(xhr);
-                document.getElementById('editor').innerHTML += xhr.responseText;
+                //console.log(xhr.responseText);
+               // console.log(xhr);
+                document.getElementById('writeEditor').innerHTML += xhr.responseText;
             }
         }
-		console.log(document.getElementById('form'));
-        xhr.open( 'POST', 'http://localhost:8088/app/NewFile4.jsp', true );
+		//console.log(document.getElementById('form'));
+		
+        xhr.open( 'POST', 'http://localhost:8088/app/ckeditor.jsp', true );
         xhr.responseType = 'text';
         //xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
@@ -132,14 +136,38 @@ function MyCustomUploadAdapterPlugin(editor) {
     };
 }
 
+let editor;
+
 ClassicEditor
-.create( document.querySelector( '#editor' ) , {
+.create( document.querySelector( '#writeEditor' ) , {
 	extraPlugins: [MyCustomUploadAdapterPlugin],
 } )
+	//.then(editor =>{
+		//theEditor = editor;
+		//console.log(editor.getData());
+		//console.log(editor.sourceElement.nextSibling.children[2].children[0].childNodes);
+		//console.log(editor.sourceElement.nextElementSibling.children[2].children[0].innerHTML);
+		//console.log(editor.sourceElement.nextElementSibling.innerHTML);
+		//document.getElementById('form1').value=editor.sourceElement.nextSibling.children[2].children[0].children[0].innerHTML;
+		//console.log(document.getElementById('form1'));
+//})
+.then( newEditor => {
+        editor = newEditor;
+    } )
 
+.then( editor => {
+	window.editor = editor;
+
+} )
 .catch( error => {
 	console.error( error );
 } );
+function getDataFromTheEditor(){
+	const editorData = editor.getData();
+	console.log(editorData);
+	document.getElementById('form1').value=editorData;
+	console.log(document.getElementById('form1'));
+}
 </script>
 
 
