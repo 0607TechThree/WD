@@ -29,4 +29,10 @@ public class WdmemberServiceImpl implements WdmemberService{
 		return wdmemberDAO.selectOne(vo);
 	}
 
+	@Override
+	public WdmemberVO checkId(WdmemberVO vo) {
+		return wdmemberDAO.checkId(vo);
+		
+	}
+
 }

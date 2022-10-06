@@ -1,4 +1,4 @@
-package controller;
+package com.wooridoori.app.idcheck;
 
 import java.io.IOException;
 
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wooridoori.app.model.member.WdmemberDAO;
+import com.wooridoori.app.model.member.WdmemberService;
 import com.wooridoori.app.model.member.WdmemberVO;
 
 /**
@@ -17,6 +18,7 @@ import com.wooridoori.app.model.member.WdmemberVO;
 @WebServlet("/checkId.do")
 public class CheckIdAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private WdmemberService wdmemberService;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,14 +40,13 @@ public class CheckIdAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("로그1 ["+request.getParameter("userid")+"]");
-		
 		WdmemberDAO dao = new WdmemberDAO();
 		WdmemberVO vo = new WdmemberVO();
 		vo.setWdmid(request.getParameter("userid"));
-		int result = dao.checkId(vo);
+		vo =wdmemberService.checkId(vo);
 		
 		response.setContentType("application/x-json; charset=UTF-8");
-		response.getWriter().write(result+"");
+		response.getWriter().write(vo+"");
 	}
 
 }

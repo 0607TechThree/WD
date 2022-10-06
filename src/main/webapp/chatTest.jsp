@@ -147,7 +147,7 @@ $( document ).ready(function() {
          };
          
          ws.onmessage = function(event){
-             console.log('writeResponse');
+             //console.log('writeResponse');
              console.log(event.data)
              writeResponse(event.data);
          };
@@ -160,7 +160,7 @@ function send(itsMe){
     // var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
      var messageList = document.getElementById("messages");
      var scrollToBottom = (messages.scrollHeight - messages.scrollTop - messages.clientHeight < 80);
-	 var lastMessage = messageList.children[messageList.children.length];
+	 var lastMessage = messageList.children[messageList.children.length-1];
      var message = document.getElementById("messageinput");
      var newMessage = document.createElement("span");
 	 var className;
@@ -173,7 +173,7 @@ function send(itsMe){
 	  {
 		    className = "not-me";
 		  }
-	  if(lastMessage && lastMessage.classList.contains(className))
+	  /*if(lastMessage && lastMessage.classList.contains(className))
 	  {
 	    lastMessage.appendChild(document.createElement("br"));
 	    lastMessage.appendChild(newMessage);
@@ -185,7 +185,7 @@ function send(itsMe){
 	    messageBlock.appendChild(newMessage);
 	    messageList.appendChild(messageBlock);
 	  }
- 
+ 	*/
      if(scrollToBottom)
        messageList.scrollTop = messageList.scrollHeight;
      
@@ -199,7 +199,7 @@ function send(itsMe){
  }
  
  function writeResponse(text){
-       messages.innerHTML += "<br/>"+text;
+       messages.innerHTML += text+"<br/>"+"<br/>";
  }
  function close(){
 	 window.close();

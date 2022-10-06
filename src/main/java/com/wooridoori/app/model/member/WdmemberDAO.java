@@ -17,6 +17,7 @@ public class WdmemberDAO {
 	final String sql_insert="INSERT INTO WDMEMBER VALUES((SELECT NVL(MAX(WDMPK),0) +1 FROM WDMEMBER),?,?,?,?,?,?,?,?,?)";
 	final String sql_update="UPDATE WDMEMBER SET WDMPW=? AND WDMNICK=? WHERE WDMID=?";
 	final String sql_delete="DELETE FROM WDMEMBER WHERE WDMID=?";
+	final String sql_checkId="SELECT * FROM WDMEMBER WHERE WDMID=?";
 	
 	void insertWdmember(WdmemberVO vo) {
 		if(vo.getNemail() == null && vo.getKemail() == null) {
@@ -34,6 +35,10 @@ public class WdmemberDAO {
 	}
 	void deleteWdmember(WdmemberVO vo) {
 		jdbcTemplate.update(sql_delete,vo.getWdmid());
+	}
+	WdmemberVO checkId(WdmemberVO vo) {
+		Object[] args= {vo.getWdmpk()};
+		return jdbcTemplate.queryForObject(sql_checkId,args,new WdmemberRowMapper());
 	}
 	WdmemberVO selectOne(WdmemberVO vo) {
 		Object[] args= {vo.getWdmpk()};
