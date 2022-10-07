@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="wd" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -115,6 +117,7 @@ https://templatemo.com/tm-558-klassy-cafe
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
+   
 
     <!-- ***** Main Banner Area Start ***** -->
     <div id="top">
