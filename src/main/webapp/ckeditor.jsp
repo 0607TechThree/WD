@@ -10,18 +10,24 @@
 <title>게시판</title>
 <script
 	src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
 </head>
 <body>
-	<form action="ckresult.jsp" method="post">
+	<form action="imageUpload.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" value="" name="form" id="form1">
+		<input type="hidden" value="" name="fileData1" id="fileData1">
 		<div class="form-group" id="form">
 			<label class="col-form-label" for="editor"><span>*</span> 게시판</label>
 			<textarea id="writeEditor" name="writeEditor" rows="20" cols="12"></textarea>
 		</div>
 		<input type="submit" value="등록">
+		
 	</form>
-	<a href="javascript:getDataFromTheEditor();">콘솔(눌러야 값 등록됨 / 아직 안 합침)</a>
+	<a href="javascript:getDataFromTheEditor();">콘솔(눌러야 값 등록됨 / 아직 안
+		합침)</a>
+		<img id="img">
 	<script>
 class MyUploadAdapter {
     constructor( loader ) {
@@ -36,7 +42,6 @@ class MyUploadAdapter {
             this._initRequest();
         this._initListeners( resolve, reject, file );
         this._sendRequest( file );
-        console.log(file);
     } ) );
     }
 
@@ -118,7 +123,7 @@ class MyUploadAdapter {
     _sendRequest( file ) {
         // Prepare the form data.
         const data = new FormData();
-
+		fileData = file;
         data.append( 'upload', file, file.name );
 
         // Important note: This is the right place to implement security mechanisms
@@ -136,22 +141,24 @@ function MyCustomUploadAdapterPlugin(editor) {
     	return new MyUploadAdapter( loader );
     };
 }
-
 let editor;
-
+let fileData;
 ClassicEditor
 .create( document.querySelector( '#writeEditor' ) , {
 	extraPlugins: [MyCustomUploadAdapterPlugin],
 } )
-	//.then(editor =>{
-		//theEditor = editor;
-		//console.log(editor.getData());
-		//console.log(editor.sourceElement.nextSibling.children[2].children[0].childNodes);
-		//console.log(editor.sourceElement.nextElementSibling.children[2].children[0].innerHTML);
-		//console.log(editor.sourceElement.nextElementSibling.innerHTML);
-		//document.getElementById('form1').value=editor.sourceElement.nextSibling.children[2].children[0].children[0].innerHTML;
-		//console.log(document.getElementById('form1'));
-//})
+	/*.then(editor =>{
+		theEditor = editor;
+		console.log(theEditor);
+		console.log(theEditor.sourceElement.nextSibling.children[2]);
+		console.log(theEditor.sourceElement.nextSibling.children[2].children[0]);
+		console.log(theEditor.sourceElement.nextSibling.children[2].children[0].children[0]);
+		console.log(theEditor.sourceElement.nextSibling.children[2].children[0].children[0].children[0]);
+		console.log(editor.sourceElement.nextElementSibling.children[2].children[0].innerHTML);
+		console.log(editor.sourceElement.nextElementSibling.innerHTML);
+		document.getElementById('form1').value=editor.sourceElement.nextSibling.children[2].children[0].children[0].innerHTML;
+		console.log(document.getElementById('form1'));
+})*/
 .then( newEditor => {
         editor = newEditor;
     } )
@@ -163,12 +170,46 @@ ClassicEditor
 .catch( error => {
 	console.error( error );
 } );
+
 function getDataFromTheEditor(){
+	const dataTransfer = new DataTransfer();
+
 	const editorData = editor.getData();
-	console.log(editorData);
+	//console.log(editorData);
+	console.log(fileData);
+
+	let reader = new FileReader();
+    reader.readAsDataURL(fileData);
+    reader.onloadend = e => {
+      console.log(e.target.result)
+       document.getElementById('fileData1').value=e.target.result;
+	//location.href="imageUpload.do?fileData="+e.target.result;
+    };
+
 	document.getElementById('form1').value=editorData;
-	console.log(document.getElementById('form1'));
+	//console.log(document.getElementById('form1'));
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState==4&&xhr.status==200) {			
+		}
+	}
+
+	
+	
+	/*
+	//console.log(files);
+	files.push(fileData);
+	
+	console.log("cked");
+	console.log(files);
+	files.forEach(fileData => { dataTransfer.items.add(fileData); });
+	//남은 배열을 dataTransfer로 처리(Array -> FileList)
+
+	console.log("input");
+	console.log(document.querySelector('#fileData').files);
+	*/
 }
+
 </script>
 
 
