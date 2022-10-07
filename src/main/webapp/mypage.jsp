@@ -11,34 +11,7 @@
   <link rel="stylesheet" href="css/mypage.css">
   <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<style type="text/css">
-#tabs{
-	border: none;
-}
-#tabsli{
-	background: white;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: none;
-	border-bottom: 1px solid black;
-	border-radius: 0px;
-}
-#1, #2, #3{
-	background:white;
-}
-
-.ina{
-	background: white;
-}
-
-.tabimg{
-	width: 50px;
-	height: 50px;
-	
-}
-
-</style>  
+ 
 </head>
 <body>
 
@@ -77,7 +50,7 @@
 	  </div>
 	</div>
 </div>
- 
+<wd:footer/> 
 <script>
 $( "#tabs" ).tabs();
 
