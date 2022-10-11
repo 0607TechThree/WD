@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="wd" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP
@@ -15,10 +17,13 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
+		
 		<!-- Wrapper-->
 			<div id="wrapper">
-
+				<center>
+					<a href="main.jsp"><img id="logo" alt="로고" src="img/wdmainlogo.png" ></a>
+				</center>
+				<br>
 				<!-- Nav -->
 					<nav id="nav">
 						<a href="#" class="icon solid fa-home"><span>간단히 보기</span></a>
@@ -96,7 +101,7 @@
 				
 
 			</div>
-
+		
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>

@@ -50,7 +50,9 @@
 	  </div>
 	</div>
 </div>
+<!-- Footer Start -->
 <wd:footer/> 
+<!-- Footer End -->
 <script>
 $( "#tabs" ).tabs();
 
