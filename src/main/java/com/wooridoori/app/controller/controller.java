@@ -30,13 +30,13 @@ public class controller {
 		String base64 = request.getParameter("fileData1");
 		String imageDataBytes = base64.split(",")[1];
 		System.out.println(imageDataBytes);
-		
+		String fileName = request.getParameter("fileName");
 		byte[] imageBytes = Base64.decodeBase64(imageDataBytes);
 		BufferedImage bufImg = ImageIO.read(new ByteArrayInputStream(imageBytes));
-
+		
 		System.out.println(bufImg);
-		ImageIO.write(bufImg, "jpg", new File("D:\\0607KIM\\workspace\\WD\\src\\main\\webapp\\img\\ck\\1.jpg"));
-
+		ImageIO.write(bufImg, "jpg", new File("D:\\0607KIM\\workspace\\WD\\src\\main\\webapp\\img\\ck\\"+fileName));
+		wdbvo.setFileName(fileName);
 		//System.out.println(wdbvo);
 //		MultipartFile fileData=wdbvo.getFileData();
 //	      if(!fileData.isEmpty()) {
