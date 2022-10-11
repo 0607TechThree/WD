@@ -22,7 +22,7 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
-	<script type="text/javascript">
+	<!--<script type="text/javascript">
 		$(document).ready(function() {
 			$("#userid").focus();
 		});
@@ -73,23 +73,23 @@
 
 			}
 		}
-	</script>
+	</script>-->
 	<div id="loginwrap">
 	<div class="locontent">
 	<a href="main.jsp"><img id="logo" alt="로고" src="img/wdmainlogo.png" ></a>
 		<!-- <div class="login">로그인</div> -->
 		<div class="lomain">
-			<form action="tuserselectone.do" onsubmit="return Validation();" method="post">
+			<form action="login.do" onsubmit="return Validation();" method="post">
 				<div class="idpw">
 					<div class="id-box">
 						<div class="loidpw">
-							<input data-testid="input-box" id="userid" name="tuid"
+							<input data-testid="input-box" id="userid" name="wdmid"
 								placeholder="아이디를 입력해주세요" type="text" class="lidpw" value="">
 						</div>
 					</div>
 					<div class="pw-box">
 						<div class="loidpw">
-							<input data-testid="input-box" id="userPs" name="tupw"
+							<input data-testid="input-box" id="userPs" name="wdmpw"
 								placeholder="비밀번호를 입력해주세요" type="password" class="lidpw"
 								value="">
 						</div>
