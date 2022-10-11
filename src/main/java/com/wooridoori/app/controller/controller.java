@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.wooridoori.app.board.WdboardService;
@@ -82,7 +81,7 @@ public class controller {
 
 	@RequestMapping(value="/imageUpload.do",method=RequestMethod.POST)
 	public String boardinsert(WdboardVO wdbvo,HttpServletRequest request,Model model) throws IllegalStateException, IOException {
-		System.out.println("로그: 오냐?");
+		//System.out.println("로그: 오냐?");
 		String base64 = request.getParameter("fileData1");
 		String imageDataBytes = base64.split(",")[1];
 		System.out.println(imageDataBytes);
@@ -97,7 +96,7 @@ public class controller {
 		wdbvo.setWdbcontent(content);
 		System.out.println(wdbvo);
 		model.addAttribute("data", wdbvo);
-		return "ckresult.jsp";
+		return "boarddetail.jsp";
 	}
 	
 	@RequestMapping("/login.do")

@@ -8,8 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
-	<context:component-scan base-package="com.wooridoori.app" />
-
+	<context:component-scan base-package="com.wooridoori.app" />	
 	<aop:aspectj-autoproxy />
 	
 	<!-- DataSource 설정하기 -->
@@ -23,5 +22,24 @@
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
-</beans>
+	
+	<!-- email -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	<property name="host" value="smtp.gmail.com"/>
+	<property name="port" value="587"/>
+	<property name="username" value="codecu6@gmail.com"/>
+	<property name="password" value="deziusxrmkuojvrv"/>
+	
+	<property name="javaMailProperties">
+    <props>
+        <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+        <prop key="mail.smtp.starttls.enable">true</prop>
+        <prop key="mail.smtp.auth">true</prop>
+        </props>
+    </property>
+	</bean>	
+	
+	<bean id="email" class="com.wooridoori.app.mail.Email"></bean>
+	<bean id="emailSender" class="com.wooridoori.app.mail.EmailSender"></bean>
+    
+</beans>	
