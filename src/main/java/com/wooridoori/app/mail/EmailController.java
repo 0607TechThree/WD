@@ -25,14 +25,12 @@ public class EmailController {
 	
 	@RequestMapping("/sendmail.do")
 	public String sendEmailAction(@RequestParam Map<String, Object> paramMap, Model model) throws Exception {
-		String e_mail = (String) paramMap.get("emailId");
-		String pw = service.getPw(paramMap);
-		System.out.println(pw);
+		String e_mail = (String) paramMap.get("wdmemail");
 		
 		System.out.println(emailSender);
 		System.out.println(email);
 		System.out.println(mailSender);
-		if (pw != null) {
+		if (e_mail != null) {
 			// 여기에 메일에 들어갈 내용을 입력한다.
 			email.setSubject("제목"); // 제목
 			email.setContent("내용"); // 내용
@@ -44,9 +42,7 @@ public class EmailController {
 			
 		} else {
 			// 메시지 띄우고 해당 페이지 그대로 놔두기
-			model.addAttribute("errType", "mailSendingFail");
-			model.addAttribute("errMsg", e_mail + " 는 회원이 아닙니다.");
-			
+			model.addAttribute("errType", "mailSendingFail");		
 			return "common/Message.tiles";
 		}
 	}

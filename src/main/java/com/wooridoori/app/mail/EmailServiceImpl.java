@@ -15,9 +15,4 @@ public class EmailServiceImpl implements EmailService {
 	public void setdao(EmailDAO dao) {
 		this.dao = dao;
 	}
-
-	@Override
-	public String getPw(Map<String, Object> paramMap) {
-		return dao.getPw(paramMap);
-	}
 }
