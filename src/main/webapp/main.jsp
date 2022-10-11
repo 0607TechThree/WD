@@ -33,6 +33,10 @@ https://templatemo.com/tm-558-klassy-cafe
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
+	<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+	rel="stylesheet">
+	
+
 <style type="text/css">
 .actionimg {
 	width: 20px;
@@ -41,6 +45,16 @@ https://templatemo.com/tm-558-klassy-cafe
 }
 .actionimg:hover{
 	filter: opacity(0.2) drop-shadow(0 0 0 red);
+}
+.social-icons > li{
+	color:white;
+}
+.section > *{
+	font-family: 'Jua';
+}
+.jua{
+	font-family: 'Jua';
+	color: black;
 }
 
 </style>
@@ -66,7 +80,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <a href="main.jsp" class="logo">
                             <img src="assets/images/wdmainlogo.png" align="klassy cafe html template">
                         </a>
                         <!-- ***** Logo End ***** -->
@@ -74,7 +88,7 @@ https://templatemo.com/tm-558-klassy-cafe
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#offers" >blog</a></li>
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
+                            <li class="scroll-to-section"><a href="#chefs">Activity</a></li>
                            	<li class="scroll-to-section"><a href="javascript:winopen()">chat</a></li>
                         <!-- 
                             <li class="submenu">
@@ -186,8 +200,8 @@ https://templatemo.com/tm-558-klassy-cafe
             <div class="row">
                 <div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
-                        <h6>Klassy Week</h6>
-                        <h2>This Week’s Special Meal Offers</h2>
+                        <h6>-- blog --</h6>
+                        <h2>게시글 확인하기</h2>
                     </div>
                 </div>
             </div>
@@ -276,8 +290,12 @@ https://templatemo.com/tm-558-klassy-cafe
                                             </div>
                                         </div>
                                     </div>
-                                </article>  
-                                   
+                                </article>
+                                <center>
+	                                <a href="#" class="jua">
+										<div>더보기 ></div>
+									</a>
+                                </center>
                             </section>
                         </div>
                     </div>
@@ -293,8 +311,8 @@ https://templatemo.com/tm-558-klassy-cafe
             <div class="row">
                 <div class="col-lg-4">
                     <div class="section-heading">
-                        <h6>Our Menu</h6>
-                        <h2>Our selection of cakes with quality taste</h2>
+                        <h6>Oneday Menu</h6>
+                        <h2>원데이클래스 확인하기</h2>
                     </div>
                 </div>
             </div>
@@ -381,6 +399,11 @@ https://templatemo.com/tm-558-klassy-cafe
             </div>
         </div>
     </section>
+	<center>
+		<a href="#" class="jua">
+			<div>더보기 ></div>
+		</a>
+	</center>
     <!-- ***** Menu Area Ends ***** -->
 
     <!-- ***** Chefs Area Starts ***** -->
@@ -389,8 +412,8 @@ https://templatemo.com/tm-558-klassy-cafe
             <div class="row">
                 <div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
-                        <h6>Our Chefs</h6>
-                        <h2>We offer the best ingredients for you</h2>
+                        <h6>-activity-</h6>
+                        <h2>여러 활동을 진행해보세요</h2>
                     </div>
                 </div>
             </div>
@@ -400,14 +423,12 @@ https://templatemo.com/tm-558-klassy-cafe
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li>내 MBTI 유형을 확인해 보아요</li>
                             </ul>
                             <img src="assets/images/chefs-01.jpg" alt="Chef #1">
                         </div>
                         <div class="down-content">
-                            <h4>Randy Walker</h4>
+                            <h4>MBTI 검사</h4>
                             <span>Pastry Chef</span>
                         </div>
                     </div>
@@ -417,14 +438,12 @@ https://templatemo.com/tm-558-klassy-cafe
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li>디데이 계산을 통해 일정을 관리해요</li>
                             </ul>
                             <img src="assets/images/chefs-02.jpg" alt="Chef #2">
                         </div>
                         <div class="down-content">
-                            <h4>David Martin</h4>
+                            <h4>D-day 계산기</h4>
                             <span>Cookie Chef</span>
                         </div>
                     </div>
@@ -434,15 +453,13 @@ https://templatemo.com/tm-558-klassy-cafe
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google"></i></a></li>
+                                <li>각자의 연애능력을 확인해보아요</li>
                             </ul>
                             <img src="assets/images/chefs-03.jpg" alt="Chef #3">
                         </div>
                         <div class="down-content">
-                            <h4>Peter Perkson</h4>
-                            <span>Pancake Chef</span>
+                            <h4>연애능력 테스트</h4>
+                            <span>https://www.banggooso.com/gl/1002/</span>
                         </div>
                     </div>
                 </div>

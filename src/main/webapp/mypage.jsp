@@ -9,10 +9,20 @@
   <title>tabs demo</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="css/mypage.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+	rel="stylesheet">
+  
   <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- 
+
+<style type="text/css">
+
+#mypage > * {
+	font-family: 'Jua';
+}
+</style> 
 </head>
+
 <body>
 
 <!-- header Start-->
