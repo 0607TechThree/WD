@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -42,7 +43,7 @@ public class EmailController {
 			return "common/Message.tiles";
 			
 		} else {
-			// 메시지 띄우고 해당 페이지 그대로 놔두기
+			 // 메시지 띄우고 해당 페이지 그대로 놔두기
 			model.addAttribute("errType", "mailSendingFail");
 			model.addAttribute("errMsg", e_mail + " 는 회원이 아닙니다.");
 			

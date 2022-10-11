@@ -14,6 +14,17 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
+		<!-- Mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.4</version>
+		</dependency>
 		<!-- FileUpload -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
@@ -22,15 +33,15 @@
 		</dependency>
 		<!-- mail -->
 		<dependency>
-       		<groupId>javax.activation</groupId>
-       		<artifactId>activation</artifactId>
-       	<version>1.1</version>
-   		</dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
   		<dependency>
-       		<groupId>javax.mail</groupId>
-       		<artifactId>mail</artifactId>
-       		<version>1.4.7</version>
-   		</dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
    		<!-- DBCP -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
