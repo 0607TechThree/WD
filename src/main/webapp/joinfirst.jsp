@@ -30,7 +30,7 @@
         			
 						<!-- 회원가입약관 동의 시작 { -->
 						<div class="register">
-    						<form  name="fregister" id="fregister" action="" onsubmit="return fregister_submit(this);" method="POST" autocomplete="off">
+    						<form  name="fregister" id="fregister" action="join.jsp" onsubmit="return fregister_submit(this);" method="POST" autocomplete="off">
 								<p class="join-text"><i class="fa fa-check-circle" aria-hidden="true"></i> 회원가입약관 및 개인정보처리방침안내의 내용에 동의하셔야 회원가입 하실 수 있습니다.</p>
         					<section id="fregister_term">
         						<h4 >개인정보수집·이용동의 </h4>
