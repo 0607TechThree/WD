@@ -9,7 +9,8 @@
 </head>
 <body>
 	<div id="readEditor">
-	${param.form}
+	${data.wdbcontent}
+	<img alt="" src="img/ck/${data.fileName}">
 	</div>
 
 <script>
