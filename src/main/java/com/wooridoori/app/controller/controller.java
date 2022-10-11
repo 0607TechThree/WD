@@ -4,25 +4,82 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.apache.commons.codec.binary.Base64;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.wooridoori.app.board.WdboardService;
 import com.wooridoori.app.board.WdboardVO;
+import com.wooridoori.app.model.member.WdmemberService;
+import com.wooridoori.app.model.member.WdmemberVO;
 
 @Controller
+@SessionAttributes("udata")
 public class controller {
-
-	@RequestMapping(value="/login.do",method=RequestMethod.GET)
-	public String selectOneMember() {	
-			return "music.jsp";
+	@Autowired
+	private WdboardService wdboardService;
+	@Autowired
+	private WdmemberService wdmemberService;
+	
+	@ModelAttribute("scMap")
+	public Map<String,String> searchConditionMap(){
+		Map<String,String> scMap=new HashMap<String,String>();
+		scMap.put("제목", "TITLE");
+		scMap.put("작성자", "WRITER");
+		scMap.put("내용", "CONTENT");
+		return scMap;
 	}
 	
+	@RequestMapping(value="/main.do",method=RequestMethod.GET)
+	public String index(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,@RequestParam(value="searchContent",defaultValue="",required=false)String searchContent,WdboardVO wdbvo,Model model) {
+		List<WdboardVO> datas=null;
+		if(!(searchContent.equals("") || searchContent.equals(null))) {
+			if(searchCondition.equals("TITLE") || searchCondition.equals("제목")) {
+				wdbvo.setWdbtitle(searchContent);
+			}else if(searchCondition.equals("WRITER") || searchCondition.equals("작성자")){
+				wdbvo.setWdbwriter(searchContent);
+			}	
+			else {
+				wdbvo.setSearchContent(searchContent);
+			}
+		}
+		datas=wdboardService.selectAllWdboard(wdbvo);
+		model.addAttribute("datas", datas);
+		return "main.jsp";
+	}
+	@RequestMapping(value="/main.do",method=RequestMethod.POST)
+	public String main(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,@RequestParam(value="searchContent",defaultValue="",required=false)String searchContent,WdboardVO wdbvo,Model model) {
+		List<WdboardVO> datas=null;
+		if(!(searchContent.equals("") || searchContent.equals(null))) {
+			if(searchCondition.equals("TITLE") || searchCondition.equals("제목")) {
+				wdbvo.setWdbtitle(searchContent);
+			}else if(searchCondition.equals("WRITER") || searchCondition.equals("작성자")){
+				wdbvo.setWdbwriter(searchContent);
+			}	
+			else {
+				wdbvo.setSearchContent(searchContent);
+			}
+		}
+		datas=wdboardService.selectAllWdboard(wdbvo);
+		model.addAttribute("datas", datas);
+		return "main.jsp";
+	}
+
 	@RequestMapping(value="/imageUpload.do",method=RequestMethod.POST)
 	@ResponseBody
 	public String boardinsert(WdboardVO wdbvo,HttpServletRequest request) throws IllegalStateException, IOException {
@@ -33,19 +90,28 @@ public class controller {
 		String fileName = request.getParameter("fileName");
 		byte[] imageBytes = Base64.decodeBase64(imageDataBytes);
 		BufferedImage bufImg = ImageIO.read(new ByteArrayInputStream(imageBytes));
-		
+
 		System.out.println(bufImg);
 		ImageIO.write(bufImg, "jpg", new File("D:\\0607KIM\\workspace\\WD\\src\\main\\webapp\\img\\ck\\"+fileName));
 		wdbvo.setFileName(fileName);
-		//System.out.println(wdbvo);
-//		MultipartFile fileData=wdbvo.getFileData();
-//	      if(!fileData.isEmpty()) {
-//	    	 String fileName = fileData.getName();
-//	    	 wdbvo.setFileName(fileName);
-//	    	 System.out.println(fileName);
-//	    	 //fileData.transferTo(new File("D:\\0607KIM\\workspace\\123123\\src\\main\\webapp\\images\\"+originalName)); 
-//	      }
-	      //System.out.println("로그1 :"+bvo);
 		return "ckeditor.jsp";
 	}
+	
+	@RequestMapping("/login.do")
+    public String selectOneMember(WdmemberVO wdmvo, HttpSession session,Model model) {
+		wdmvo=wdmemberService.selectOneWdmember(wdmvo);
+		if(wdmvo==null) {
+			return "redirect:login.jsp";
+		}
+		else {
+			session.setAttribute("udata", wdmvo);
+			return "redirect:main.do";
+		}
+    }
+
+    @RequestMapping("/logout.do")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:main.do";
+    }
 }

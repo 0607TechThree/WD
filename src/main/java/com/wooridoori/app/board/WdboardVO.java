@@ -4,11 +4,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class WdboardVO {
 	private int wdbpk;
-	private int wdbwriter;
+	private String wdbwriter;
 	private String wdbtitle;
 	private String wdbcontent;
 	private MultipartFile fileData;
 	private String fileName;
+	private String searchCondition;
+	private String searchContent;
 	private int wdblike;
 	private int wdbopen;
 	public int getWdbpk() {
@@ -17,10 +19,10 @@ public class WdboardVO {
 	public void setWdbpk(int wdbpk) {
 		this.wdbpk = wdbpk;
 	}
-	public int getWdbwriter() {
+	public String getWdbwriter() {
 		return wdbwriter;
 	}
-	public void setWdbwriter(int wdbwriter) {
+	public void setWdbwriter(String wdbwriter) {
 		this.wdbwriter = wdbwriter;
 	}
 	public String getWdbtitle() {
@@ -59,13 +61,24 @@ public class WdboardVO {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+	public String getSearchContent() {
+		return searchContent;
+	}
+	public void setSearchContent(String searchContent) {
+		this.searchContent = searchContent;
+	}
 	@Override
 	public String toString() {
 		return "WdboardVO [wdbpk=" + wdbpk + ", wdbwriter=" + wdbwriter + ", wdbtitle=" + wdbtitle + ", wdbcontent="
-				+ wdbcontent + ", fileData=" + fileData + ", fileName=" + fileName + ", wdblike=" + wdblike
-				+ ", wdbopen=" + wdbopen + "]";
+				+ wdbcontent + ", fileData=" + fileData + ", fileName=" + fileName + ", searchCondition="
+				+ searchCondition + ", searchContent=" + searchContent + ", wdblike=" + wdblike + ", wdbopen=" + wdbopen
+				+ "]";
 	}
 
-	
-	
 }
