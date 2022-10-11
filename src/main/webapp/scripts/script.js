@@ -10,86 +10,13 @@ new Vue({
       isTimerPlaying: false,
       tracks: [
         {
-          name: "Square (2017)",
-          artist: "백예린 (Yerin Baek)",
-          cover: "img/10362776_20191210144641_500.jpg",
-          source: "mp3/백예린 (Yerin Baek) - 'Square (2017)' (Official Lyric Video).mp3",
-          url: "https://www.youtube.com/watch?v=o-8FEX5dXKc",
+          name: "[저작권 없는 음악 모음] 봄이 생각나는 산뜻하고 설레는 느낌의 브이로그 브금 모음💕",
+          artist: "xxx",
+          cover: "",
+          source: "mp3/1.mp3",
+          url: "https://www.youtube.com/watch?v=kLsB0mv4WlQ",
           favorited: false
-        },
-        {
-          name: "그건 아마 우리의 잘못은 아닐 거야",
-          artist: "백예린 (Yerin Baek)",
-          cover: "img/10262378_500.jpg",
-          source: "mp3/그건 아마 우리의 잘못은 아닐 거야 Maybe It’s Not Our Fault.mp3",
-          url: "https://www.youtube.com/watch?v=Vxu04u4dzO4",
-          favorited: false
-        },
-        {
-          name: "물고기",
-          artist: "백예린 (Yerin Baek)",
-          cover: "img/10964906_20220523165114_500.jpg",
-          source: "mp3/[Official Audio] 백예린 (Yerin Baek) - 물고기 (Pisces).mp3",
-          url: "https://www.youtube.com/watch?v=DNf6mIZz6Zo",
-          favorited: false
-        },
-        {
-          name: "우주를 건너",
-          artist: "백예린 (Yerin Baek)",
-          cover: "img/2653573_500.jpg",
-          source: "mp3/백예린 - 우주를 건너 가사 lyrics.mp3",
-          url: "https://www.youtube.com/watch?v=cQuqs2LrXbo",
-          favorited: false
-        },
-        {
-          name: "산책",
-          artist: "백예린 (Yerin Baek)",
-          cover: "img/10710311_20210909184021_500.jpg",
-          source: "mp3/백예린 - 산책   가사.mp3",
-          url: "https://www.youtube.com/watch?v=iAeeTin1uCA",
-          favorited: false
-        },
-        {
-          name: "0310",
-          artist: "백예린 (Yerin Baek)",
-          cover: "img/10362776_20191210144641_500.jpg",
-          source: "mp3/백예린 (Yerin Baek) - 0310   가사.mp3",
-          url: "https://www.youtube.com/watch?v=jpcxOcE4vRo",
-          favorited: false
-        },
-        {
-          name: "야간비행 (魔女の花)",
-          artist: "백예린 (Yerin Baek)",
-          cover: "img/10262378_500.jpg",
-          source: "mp3/Yerin Baek (백예린) – Merry and the Witch’s Flower (야간비행 (魔女の花)) (Han Rom Eng) Lyrics 한국어 가사.mp3",
-          url: "https://www.youtube.com/watch?v=SVKC0Tvi3cM",
-          favorited: false
-        },
-        {
-          name: "Hate you",
-          artist: "백예린 (Yerin Baek)",
-          cover: "img/10532062_20201210145521_500.jpg",
-          source: "mp3/백예린 (Yerin Baek) 'Hate you' Lyrics (백예린 Hate You 가사).mp3",
-          url: "https://www.youtube.com/watch?v=Sh4eEyEEb98",
-          favorited: false
-        },
-        {
-          name: "Antifreeze",
-          artist: "백예린 (Yerin Baek)",
-          cover: "img/10710311_20210909184021_500.jpg",
-          source: "mp3/백예린 (Yerin Baek) - Antifreeze   가사.mp3",
-          url: "https://www.youtube.com/watch?v=jq791XgtZVEhttps://www.youtube.com/watch?v=jq791XgtZVE",
-          favorited: false
-        },
-		{
-		name: "그때 그 순간 그대로 (그그그)",
-		artist: "WSG워너비 (가야G)",
-        cover: "img/11000171_20220708163659_500.jpg",
-        source: "mp3/WSG워너비 (가야G) - 그때 그 순간 그대로 (그그그)   가사.mp3",
-        url: "https://www.youtube.com/watch?v=kZvzjX35KxY",
-        avorited: false
-
-		}
+        }
       ],
       currentTrack: null,
       currentTrackIndex: 0,

@@ -61,7 +61,7 @@ class WdboardRowMapper implements RowMapper<WdboardVO> {
 	public WdboardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		WdboardVO data=new WdboardVO();
 		data.setWdbpk(rs.getInt("WDBPK"));
-		data.setWdbwriter(rs.getInt("WDBWRITER"));
+		data.setWdbwriter(rs.getString("WDBWRITER"));
 		data.setWdbtitle(rs.getString("WDBTITLE"));
 		data.setWdbcontent(rs.getString("WDBCONTENT"));
 		data.setWdblike(rs.getInt("WDBLIKE"));

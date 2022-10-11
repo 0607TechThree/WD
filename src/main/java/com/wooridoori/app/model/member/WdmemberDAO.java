@@ -13,7 +13,7 @@ public class WdmemberDAO {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	final String sql_selectOne="SELECT * FROM WDMEMBER WHERE WDMPK = ?";
+	final String sql_selectOne="SELECT * FROM WDMEMBER WHERE WDMID=? AND WDMPW=?";
 	final String sql_insert="INSERT INTO WDMEMBER VALUES((SELECT NVL(MAX(WDMPK),0) +1 FROM WDMEMBER),?,?,?,?,?,?,?,?,?)";
 	final String sql_update="UPDATE WDMEMBER SET WDMPW=? AND WDMNICK=? WHERE WDMID=?";
 	final String sql_delete="DELETE FROM WDMEMBER WHERE WDMID=?";
@@ -41,7 +41,7 @@ public class WdmemberDAO {
 		return jdbcTemplate.queryForObject(sql_checkId,args,new WdmemberRowMapper());
 	}
 	WdmemberVO selectOne(WdmemberVO vo) {
-		Object[] args= {vo.getWdmpk()};
+		Object[] args= {vo.getWdmid(),vo.getWdmpw()};
 		return jdbcTemplate.queryForObject(sql_selectOne,args,new WdmemberRowMapper());
 	}
 }
