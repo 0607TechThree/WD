@@ -167,9 +167,7 @@ $( document ).ready(function() {
          };
          
          ws.onmessage = function(event){
-             //console.log('writeResponse');
 	    	 writeResponse(event.data);
-             //console.log(event.data)
          };
          
          ws.onclose = function(event){
@@ -181,7 +179,6 @@ $( document ).ready(function() {
  var messageList = document.getElementById("messages");
 
  function send(){
-     // var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
       var text = document.getElementById("messageinput").value+","+document.getElementById("sender").value;  
       ws.send(text);
       text = "";
@@ -194,11 +191,9 @@ $( document ).ready(function() {
  function writeResponse(text){
      var scrollToBottom = (messages.scrollHeight - messages.scrollTop - messages.clientHeight < 80);
 	 if(text.includes("<나>")){
-		 console.log(sender);
 		 className = "me";
 		 scrollToBottom = true;
 	 }else{
-   	  console.log(sender);
 	  className = "not-me";
   	 }
 	 
@@ -211,7 +206,6 @@ $( document ).ready(function() {
 	 
 	 if(scrollToBottom)
 	       messageList.scrollTop = messageList.scrollHeight;
-     //messages.innerHTML += text+"<br/>"+"<br/>";
  }
 </script>
 </body>
