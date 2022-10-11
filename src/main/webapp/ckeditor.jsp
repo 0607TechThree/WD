@@ -167,21 +167,22 @@ function getDataFromTheEditor(){
 	const dataTransfer = new DataTransfer();
 
 	const editorData = editor.getData();
-	//console.log(editorData);
+	console.log(editorData);
 	console.log(fileData); // 파일 정보
 	console.log(fileData.name); // 파일 이름
 
 	let reader = new FileReader();
     reader.readAsDataURL(fileData);
     reader.onloadend = e => {
-      console.log(e.target.result)
-       document.getElementById('fileData1').value=e.target.result; // 사진 base64 값
+    console.log(e.target.result)
+    document.getElementById('fileData1').value=e.target.result; // 사진 base64 값
 	//location.href="imageUpload.do?fileData="+e.target.result;
     };
 
     document.getElementById('fileName').value=fileData.name; // 사진 이름
 	document.getElementById('form1').value=editorData; // 글 + 태그값
-	//console.log(document.getElementById('form1'));
+	console.log(document.getElementById('form1'));
+	console.log(document.getElementById('fileName'));
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 		if(xhr.readyState==4&&xhr.status==200) {			

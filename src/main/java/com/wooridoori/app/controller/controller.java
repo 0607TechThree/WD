@@ -81,20 +81,23 @@ public class controller {
 	}
 
 	@RequestMapping(value="/imageUpload.do",method=RequestMethod.POST)
-	@ResponseBody
-	public String boardinsert(WdboardVO wdbvo,HttpServletRequest request) throws IllegalStateException, IOException {
+	public String boardinsert(WdboardVO wdbvo,HttpServletRequest request,Model model) throws IllegalStateException, IOException {
 		System.out.println("로그: 오냐?");
 		String base64 = request.getParameter("fileData1");
 		String imageDataBytes = base64.split(",")[1];
 		System.out.println(imageDataBytes);
 		String fileName = request.getParameter("fileName");
+		String content = request.getParameter("form");
 		byte[] imageBytes = Base64.decodeBase64(imageDataBytes);
 		BufferedImage bufImg = ImageIO.read(new ByteArrayInputStream(imageBytes));
 
 		System.out.println(bufImg);
 		ImageIO.write(bufImg, "jpg", new File("D:\\0607KIM\\workspace\\WD\\src\\main\\webapp\\img\\ck\\"+fileName));
 		wdbvo.setFileName(fileName);
-		return "ckeditor.jsp";
+		wdbvo.setWdbcontent(content);
+		System.out.println(wdbvo);
+		model.addAttribute("data", wdbvo);
+		return "ckresult.jsp";
 	}
 	
 	@RequestMapping("/login.do")
