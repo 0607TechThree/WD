@@ -6,10 +6,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-@Service("emailService")
+//@Service("emailService")
 public class EmailServiceImpl implements EmailService {
 
-	@Resource(name="emailDao")
+	//@Resource(name="emailDao")
 	EmailDAO dao;
 	
 	public void setdao(EmailDAO dao) {

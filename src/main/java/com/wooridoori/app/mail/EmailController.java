@@ -11,19 +11,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Controller
+//@Controller
 public class EmailController {
-	@Autowired
+	//@Autowired
 	private EmailSender emailSender;
-	@Autowired
+	//@Autowired
 	private Email email;
-	@Autowired
+	//@Autowired
     private JavaMailSender mailSender;
 	
-	@Resource(name="emailService")
+	//@Resource(name="emailService")
 	EmailServiceImpl service;
 	
-	@RequestMapping("/sendmail.do")
+	//@RequestMapping("/sendmail.do")
 	public String sendEmailAction(@RequestParam Map<String, Object> paramMap, Model model) throws Exception {
 		String e_mail = (String) paramMap.get("wdmemail");
 		

@@ -6,9 +6,9 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-@Repository("emailDao")
+//@Repository("emailDao")
 public class EmailDAO implements EmailService {
 	
-	@Resource(name="template")
+	//@Resource(name="template")
 	SqlSessionTemplate template;
 }
