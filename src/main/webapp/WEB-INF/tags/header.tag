@@ -32,7 +32,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <a href="main.jsp" class="logo">
                             <img src="assets/images/wdmainlogo.png" align="klassy cafe html template">
                         </a>
                         <!-- ***** Logo End ***** -->
