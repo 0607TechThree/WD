@@ -1,9 +1,11 @@
 CREATE TABLE WDBOARD (
-	wdbpk	int		NOT NULL,
-	wdbwriter	varchar(30)		NOT NULL,
-	wdbtitle	varchar(120)		NOT NULL,
-	wdbcontent	varchar(1000)		NOT NULL,
-	wdbfilename	varchar(100)		NOT NULL,
-	wdblike	int	DEFAULT 0	NULL,
-	wdbopen	int	DEFAULT 0	NULL
+	wdbpk	int		not null,
+	wdbwriter	varchar(30)		not null,
+	wdbtitle	varchar(120)		not null,
+	wdbcontent	LONG		not null,
+	wdbfilename	varchar(100)		not null,
+	wdblike	int	DEFAULT 0	,
+	wdbopen	int	DEFAULT 0	
 );
+drop table wdboard;
+select * from WDBOARD;

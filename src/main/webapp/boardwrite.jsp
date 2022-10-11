@@ -17,21 +17,19 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-<!-- header Start-->
-<wd:header/>
-<!-- header End -->
-<br>
-<br>
-<br>
-<br>
-<br>
+	<!-- header Start-->
+	<wd:header />
+	<!-- header End -->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<form action="imageUpload.do" method="post"
 		enctype="multipart/form-data">
-		<input type="hidden" value="" name="form" id="form1"> <input
-			type="hidden" value="" name="fileData1" id="fileData1"> <input
-			type="hidden" value="" name="fileName" id="fileName">
+		<input type="hidden" value="" name="form" id="form1">
 		<div class="form-group" id="form">
-			<label class="col-form-label" for="editor"><span>*</span> 게시판</label>
+			<label class="col-form-label" for="editor">게시판</label>
 			<textarea id="writeEditor" name="writeEditor" rows="20" cols="12"></textarea>
 		</div>
 		<input type="submit" value="등록">
@@ -39,9 +37,9 @@
 	</form>
 	<a href="javascript:getDataFromTheEditor();">콘솔(눌러야 값 등록됨 / 아직 안
 		합침)</a>
-<!-- Footer Start -->
-<wd:footer/> 
-<!-- Footer End -->
+	<!-- Footer Start -->
+	<wd:footer />
+	<!-- Footer End -->
 	<script>
 class MyUploadAdapter {
     constructor( loader ) {
@@ -51,13 +49,33 @@ class MyUploadAdapter {
 
  	// 업로드 프로세스를 시작합니다.
     upload() {
-        return this.loader.file
+        /*return this.loader.file
             .then( file => new Promise( ( resolve, reject ) => {
             this._initRequest();
         this._initListeners( resolve, reject, file );
         this._sendRequest( file );
-    } ) );
-    }
+    } ) );*/
+    var reader  = new FileReader();
+
+    return new Promise( ( resolve, reject ) => {
+        reader.addEventListener( 'load', () => {
+            resolve( { default: reader.result } );
+        });
+
+        reader.addEventListener( 'error', err => {
+            reject( err );
+        });
+
+        reader.addEventListener( 'abort', () => {
+            reject();
+        });                    
+
+        this.loader.file.then( file => {
+            reader.readAsDataURL( file );
+        }); 
+        console.log(reader);
+    })
+ 	}
 
  	// 업로드 프로세스를 중단합니다.
     abort() {
@@ -85,7 +103,7 @@ class MyUploadAdapter {
 		//console.log(document.getElementById('form'));
 		
         xhr.open( 'POST', 'http://localhost:8088/app/ckeditor.jsp', true );
-        xhr.responseType = 'text';
+        xhr.responseType = 'json';
         //xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     }
@@ -162,11 +180,9 @@ ClassicEditor
 .create( document.querySelector( '#writeEditor' ) , {
 	extraPlugins: [MyCustomUploadAdapterPlugin],
 } )
-
 .then( newEditor => {
         editor = newEditor;
     } )
-
 .then( editor => {
 	window.editor = editor;
 
@@ -177,24 +193,58 @@ ClassicEditor
 
 function getDataFromTheEditor(){
 	const dataTransfer = new DataTransfer();
-
+	
 	const editorData = editor.getData();
 	console.log(editorData);
-	console.log(fileData); // 파일 정보
-	console.log(fileData.name); // 파일 이름
+	 /*if (editorData && editorData.match("<img src=")) {
+         const whereImg_start = editorData.indexOf("<img src=");
+         const whereImg_final = editorData.indexOf("></figure>");
+     
+		console.log(whereImg_start);
+		console.log(whereImg_final);
+         // 이미지 url 지정
+         let whereImg_end = "";
+         let ext_name_find = "";
+         let result_Img_Url = "";
 
+         // 이미지 확장자 지정
+         const ext_name = ["jpeg", "png", "gif", "jpg"];
+
+         for (let i=0; i<ext_name.length; i++){
+             if (editorData.match(ext_name[i])){
+                 // 확장자 저장
+                 ext_name_find = ext_name[i];
+                 // 확장자가 나오기 전까지 
+                 whereImg_end = editorData.indexOf(ext_name[i]);
+             }
+         }
+
+         if (ext_name_find === "jpeg"){
+             result_Img_Url = editorData.substring(whereImg_start + 12, whereImg_end + 13);
+         } else {
+             result_Img_Url = editorData.substring(whereImg_start + 11, whereImg_end + 12);
+         }
+        //console.log(result_Img_Url);
+        const whereImg_start1 = editorData.indexOf(result_Img_Url);
+	 	//console.log(whereImg_start1+whereImg_start);
+		const imgFinal = editorData.substring(whereImg_start+whereImg_start1, whereImg_final-1);
+		console.log(imgFinal); // src 최종값
+   		document.getElementById('fileData1').value=imgFinal; // 사진 base64 값
+     }
+	//console.log(fileData); // 파일 정보
+	//console.log(fileData.name); // 파일 이름
+	
 	let reader = new FileReader();
     reader.readAsDataURL(fileData);
     reader.onloadend = e => {
     console.log(e.target.result)
-    document.getElementById('fileData1').value=e.target.result; // 사진 base64 값
 	//location.href="imageUpload.do?fileData="+e.target.result;
-    };
+    };*/
 
-    document.getElementById('fileName').value=fileData.name; // 사진 이름
+    //document.getElementById('fileName').value=fileData.name; // 사진 이름
 	document.getElementById('form1').value=editorData; // 글 + 태그값
 	console.log(document.getElementById('form1'));
-	console.log(document.getElementById('fileName'));
+	//console.log(document.getElementById('fileName'));
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 		if(xhr.readyState==4&&xhr.status==200) {			

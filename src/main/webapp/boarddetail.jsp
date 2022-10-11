@@ -58,13 +58,12 @@
 				</header>
 				<section>
 					<div id="readEditor">
-						${data.wdbcontent} <img alt="" src="img/ck/${data.fileName}">
+						${data.wdbcontent} <!-- <img alt="" src="img/ck/${data.fileName}">-->
 					</div>
 				</section>
 			</article>
 		</div>
 	</div>
-
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
@@ -81,6 +80,9 @@ ClassicEditor
 	const toolbarElement = editor.ui.view.toolbar.element;
 	//toolbarElement.style.display = 'none';
 } )
+.then(editor => {
+	
+})
 .catch( error => {
 	console.error( error );
 } );
