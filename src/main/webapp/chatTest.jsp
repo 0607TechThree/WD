@@ -83,7 +83,7 @@ body {
 }
 
 .chat-box section div.me {
-	text-align: left;
+	text-align: right;
 }
 
 .chat-box section div.me span {
@@ -100,7 +100,7 @@ body {
 }
 
 .chat-box section div.not-me {
-	text-align: right;
+	text-align: left;
 }
 
 .chat-box section div.not-me span {
@@ -137,12 +137,6 @@ footer {
 			<span style="flex: 1"></span>
 		</header>
 		<section id="messages">
-			<div class="me">
-				<span>123</span>
-			</div>
-			<div class="not-me">
-				<span>12345</span>
-			</div>
 		</section>
 
 		<footer>
@@ -182,60 +176,13 @@ $( document ).ready(function() {
              writeResponse("대화 종료");
          }
 });
-/*function send(itsMe){
-     var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
-     var scrollToBottom = (messages.scrollHeight - messages.scrollTop - messages.clientHeight < 80);
-	 var lastMessage = messageList.children[messageList.children.length-1];
-     var message = document.getElementById("messageinput");
-     var newMessage = document.createElement("span");
-	 var className;
-	  newMessage.innerHTML = message;
-	  if(itsMe == ${udata.wdmid})
-	  {
-	    className = "me";
-	    scrollToBottom = true;
-	  }else
-	  {
-		    className = "not-me";
-		}
-	  
-	  if(lastMessage && lastMessage.classList.contains(className))
-	  {
-	    lastMessage.appendChild(document.createElement("br"));
-	    lastMessage.appendChild(newMessage);
-	  }
-	  else
-	  {
-	    var messageBlock = document.createElement("div");
-	    messageBlock.classList.add(className);
-	    messageBlock.appendChild(newMessage);
-	    messageList.appendChild(messageBlock);
-	  }
- 	
-     if(scrollToBottom)
-       messageList.scrollTop = messageList.scrollHeight;
-     
-     //var text = document.getElementById("messageinput").value+","+document.getElementById("sender").value;
-       ws.send(text);
-     text = "";
- }*/
 
  var className;
  var messageList = document.getElementById("messages");
- var sender;
+
  function send(){
      // var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
-      var text = document.getElementById("messageinput").value+","+document.getElementById("sender").value;
-      sender = document.getElementById("sender").value;
-      
-      if(sender == ${udata.wdmid}){
-    	  console.log(sender);
-    	  className = "me";
-      }else{
-    	  console.log(sender);
-    	  className = "not-me";
-      }
-      
+      var text = document.getElementById("messageinput").value+","+document.getElementById("sender").value;  
       ws.send(text);
       text = "";
   }
@@ -245,13 +192,16 @@ $( document ).ready(function() {
  }
  
  function writeResponse(text){
-	 if(sender == ${udata.wdmid}){
+     var scrollToBottom = (messages.scrollHeight - messages.scrollTop - messages.clientHeight < 80);
+	 if(text.includes("<나>")){
 		 console.log(sender);
 		 className = "me";
+		 scrollToBottom = true;
 	 }else{
    	  console.log(sender);
 	  className = "not-me";
   	 }
+	 
 	 var messageBlock = document.createElement("div");
 	 var newMessage = document.createElement("span");
 	 messageBlock.classList.add(className);
@@ -259,6 +209,8 @@ $( document ).ready(function() {
 	 newMessage.innerHTML+= text+"<br/>"+"<br/>";
 	 messageList.appendChild(messageBlock);
 	 
+	 if(scrollToBottom)
+	       messageList.scrollTop = messageList.scrollHeight;
      //messages.innerHTML += text+"<br/>"+"<br/>";
  }
 </script>
