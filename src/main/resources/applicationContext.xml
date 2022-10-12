@@ -23,7 +23,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<!-- email -->
+	<!-- email
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 	<property name="host" value="smtp.gmail.com"/>
 	<property name="port" value="587"/>
@@ -41,5 +41,6 @@
 	
 	<bean id="email" class="com.wooridoori.app.mail.Email"></bean>
 	<bean id="emailSender" class="com.wooridoori.app.mail.EmailSender"></bean>
+	 -->
     
 </beans>	
