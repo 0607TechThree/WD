@@ -6,6 +6,13 @@ public class WdonedayVO {
 	private String wdoregion; // 원데이클래스지역
 	private String wdoaddress; // 원데이클래스주소
 	private String wdosubject; // 클래스 종류 (카테고리)
+	private String wdomainimg; // 메인 이미지
+	public String getWdomainimg() {
+		return wdomainimg;
+	}
+	public void setWdomainimg(String wdomainimg) {
+		this.wdomainimg = wdomainimg;
+	}
 	public int getWdopk() {
 		return wdopk;
 	}
@@ -39,7 +46,6 @@ public class WdonedayVO {
 	@Override
 	public String toString() {
 		return "WdonedayVO [wdopk=" + wdopk + ", wdoname=" + wdoname + ", wdoregion=" + wdoregion + ", wdoaddress="
-				+ wdoaddress + ", wdosubject=" + wdosubject + "]";
+				+ wdoaddress + ", wdosubject=" + wdosubject + ", wdomainimg=" + wdomainimg + "]";
 	}
-	
 }

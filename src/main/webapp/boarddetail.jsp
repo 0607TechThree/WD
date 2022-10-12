@@ -32,8 +32,9 @@
 		<br>
 		<!-- Nav -->
 		<nav id="nav">
-			<a href="#" class="icon solid fa-home"><span>간단히 보기</span></a> <a
-				href="#work" class="icon solid fa-folder"><span>자세히 보기</span></a>
+			<a href="#" class="icon solid fa-envelope"><span>기본</span></a>
+			<a href="#work" class="icon solid fa-folder"><span>상세 보기</span></a>
+			<a href="board.do" class="icon solid fa-home"><span>목록보기</span></a>
 		</nav>
 
 		<!-- Main -->
@@ -58,7 +59,13 @@
 				</header>
 				<section>
 					<div id="readEditor">
-						${data.wdbcontent}
+					<c:if test="${boarddata == null}">
+						${data.wdbcontent}					
+					</c:if>
+					<c:if test="${boarddata != null}">
+						${boarddata.wdbcontent}					
+					</c:if>
+					
 					</div>
 				</section>
 			</article>

@@ -21,6 +21,8 @@ import com.wooridoori.app.board.WdboardService;
 import com.wooridoori.app.board.WdboardVO;
 import com.wooridoori.app.model.member.WdmemberService;
 import com.wooridoori.app.model.member.WdmemberVO;
+import com.wooridoori.app.model.oneday.WdonedayService;
+import com.wooridoori.app.model.oneday.WdonedayVO;
 
 @Controller
 @SessionAttributes("udata")
@@ -29,6 +31,8 @@ public class controller {
 	private WdboardService wdboardService;
 	@Autowired
 	private WdmemberService wdmemberService;
+	@Autowired
+	private WdonedayService wdonedayService;
 	
 	@ModelAttribute("scMap")
 	public Map<String,String> searchConditionMap(){
@@ -40,37 +44,29 @@ public class controller {
 	}
 	
 	@RequestMapping(value="/main.do",method=RequestMethod.GET)
-	public String index(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,@RequestParam(value="searchContent",defaultValue="",required=false)String searchContent,WdboardVO wdbvo,Model model) {
-		List<WdboardVO> datas=null;
-		if(!(searchContent.equals("") || searchContent.equals(null))) {
-			if(searchCondition.equals("TITLE") || searchCondition.equals("제목")) {
-				wdbvo.setWdbtitle(searchContent);
-			}else if(searchCondition.equals("WRITER") || searchCondition.equals("작성자")){
-				wdbvo.setWdbwriter(searchContent);
-			}	
-			else {
-				wdbvo.setSearchContent(searchContent);
-			}
-		}
-		datas=wdboardService.selectAllWdboard(wdbvo);
-		model.addAttribute("datas", datas);
+	public String index(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,@RequestParam(value="searchContent",defaultValue="",required=false)String searchContent,WdonedayVO wdovo,WdboardVO wdbvo,Model model) {
+		List<WdboardVO> brdatas=null;
+		List<WdboardVO> bldatas=null;
+		List<WdonedayVO> odatas=null;
+		brdatas=wdboardService.selectAWdboard(wdbvo);
+		bldatas=wdboardService.selectBWdboard(wdbvo);
+		odatas=wdonedayService.selectAWdoneday(wdovo);
+		model.addAttribute("brdatas", brdatas);
+		model.addAttribute("bldatas", bldatas);
+		model.addAttribute("odatas", odatas);
 		return "main.jsp";
 	}
 	@RequestMapping(value="/main.do",method=RequestMethod.POST)
-	public String main(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,@RequestParam(value="searchContent",defaultValue="",required=false)String searchContent,WdboardVO wdbvo,Model model) {
-		List<WdboardVO> datas=null;
-		if(!(searchContent.equals("") || searchContent.equals(null))) {
-			if(searchCondition.equals("TITLE") || searchCondition.equals("제목")) {
-				wdbvo.setWdbtitle(searchContent);
-			}else if(searchCondition.equals("WRITER") || searchCondition.equals("작성자")){
-				wdbvo.setWdbwriter(searchContent);
-			}	
-			else {
-				wdbvo.setSearchContent(searchContent);
-			}
-		}
-		datas=wdboardService.selectAllWdboard(wdbvo);
-		model.addAttribute("datas", datas);
+	public String main(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,@RequestParam(value="searchContent",defaultValue="",required=false)String searchContent,WdonedayVO wdovo,WdboardVO wdbvo,Model model) {
+		List<WdboardVO> brdatas=null;
+		List<WdboardVO> bldatas=null;
+		List<WdonedayVO> odatas=null;
+		brdatas=wdboardService.selectAWdboard(wdbvo);
+		bldatas=wdboardService.selectBWdboard(wdbvo);
+		odatas=wdonedayService.selectAWdoneday(wdovo);
+		model.addAttribute("brdatas", brdatas);
+		model.addAttribute("bldatas", bldatas);
+		model.addAttribute("odatas", odatas);
 		return "main.jsp";
 	}
 
