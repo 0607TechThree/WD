@@ -15,6 +15,8 @@ public class WdboardDAO {
 	private JdbcTemplate jdbcTemplate;
 	
 	final String sql_selectOne="SELECT * FROM WDBOARD WHERE WDBPK = ?";
+	final String sql_selectAll_RB = "SELECT * FROM (SELECT * FROM WDBOARD ORDER BY WDBPK DESC) WHERE ROWNUM <= 3";
+	final String sql_selectAll_LB = "SELECT * FROM (SELECT * FROM WDBOARD ORDER BY WDBLIKE DESC) WHERE ROWNUM <= 3";
 	final String sql_insert="INSERT INTO WDBOARD(WDBPK,WDBWRITER,WDBTITLE,WDBCONTENT) VALUES((SELECT NVL(MAX(WDBPK),0) +1 FROM WDBOARD),?,?,?)";
 	final String sql_delete="DELETE FROM WDBOARD WHERE WDBPK=?";
 	final String sql_update="UPDATE WDBOARD SET WDBTITLE=? AND WDBCONTENT=? WHERE WDBPK=?";
@@ -54,10 +56,15 @@ public class WdboardDAO {
 			return jdbcTemplate.query(sql_selectAll,new WdboardRowMapper());
 		}
 	}
+	List<WdboardVO> selectABoard(WdboardVO vo) {
+			return jdbcTemplate.query(sql_selectAll_RB,new WdboardRowMapper());
+	}
+	List<WdboardVO> selectBBoard(WdboardVO vo) {
+		return jdbcTemplate.query(sql_selectAll_LB,new WdboardRowMapper());
+	}
 }
 class WdboardRowMapper implements RowMapper<WdboardVO> {
 
-	@Override
 	public WdboardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		WdboardVO data=new WdboardVO();
 		data.setWdbpk(rs.getInt("WDBPK"));

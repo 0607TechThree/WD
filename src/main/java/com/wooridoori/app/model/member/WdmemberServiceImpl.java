@@ -9,27 +9,27 @@ public class WdmemberServiceImpl implements WdmemberService{
 	@Autowired
 	private WdmemberDAO wdmemberDAO;
 	
-	@Override
+	 
 	public void insertWdmember(WdmemberVO vo) {
 		wdmemberDAO.insertWdmember(vo);
 	}
 
-	@Override
+	 
 	public void updateWdmember(WdmemberVO vo) {
 		wdmemberDAO.updateWdmember(vo);
 	}
 
-	@Override
+	 
 	public void deleteWdmember(WdmemberVO vo) {
 		wdmemberDAO.deleteWdmember(vo);
 	}
 
-	@Override
+	 
 	public WdmemberVO selectOneWdmember(WdmemberVO vo) {
 		return wdmemberDAO.selectOne(vo);
 	}
 
-	@Override
+	 
 	public WdmemberVO checkId(WdmemberVO vo) {
 		return wdmemberDAO.checkId(vo);
 		

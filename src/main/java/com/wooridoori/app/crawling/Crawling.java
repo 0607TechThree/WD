@@ -31,7 +31,7 @@ public class Crawling {
 	public static void main(String[] args) {
 		final String url="https://www.idus.com"; // 상세
 		final String url2="https://www.idus.com/c/region/"; // 지역별
-		final String path = "C:\\0607KEY\\workspace\\WooriDoori\\src\\main\\webapp\\images\\crwaling\\"; // 이미지 저장 경로 확인!!!
+		final String path = "C:\\Users\\USER\\Desktop\\WD\\src\\main\\webapp\\img\\crawling\\"; // 이미지 저장 경로 확인!!!
 		Document doc=null;
 		Document doc2=null;
 		
@@ -99,6 +99,7 @@ public class Crawling {
 				System.out.println("클래스 이름 : "+ testName);
 				wdonedayVO.setWdoname(testName); // 이름
 				wdonedayVO.setWdoregion(region.get(i)); // 지역
+				int num = 1;
 				while(itr3.hasNext()) {
 					WdimageVO wdimageVO=new WdimageVO();
 					String imageName=itr3.next().attr("style");
@@ -126,6 +127,9 @@ public class Crawling {
 					
 					String fileNm = imageName.substring(57,b)+".jpg";
 					wdimageVO.setWdipickname(fileNm); // 사진이름
+					if(num==1) {
+						wdonedayVO.setWdomainimg(fileNm);
+					}
 					try {
 						// 저장할 이미지의 크기와 타입을 잡아줌.
 						BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
@@ -149,6 +153,7 @@ public class Crawling {
 				
 				crawlingDAO.insertWdoneday(wdonedayVO);
 				wdopk++;
+				num++;
 			}
 		}
 	}
