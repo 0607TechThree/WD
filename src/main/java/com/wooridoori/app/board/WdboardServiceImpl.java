@@ -10,37 +10,29 @@ public class WdboardServiceImpl implements WdboardService{
 	@Autowired
 	private WdboardDAO wdboardDAO;
 
-	@Override
 	public void insertWdboard(WdboardVO vo) {
 		wdboardDAO.insertWdboard(vo);
 	}
 
-	@Override
 	public void deleteWdboard(WdboardVO vo) {
 		wdboardDAO.deleteWdboard(vo);
 	}
 
-	@Override
 	public WdboardVO selectOneWdboard(WdboardVO vo) {
 		return wdboardDAO.selectOne(vo);
 	}
-
-	@Override
 	public void updateWdboard(WdboardVO vo) {
 		wdboardDAO.updateWdboard(vo);
 	}
 
-	@Override
 	public List<WdboardVO> selectAllWdboard(WdboardVO vo) {
 		return wdboardDAO.selectAllBoard(vo);
 	}
 
-	@Override
 	public void updateWdboardlikeU(WdboardVO vo) {
 		wdboardDAO.updateWdblikeU(vo);
 	}
 
-	@Override
 	public void updateWdboardlikeD(WdboardVO vo) {
 		wdboardDAO.updateWdblikeD(vo);
 	}

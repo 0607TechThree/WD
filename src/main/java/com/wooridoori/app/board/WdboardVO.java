@@ -7,8 +7,6 @@ public class WdboardVO {
 	private String wdbwriter;
 	private String wdbtitle;
 	private String wdbcontent;
-	private MultipartFile fileData;
-	private String fileName;
 	private String searchCondition;
 	private String searchContent;
 	private int wdblike;
@@ -37,30 +35,6 @@ public class WdboardVO {
 	public void setWdbcontent(String wdbcontent) {
 		this.wdbcontent = wdbcontent;
 	}
-	public int getWdblike() {
-		return wdblike;
-	}
-	public void setWdblike(int wdblike) {
-		this.wdblike = wdblike;
-	}
-	public int getWdbopen() {
-		return wdbopen;
-	}
-	public void setWdbopen(int wdbopen) {
-		this.wdbopen = wdbopen;
-	}
-	public MultipartFile getFileData() {
-		return fileData;
-	}
-	public void setFileData(MultipartFile uploadFile) {
-		this.fileData = uploadFile;
-	}
-	public String getFileName() {
-		return fileName;
-	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
 	public String getSearchCondition() {
 		return searchCondition;
 	}
@@ -73,12 +47,22 @@ public class WdboardVO {
 	public void setSearchContent(String searchContent) {
 		this.searchContent = searchContent;
 	}
+	public int getWdblike() {
+		return wdblike;
+	}
+	public void setWdblike(int wdblike) {
+		this.wdblike = wdblike;
+	}
+	public int getWdbopen() {
+		return wdbopen;
+	}
+	public void setWdbopen(int wdbopen) {
+		this.wdbopen = wdbopen;
+	}
 	@Override
 	public String toString() {
 		return "WdboardVO [wdbpk=" + wdbpk + ", wdbwriter=" + wdbwriter + ", wdbtitle=" + wdbtitle + ", wdbcontent="
-				+ wdbcontent + ", fileData=" + fileData + ", fileName=" + fileName + ", searchCondition="
-				+ searchCondition + ", searchContent=" + searchContent + ", wdblike=" + wdblike + ", wdbopen=" + wdbopen
-				+ "]";
+				+ wdbcontent + ", searchCondition=" + searchCondition + ", searchContent=" + searchContent
+				+ ", wdblike=" + wdblike + ", wdbopen=" + wdbopen + "]";
 	}
-
 }

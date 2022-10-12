@@ -292,7 +292,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                     </div>
                                 </article>
                                 <center>
-	                                <a href="#" class="jua">
+	                                <a href="board.do" class="jua">
 										<div>더보기 ></div>
 									</a>
                                 </center>

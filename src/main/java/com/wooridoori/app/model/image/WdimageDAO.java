@@ -25,7 +25,7 @@ public class WdimageDAO {
 }
 class WdimageRowMapper implements RowMapper<WdimageVO> {
 
-	@Override
+	 
 	public WdimageVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		WdimageVO data=new WdimageVO();
 		data.setWdipk(rs.getInt("WDIPK"));

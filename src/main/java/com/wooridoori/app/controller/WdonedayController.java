@@ -15,16 +15,17 @@ public class WdonedayController {
 	@Autowired
 	private WdonedayService WdonedayService;
 	
-	@RequestMapping("/selectOneWdoneday")
+	@RequestMapping("/selectOneWdoneday.do")
 	public String selectOneWdoneday(WdonedayVO vo) {
 		vo=WdonedayService.selectOneWdoneday(vo);
 		return "redirect:main.do"; 
 	}
 	
-	@RequestMapping("/selectAllWdoneday")
+	@RequestMapping("/oneday.do")
 	public String selectAllWdoneday(WdonedayVO vo) {
 		List<WdonedayVO> datas=null;
 		datas=WdonedayService.selectAllWdoneday(vo);
-		return "redirect:main.do";
+		return "redirect:board.jsp";
 	}
+		
 }

@@ -15,7 +15,7 @@ public class WdboardDAO {
 	private JdbcTemplate jdbcTemplate;
 	
 	final String sql_selectOne="SELECT * FROM WDBOARD WHERE WDBPK = ?";
-	final String sql_insert="INSERT INTO WDBOARD(WDBPK,WDBWRITER,WDBTITLE,WDBCONTENT,WDBFILENAME) VALUES((SELECT NVL(MAX(WDBPK),0) +1 FROM WDBOARD),?,?,?,?)";
+	final String sql_insert="INSERT INTO WDBOARD(WDBPK,WDBWRITER,WDBTITLE,WDBCONTENT) VALUES((SELECT NVL(MAX(WDBPK),0) +1 FROM WDBOARD),?,?,?)";
 	final String sql_delete="DELETE FROM WDBOARD WHERE WDBPK=?";
 	final String sql_update="UPDATE WDBOARD SET WDBTITLE=? AND WDBCONTENT=? WHERE WDBPK=?";
 	final String sql_update_LU="UPDATE WDBOARD SET WDBLIKE=WDBLIKE+1 WHERE WDBPK=?";
@@ -25,7 +25,7 @@ public class WdboardDAO {
 	final String sql_searchWriter="SELECT * FROM WDBOARD WHERE WDBCONTENT LIKE '%'||?||'%' ORDER BY WDBPK DESC";
 	
 	void insertWdboard(WdboardVO vo) {
-		jdbcTemplate.update(sql_insert, vo.getWdbwriter(),vo.getWdbtitle(),vo.getWdbcontent(),vo.getFileName());	
+		jdbcTemplate.update(sql_insert, vo.getWdbwriter(),vo.getWdbtitle(),vo.getWdbcontent());	
 	}
 	void deleteWdboard(WdboardVO vo) {
 		jdbcTemplate.update(sql_delete, vo.getWdbpk());
@@ -57,7 +57,6 @@ public class WdboardDAO {
 }
 class WdboardRowMapper implements RowMapper<WdboardVO> {
 
-	@Override
 	public WdboardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		WdboardVO data=new WdboardVO();
 		data.setWdbpk(rs.getInt("WDBPK"));

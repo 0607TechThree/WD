@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 public class WdimageServiceImpl implements WdimageService{
 	@Autowired
 	private WdimageDAO wdimageDAO;
-	@Override
+	 
 	public void insertWdimage(WdimageVO vo) {
 		//wdimageDAO.insertWdimage(vo);	
 	}
 
-	@Override
+	 
 	public List<WdimageVO> selectAllWdimage(WdimageVO vo) {
 		return wdimageDAO.selectAllWdimage(vo);
 	}

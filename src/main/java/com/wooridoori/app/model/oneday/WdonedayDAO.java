@@ -32,7 +32,7 @@ public class WdonedayDAO {
 }
 class WdonedayRowMapper implements RowMapper<WdonedayVO> {
 
-	@Override
+	 
 	public WdonedayVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		WdonedayVO data=new WdonedayVO();
 		data.setWdopk(rs.getInt("WDOPK"));

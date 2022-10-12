@@ -58,7 +58,7 @@
 				</header>
 				<section>
 					<div id="readEditor">
-						${data.wdbcontent} <!-- <img alt="" src="img/ck/${data.fileName}">-->
+						${data.wdbcontent}
 					</div>
 				</section>
 			</article>

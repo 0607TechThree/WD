@@ -1,18 +1,13 @@
 package com.wooridoori.app.controller;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -97,7 +92,7 @@ public class controller {
 		wdbvo.setWdbcontent(request.getParameter("form"));
 		wdbvo.setWdbwriter("1");
 		wdbvo.setWdbtitle("1");
-		wdbvo.setFileName("1");
+		
 		wdboardService.insertWdboard(wdbvo);
 //		System.out.println(wdbvo);
 		model.addAttribute("data", wdbvo);
