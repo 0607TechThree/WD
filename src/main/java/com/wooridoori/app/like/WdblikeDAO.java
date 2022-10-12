@@ -30,7 +30,7 @@ public class WdblikeDAO {
 }
 class WdblikeRowMapper implements RowMapper<WdblikeVO> {
 
-	 
+	@Override
 	public WdblikeVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		WdblikeVO data=new WdblikeVO();
 		data.setWdlpk(rs.getInt("WDLPK"));

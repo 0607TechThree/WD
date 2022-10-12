@@ -57,6 +57,7 @@ public class WdboardDAO {
 }
 class WdboardRowMapper implements RowMapper<WdboardVO> {
 
+	@Override
 	public WdboardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		WdboardVO data=new WdboardVO();
 		data.setWdbpk(rs.getInt("WDBPK"));

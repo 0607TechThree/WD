@@ -47,7 +47,7 @@ public class WdmemberDAO {
 }
 class WdmemberRowMapper implements RowMapper<WdmemberVO> {
 
-	 
+	@Override
 	public WdmemberVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		WdmemberVO data=new WdmemberVO();
 		data.setWdmpk(rs.getInt("WDMPK"));
