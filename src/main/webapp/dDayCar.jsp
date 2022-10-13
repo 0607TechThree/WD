@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>D-Day계산기</title>
+<title>D+Day계산기 | WooriDoori</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="css/dDayCar.css" />
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <script>
 $(document).ready(function(){
     var fromDate;
@@ -105,42 +106,58 @@ $(document).ready(function(){
 </head>
 <body>
 
-<table>
-<tr>
-    <th>
-      D+Day 계산기
-    </th>
-  </tr>
-  <tr>
-    <th>
-      사귄날짜
-    </th>
-    <td>
-      <input type="text" name="inYYYY" id="inYYYY" maxlength="4" size="4" value="2022" class="actDDay" />년 
-      <input type="text" name="inMM" id="inMM" maxlength="2" size="2" value="09" class="actDDay" />월 
-      <input type="text" name="inDD" id="inDD" maxlength="2" size="2" value="29" class="actDDay" />일
-    </td>
-  </tr>
-  <tr>
-    <th>
-      +DAY
-    </th>
-    <td>
-      <input type="text" name="calcDay" id="calcDay" />일
-      <input type="text" name="operator" id="operator" value="+" hidden/>
-    </td>
-  </tr>
-  <tr>
-    <th>
-      결과는
-    </th>
-    <td>
-      <input type="text" name="outYYYY" id="outYYYY" maxlength="4" size="4" />년 
-      <input type="text" name="outMM" id="outMM" maxlength="2" size="2" />월
-      <input type="text" name="outDD" id="outDD" maxlength="2" size="2" />일
-    </td>
-  </tr>
-</table>
+<div id="pageAll">
+	<div id="dDaycarPage">
+		<!-- 로고, 상단 -->
+		<div id="logo">
+			<center>
+				<h1 id="hd_h1">D+Day 계산기</h1>
+				<hr>
+			</center>
+		</div>
+	</div>
+		<!-- 테이블 -->
+		<div id="table">
+		<center>
+			<table>
+			<tr>
+			  </tr>
+			  <tr>
+			    <th>
+			      사귄날짜
+			    </th>
+			    <td id="td">
+			      <input type="text" name="inYYYY" id="inYYYY" maxlength="4" size="4" value="2022" class="actDDay" id="tdinput" /> 년 
+			      <input type="text" name="inMM" id="inMM" maxlength="2" size="2" value="06" class="actDDay" id="tdinput" /> 월 
+			      <input type="text" name="inDD" id="inDD" maxlength="2" size="2" value="07" class="actDDay" id="tdinput" /> 일
+			    </td>
+			  </tr>
+			  <tr>
+			    <th>
+			      D+
+			    </th>
+			    <td>
+			      <input type="text" name="calcDay" id="calcDay" id="tdinput" /> 일
+			      <input type="text" name="operator" id="operator" value="+" hidden/>
+			    </td>
+			  </tr>
+			  <tr>
+			    <th>
+			      일은
+			    </th>
+			    <td>
+			      <input type="text" name="outYYYY" id="outYYYY" maxlength="4" size="4" id="tdinput" /> 년 
+			      <input type="text" name="outMM" id="outMM" maxlength="2" size="2" id="tdinput" /> 월
+			      <input type="text" name="outDD" id="outDD" maxlength="2" size="2" id="tdinput" /> 일
+			    </td>
+			  </tr>
+			</table>
+		</div>
+		</center>
+		<div id="copyright">
+		ⓒ WooriDoori
+		</div>
+</div>
 
 </body>
 </html>
