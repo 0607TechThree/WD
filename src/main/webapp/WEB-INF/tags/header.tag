@@ -32,36 +32,16 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="main.jsp" class="logo">
+                        <a href="main.do" class="logo">
                             <img src="assets/images/wdmainlogo.png" align="klassy cafe html template">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                            	<li class="scroll-to-section"><a href="javascript:winopen()">chat</a></li>
-                        <!-- 
-                            <li class="submenu">
-                                <a href="javascript:;">Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Drop Down Page 1</a></li>
-                                    <li><a href="#">Drop Down Page 2</a></li>
-                                    <li><a href="#">Drop Down Page 3</a></li>
-                                </ul>
-                            </li>
-                        -->
-                            <li class="submenu">
-                                <a href="javascript:;">OnedayClass</a>
-                                
-                                <!-- 지역설정 -->
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a href="#">Features Page 4</a></li>
-                                </ul>
-                            </li>
-                            <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
-                             <li><a href="login.jsp">
+                           	<li class="scroll-to-section"><a href="board.do">blog</a></li>
+                           	<li class="scroll-to-section"><a href="oneday.do">onedayclass</a></li>
+                        	<li><a href="login.jsp">
     	                         	<img class="actionimg" alt="로그인" src="img/login2.png" title="로그인 페이지로 이동">
 	                             </a>
                              </li>

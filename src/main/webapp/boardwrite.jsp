@@ -5,10 +5,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+	rel="stylesheet">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/boardwriter.css" />
 <title>게시판</title>
 <script
 	src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
@@ -17,29 +19,34 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<!-- header Start-->
-	<wd:header />
-	<!-- header End -->
-	<br>
-	<br>
-	<br>
-	<br>
+	<div id="boardform">
+	<center>
+		<br>
+		<br>
+		<div id="logo">
+			<a href="main.do" class="logo">
+				<img src="assets/images/wdmainlogo.png" align="klassy cafe html template">
+			</a>
+		</div>
+	</center>
 	<br>
 	<form action="imageUpload.do" method="post"
 		enctype="multipart/form-data">
-		<input type="hidden" value="" name="form" id="form1">
+		<p>게시글 제목<p>
+		<textarea id="writertitle" name=""></textarea>
+		<input type="hidden" value="${udata.wdmid}" name="wdbwriter" id="form1">
+		<br>
 		<div class="form-group" id="form">
 			<label class="col-form-label" for="editor">게시판</label>
-			<textarea id="writeEditor" name="writeEditor" rows="20" cols="12"></textarea>
+			<textarea id="writeEditor" name="wdbcontent" rows="20" cols="12"></textarea>
 		</div>
+			전체공개&nbsp;<input type="radio" name="wdbopen" checked="checked" value="0">
+			커플공개&nbsp;<input type="radio" name="wdbopen" value="1">
+		<br>
 		<input type="submit" value="등록">
-
 	</form>
-	<a href="javascript:getDataFromTheEditor();">콘솔(눌러야 값 등록됨 / 아직 안
-		합침)</a>
-	<!-- Footer Start -->
-	<wd:footer />
-	<!-- Footer End -->
+	</div>
+	
 	<script>
 class MyUploadAdapter {
     constructor( loader ) {

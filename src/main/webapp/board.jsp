@@ -28,18 +28,30 @@
 						<div class="inner">
 							<header>
 								<center>
-								<h1>블로그 게시물 확인하기!<br />
+								<br>
+								<h1>블로그 게시물 확인하기<br />
 								</h1>
-								<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+								<p> dolore.</p>
 								</center>
 								<!-- 로그인시는 이동 비로그인상태라면 모달 -->
-								<a href="boardwrite.jsp">
-									<p>게시글 작성하기</p>
-								</a>
-								<a href="main.do">
-									<p>메인으로</p>
-								</a>
+								<div id="boardh">
+									<div class="boardheadl">
+									<span>
+										<a href="boardwrite.jsp">
+										게시글 작성하기
+										</a>
+									</span>
+									</div>
+									<div class="boardheadr">
+									<span>
+										<a href="loginaction.do">
+										로그인
+										</a>
+									</span>
+									</div>
+								</div>
 							</header>
+							
 							<section class="tiles">
 								
 								<!-- 반복 필요 boarddatas -->
@@ -49,9 +61,9 @@
 										<img src="assets/images/pic01.jpg" alt="" />
 									</span>
 									<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
-										<h2>${v.wdbtitle}</h2>
+										<h2>제목 : ${v.wdbtitle}</h2>
 										<div class="content">
-											<p>${v.wdbwriter}</p>
+											<p>작성자 : ${v.wdbwriter}</p>
 										</div>
 									</a>
 								</article>

@@ -45,33 +45,88 @@
 	    <li id="2"><a class="ina" href="#fragment-2"><center><img class="tabimg" alt="커플정보" src="img/mypage/couple.png"><p>커플 정보</p></center></a></li>
 	    <li id="3"><a class="ina" href="#fragment-3"><center><img class="tabimg" alt="vip정보" src="img/mypage/vip.png"><p>VIP 정보</p></center></a></li>
 	  </ul>
+	  <!-- 나의정보시작 -->
 	  <div id="fragment-1">
 	    <div id="mypagemy">
 	    	<div id="myuserimg">
 	    		<img id="myuserimg2"alt="유저이미지" src="img/myuser.png">
 	    	</div>
 	    	<div id="myuserinfo">
+    		<form action="#" method="post">
 	    		<h3>아이디 : ${udata.wdmid}</h3>
 	    		<br>
 	    		<p>닉네임 : ${udata.wdmnick}</p>
+	    		<br>
+	    		<p>성별 : ${udata.wdmgender}</p>
 	    		<br>
 	    		<p>이메일 : ${udata.wdmemail}</p>
 	    		<br>
 	    		<p>MBTI : ${udata.wdmmbti}</p>
 	    		<br>
 	    		<p>VIP 신청여부 : ${udata.wdmvip}</p>
+	    		<center>
+			    	<input type="submit" value="수정하기"><button>삭제하기</button>
+	    		</center>
+	   		</form>
 	    	</div>
 	    </div>
 	  </div>
+	  <!-- 나의정보종료 -->
+	  <!-- 커플정보시작 -->
+	  <!-- 받아오는 데이터는 coupledata -->
 	  <div id="fragment-2">
-	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+		<div id="mypagecouple">
+			<div id="mycoupleimg">
+	    		<img id="mycoupleimg2"alt="유저이미지" src="img/mycouple.png">
+	    	</div>
+	    	<div id="mycoupleinfo">
+	    		<h3>커플정보</h3>
+	    		<br>
+	    		<p>우리 : </p>
+	    		<br>
+	    		<p>두리 : </p>
+	    		<br>
+	    		<p>만난날짜 : </p>
+	    		<input type="submit" value="수정하기"><button>커플정보삭제하기</button>
+	    	</div>
+		</div>
 	  </div>
+	  <!-- 커플정보종료 -->
+	  <!-- VIP정보시작 -->
 	  <div id="fragment-3">
-	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+	  	<div>
+	  		<div>
+	  			<center>
+		  			<p>등급안내</p>
+		  			<table>
+		  				<tr>
+		  					<td></td>
+		  					<td>일반등급</td>
+		  					<td>VIP 등급</td>
+		  				</tr>
+		  				<tr>
+		  					<td>등급 이미지</td>
+		  					<td>일반이미지</td>
+		  					<td>VIP이미지</td>
+		  				</tr>
+		  				<tr>
+		  					<td>등급 효과</td>
+		  					<td>일반 등급</td>
+		  					<td>VIP 등급</td>
+		  				</tr>
+		  			</table>
+		  			<br>
+		  			<div>
+		  				현재 회원님의 등급은 ( ) 등급입니다!
+		  			</div>
+		  			<div>
+		  				VIP등급으로 전환 (결제하기) <button>dd</button>
+		  			</div>
+	  			</center>
+	  		</div>
+	  	</div>
 	  </div>
+	  <!-- VIP정보종료 -->
 	</div>
 </div>
 <!-- Footer Start -->

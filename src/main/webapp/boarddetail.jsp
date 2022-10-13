@@ -65,7 +65,6 @@
 							<c:if test="${boarddata != null}">
 							<img src="assets/images/pic0${boarddata.wdbrandom}.jpg" alt="" />
 							</c:if>
-							<img src="assets/images/pic0${boarddata.wdbrandom}.jpg" alt="" />
 				</a>
 			</article>
 

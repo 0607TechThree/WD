@@ -44,7 +44,6 @@
 
 #myuserimg{
 	flex-basis: 45%;
-	border: 1px solid rgb(240,99,99);
 }
 
 #myuserimg2{
@@ -56,5 +55,30 @@
 
 #myuserinfo{
 	flex-basis: 45%;
+}
+
+#mypagecouple{
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
+	margin: auto;
+	height: auto;
 	border: 1px solid rgb(240,99,99);
+	width: auto;
+	max-width: 1110px;
+}
+
+#mycoupleimg{
+	flex-basis: 45%;
+}
+
+#mycoupleimg2{
+	padding: 50px;
+	object-fit:cover;
+	width: 100%;
+	height: 100%;
+}
+
+#mycoupleinfo{
+	flex-basis: 45%;
 }

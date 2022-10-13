@@ -73,7 +73,6 @@ public class controller {
 	@RequestMapping(value="/imageUpload.do",method=RequestMethod.POST)
 	public String boardinsert(WdboardVO wdbvo,HttpServletRequest request,Model model) throws IllegalStateException, IOException {
 		//System.out.println("로그: 오냐?");
-		System.out.println(request.getParameter("form"));
 //		String base64 = request.getParameter("fileData1");
 //		String imageDataBytes = base64.split(",")[1];
 //		System.out.println(imageDataBytes);
@@ -85,7 +84,6 @@ public class controller {
 //		System.out.println(bufImg);
 //		ImageIO.write(bufImg, "jpg", new File("D:\\0607KIM\\workspace\\WD\\src\\main\\webapp\\img\\ck\\"+fileName));
 //		wdbvo.setFileName(fileName);
-		wdbvo.setWdbcontent(request.getParameter("form"));
 		wdbvo.setWdbwriter("1");
 		wdbvo.setWdbtitle("1");
 		
