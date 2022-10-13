@@ -35,10 +35,9 @@ body {
 .player {
   display:flex;
   flex-wrap:wrap;
-  background: #eef3f7;
+  background: none;
   width: 250px;
-  height: 170px;
-  box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
+  height: 180px;
   border-radius: 15px;
   padding: 15px;
 }
@@ -254,8 +253,9 @@ body {
 .progress__duration {
   color: #71829e;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   opacity: 0.5;
+  float:right;
 }
 .progress__time {
   margin-top: 2px;
@@ -263,12 +263,12 @@ body {
   font-weight: 700;
   font-size: 16px;
   opacity: 0.7;
+  float:left;
 }
 
 .progress__bar {
   height: 6px;
   width: 100%;
-  cursor: pointer;
   background-color: #d0d8e6;
   display: inline-block;
   border-radius: 10px;

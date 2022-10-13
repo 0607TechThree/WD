@@ -923,8 +923,17 @@ menu
   overflow: hidden;
 }
 
+.onedayitem{
+	color: rgb(240,100,100);
+}
+
+.onedayitem:hover{
+	box-shadow: gray;
+	border: 2px solid rgb(240,100,100);
+}
+
 .card1 {
-  background-image: url(../images/menu-item-01.jpg);
+  background-image: url(../../img/couple.jpg);
 }
 .card2 {
   background-image: url(../images/menu-item-02.jpg);
