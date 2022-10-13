@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class WdmemberServiceImpl implements WdmemberService{
 
 	@Autowired
-	private WdmemberDAO wdmemberDAO;
+	private WdmemberDAO2 wdmemberDAO;
 	
 	 
 	public void insertWdmember(WdmemberVO vo) {

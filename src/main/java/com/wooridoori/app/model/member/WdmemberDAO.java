@@ -8,9 +8,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-@Repository("WdmemberDAO")
+
 public class WdmemberDAO {
-	@Autowired
+
 	private JdbcTemplate jdbcTemplate;
 	
 	final String sql_selectOne="SELECT * FROM WDMEMBER WHERE WDMID=? AND WDMPW=?";

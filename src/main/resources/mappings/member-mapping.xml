@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberDAO">
+	<resultMap type="member" id="memberResult">
+		<id property="wdmpk" column="WDMPK" />
+		<result property="wdmid" column="WDMID" />
+		<result property="wdmpw" column="WDMPW" />
+		<result property="wdmnick" column="WDMNICK" />
+		<result property="wdmemail" column="WDMEMAIL" />
+		<result property="wdmgender" column="WDMGENDER" />
+		<result property="wdmmbti" column="WDMMBTI" />
+		<result property="nemail" column="NEMAIL" />
+		<result property="kemail" column="KEMAIL" />
+		<result property="wdmvip" column="WDMVIP" />
+	</resultMap>
+	<insert id="insertWdmember">
+		INSERT INTO WDMEMBER VALUES((SELECT NVL(MAX(WDMPK),0) +1 FROM WDMEMBER),#{wdmid},#{wdmpw},#{wdmnick},#{wdmemail},#{wdmgender},#{wdmmbti},#{nemail},#{kemail},#{wdmvip})
+	</insert>
+
+	<update id="updateWdmember">
+		UPDATE WDMEMBER SET WDMPW=#{wdmpw} WHERE WDMID=#{wdmid}
+	</update>
+
+	<delete id="deleteWdmember">
+		DELETE WDMEMBER WHERE WDMID=#{wdmid} AND WDMPW=#{wdmpw}
+	</delete>
+
+	<select id="selectOne" resultType="member">
+		SELECT * FROM WDMEMBER WHERE WDMID=#{wdmid} AND WDMPW=#{wdmpw}
+	</select>
+	
+	<select id="checkId" resultType="member">
+		SELECT * FROM WDMEMBER WHERE WDMID=#{wdmid}
+	</select>
+
+</mapper>
