@@ -253,8 +253,9 @@ body {
 .progress__duration {
   color: #71829e;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   opacity: 0.5;
+  float:right;
 }
 .progress__time {
   margin-top: 2px;
@@ -262,12 +263,12 @@ body {
   font-weight: 700;
   font-size: 16px;
   opacity: 0.7;
+  float:left;
 }
 
 .progress__bar {
   height: 6px;
   width: 100%;
-  cursor: pointer;
   background-color: #d0d8e6;
   display: inline-block;
   border-radius: 10px;

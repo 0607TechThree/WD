@@ -185,13 +185,15 @@ https://templatemo.com/tm-558-klassy-cafe
 						        </div>
 						        <div class="musicprogress" ref="progress">
 						          <div class="progress__top">
-						            
+						            <!-- 
 						            <div class="progress__duration">{{ duration }}</div>
+						             -->
 						          </div>
-						          <div class="progress__bar" @click="clickProgress">
+						          <div class="progress__bar">
 						            <div class="progress__current" :style="{ width : barWidth }"></div>
 						          </div>
-						          <div class="progress__time">{{ currentTime }}</div>
+						          <span class="progress__time">{{ currentTime }}</span>
+						          <span class="progress__duration">{{ duration }}</span>
 						        </div>
 						        <div v-cloak></div>
 						      </div>
