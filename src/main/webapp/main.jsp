@@ -87,6 +87,9 @@ https://templatemo.com/tm-558-klassy-cafe
 	font-family: 'Jua';
 	min-width: 300px;
 }
+.mimg{
+	min-height: 338px;
+}
 
 
 </style>
@@ -120,31 +123,11 @@ https://templatemo.com/tm-558-klassy-cafe
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#offers" >blog</a></li>
+                            <li class="scroll-to-section"><a href="#menu">OnedayClass</a></li>
                             <li class="scroll-to-section"><a href="#chefs">Activity</a></li>
                            	<li class="scroll-to-section"><a href="javascript:winopen()">chat</a></li>
-                        <!-- 
-                            <li class="submenu">
-                                <a href="javascript:;">Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Drop Down Page 1</a></li>
-                                    <li><a href="#">Drop Down Page 2</a></li>
-                                    <li><a href="#">Drop Down Page 3</a></li>
-                                </ul>
-                            </li>
-                        -->
-                            <li class="submenu">
-                                <a href="javascript:;">OnedayClass</a>
-                                
-                                <!-- 지역설정 -->
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a href="#">Features Page 4</a></li>
-                                </ul>
-                            </li>
-                            <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
-                             <li><a href="login.jsp">
+                       		
+                            <li><a href="login.jsp">
     	                         	<img class="actionimg" alt="로그인" src="img/login2.png" title="로그인 페이지로 이동">
 	                             </a>
                              </li>
@@ -172,7 +155,9 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-lg-4">
                     <div class="left-content">
                         <div class="inner-content">
-                            <img src="assets/images/wdwhlogo.png">
+                        	<center>
+	                            <img src="assets/images/wdwhlogo.png">
+                        	</center>
                             <!-- 뮤직플레이어 시작 -->
                             <div class="wrapper" id="app">
 						      <div class="player">
@@ -392,18 +377,19 @@ https://templatemo.com/tm-558-klassy-cafe
                 	<!-- 반복이 필요한 부분 -->
                 	<!-- 데이터는 onedayselectAll자료 필요함 -->
                 	<c:forEach var="v" items="${odatas}">
-                    <div class="item">
-                        <div class='card card1'>
+                	<a href="selectOneWdoneday.do?wdopk=${v.wdopk}">
+                    <div class="item onedayitem">
+                        <div class='card' style="background-image: url(img/crawling/${v.wdomainimg})">
                             <div class="price"><h6>${v.wdopk}</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>${v.wdoname}</h1>
-                              <p class='description'>${v.wdoregion}</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">이게머임<i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
                         </div>
+						<div>
+							<h5>${v.wdoname}</h5>
+							<center>
+								<p>${v.wdoregion}</p>
+							</center>
+						</div>
                     </div>
+                	</a>
                 	</c:forEach>
                     <!-- 반복이 필요한 부분 -->
                 </div>
@@ -431,47 +417,53 @@ https://templatemo.com/tm-558-klassy-cafe
             <div class="row">
                 <div class="col-lg-4">
                     <div class="chef-item">
+                        <a href="https://www.16personalities.com/ko">
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
                                 <li>내 MBTI 유형을 확인해 보아요</li>
                             </ul>
-                            <img src="assets/images/chefs-01.jpg" alt="Chef #1">
+                            <img src="img/mbti.jpg" alt="엠비티아이" class="mimg">
                         </div>
                         <div class="down-content">
                             <h4>MBTI 검사</h4>
-                            <span>Pastry Chef</span>
+                            <span></span>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="chef-item">
+                    	<a href="#">
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
                                 <li>디데이 계산을 통해 일정을 관리해요</li>
                             </ul>
-                            <img src="assets/images/chefs-02.jpg" alt="Chef #2">
+                            <img src="img/dday.jpg" alt="디데이계산기" class="mimg">
                         </div>
                         <div class="down-content">
                             <h4>D-day 계산기</h4>
-                            <span>Cookie Chef</span>
+                            <span></span>
                         </div>
+                    	</a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="chef-item">
+                    	<a href="https://www.banggooso.com/gl/1002/">
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
                                 <li>각자의 연애능력을 확인해보아요</li>
                             </ul>
-                            <img src="assets/images/chefs-03.jpg" alt="Chef #3">
+                            <img src="img/couple.jpg" alt="커플능력테스트" class="mimg">
                         </div>
                         <div class="down-content">
                             <h4>연애능력 테스트</h4>
-                            <span>https://www.banggooso.com/gl/1002/</span>
+                            <span></span>
                         </div>
+                        </a>
                     </div>
                 </div>
             </div>
