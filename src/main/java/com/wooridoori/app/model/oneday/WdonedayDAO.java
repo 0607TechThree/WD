@@ -17,6 +17,7 @@ public class WdonedayDAO {
 	
 	final String sql_selectOne="SELECT * FROM WDONEDAY WHERE WDOPK = ?";
 	final String sql_selectAll="SELECT * FROM WDONEDAY";
+	final String sql_selectAll_RB = "SELECT * FROM (SELECT * FROM WDONEDAY ORDER BY WDOPK DESC) WHERE ROWNUM <= 6";
 //	final String sql_insert="INSERT INTO WDONEDAY VALUES((SELECT NVL(MAX(WDOPK),0) +1 FROM WDONEDAY),?,?,?,?)";
 
 //	public void insertWdoneday(WdonedayVO vo) {
@@ -26,13 +27,16 @@ public class WdonedayDAO {
 		Object[] args= {vo.getWdopk()};
 		return jdbcTemplate.queryForObject(sql_selectOne,args,new WdonedayRowMapper());
 	}
-	List<WdonedayVO> selectAllWdoneday(WdonedayVO vo) {
+	public List<WdonedayVO> selectAllWdoneday(WdonedayVO vo) {
 		return jdbcTemplate.query(sql_selectAll,new WdonedayRowMapper());
 	}
+	List<WdonedayVO> selectAWdoneday(WdonedayVO vo) {
+        return jdbcTemplate.query(sql_selectAll_RB,new WdonedayRowMapper());
+}
 }
 class WdonedayRowMapper implements RowMapper<WdonedayVO> {
 
-	@Override
+	 
 	public WdonedayVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		WdonedayVO data=new WdonedayVO();
 		data.setWdopk(rs.getInt("WDOPK"));
@@ -40,6 +44,7 @@ class WdonedayRowMapper implements RowMapper<WdonedayVO> {
 		data.setWdoregion(rs.getString("WDOREGION"));
 		data.setWdoaddress(rs.getString("WDOADDRESS"));
 		data.setWdosubject(rs.getString("WDOSUBJECT"));
+		data.setWdomainimg(rs.getString("WDOMAINIMG"));
 		return data;
 	}
 }

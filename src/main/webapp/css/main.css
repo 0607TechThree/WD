@@ -8,6 +8,7 @@ body {
 }
 
 .icon {
+  margin: auto;
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -17,11 +18,11 @@ body {
 }
 
 .wrapper {
-  width: 100%;
+  width: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 170px;
   background-size: cover;
 }
 @media screen and (max-width: 700px), (max-height: 500px) {
@@ -32,12 +33,14 @@ body {
 }
 
 .player {
+  display:flex;
+  flex-wrap:wrap;
   background: #eef3f7;
-  width: 410px;
-  min-height: 480px;
+  width: 250px;
+  height: 170px;
   box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
   border-radius: 15px;
-  padding: 30px;
+  padding: 15px;
 }
 @media screen and (max-width: 576px), (max-height: 500px) {
   .player {
@@ -52,8 +55,8 @@ body {
 .player__top {
   display: flex;
   align-items: flex-start;
-  position: relative;
   z-index: 4;
+  flex-basis: 100%;
 }
 @media screen and (max-width: 576px), (max-height: 500px) {
   .player__top {
@@ -128,10 +131,9 @@ body {
 }
 .player-controls {
   flex: 1;
-  padding-left: 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
 @media screen and (max-width: 576px), (max-height: 500px) {
   .player-controls {
@@ -141,9 +143,15 @@ body {
     flex: unset;
   }
 }
+
+#iconmain{
+	width:80px;
+	height:80px;
+	padding-left: 6px;
+}
+
 .player-controls__item {
-  display: inline-flex;
-  font-size: 30px;
+  font-size: 47px;
   padding: 5px;
   margin-bottom: 10px;
   color: #acb8cc;
@@ -233,7 +241,7 @@ body {
   display: none;
 }
 
-.progress {
+.musicprogress {
   width: 100%;
   margin-top: -15px;
   user-select: none;
@@ -276,7 +284,6 @@ body {
 .album-info {
   color: #71829e;
   flex: 1;
-  padding-right: 60px;
   user-select: none;
 }
 @media screen and (max-width: 576px), (max-height: 500px) {
@@ -298,7 +305,7 @@ body {
 }
 .album-info__track {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 15px;
   opacity: 0.7;
   line-height: 1.3em;
   min-height: 52px;

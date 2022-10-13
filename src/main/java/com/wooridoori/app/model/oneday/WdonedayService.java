@@ -6,4 +6,5 @@ public interface WdonedayService {
 	void insertWdoneday(WdonedayVO vo);
 	WdonedayVO selectOneWdoneday(WdonedayVO vo);
 	List<WdonedayVO> selectAllWdoneday(WdonedayVO vo);
+	List<WdonedayVO> selectAWdoneday(WdonedayVO vo);
 }

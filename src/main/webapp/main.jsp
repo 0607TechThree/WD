@@ -13,7 +13,17 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://meyerweb.com/eric/tools/css/reset/reset.css"
+    />
     <title>Klassy Cafe - Restaurant HTML Template</title>
 <!--
     
@@ -56,6 +66,28 @@ https://templatemo.com/tm-558-klassy-cafe
 	font-family: 'Jua';
 	color: black;
 }
+.tab-item{
+	display:flex;
+	align-content: space-between;
+}
+.left-list{
+	width:100%;
+}
+.right-list{
+	width:100%;
+}
+.col-lg-12{
+	display:flex;
+	justify-content: space-around;
+}
+.tabs-content{
+	margin: auto;
+}
+.mainboardsize{
+	font-family: 'Jua';
+	min-width: 300px;
+}
+
 
 </style>
     </head>
@@ -141,10 +173,75 @@ https://templatemo.com/tm-558-klassy-cafe
                     <div class="left-content">
                         <div class="inner-content">
                             <img src="assets/images/wdwhlogo.png">
-                            <h6>D-day </h6>
-                            <div class="main-white-button scroll-to-section">
-                                <a href="board.do" align="center">couple blog go>></a>
-                            </div>
+                            <!-- 뮤직플레이어 시작 -->
+                            <div class="wrapper" id="app">
+						      <div class="player">
+						        <div class="player__top">
+						          
+						          <div class="player-controls">
+						            
+						            <div class="player-controls__item" @click="prevTrack">
+						              <svg class="icon">
+						                <use xlink:href="#icon-prev"></use>
+						              </svg>
+						            </div>
+						            <div class="player-controls__item -xl js-play" @click="play">
+						              <svg class="icon" id="iconmain">
+						                <use xlink:href="#icon-pause" v-if="isTimerPlaying"></use>
+						                <use xlink:href="#icon-play" v-else></use>
+						              </svg>
+						            </div>
+						            <div class="player-controls__item" @click="nextTrack">
+						              <svg class="icon">
+						                <use xlink:href="#icon-next"></use>
+						              </svg>
+						            </div>
+						          </div>
+						        </div>
+						        <div class="musicprogress" ref="progress">
+						          <div class="progress__top">
+						            
+						            <div class="progress__duration">{{ duration }}</div>
+						          </div>
+						          <div class="progress__bar" @click="clickProgress">
+						            <div class="progress__current" :style="{ width : barWidth }"></div>
+						          </div>
+						          <div class="progress__time">{{ currentTime }}</div>
+						        </div>
+						        <div v-cloak></div>
+						      </div>
+						      
+						    </div>
+						
+						    <svg xmlns="http://www.w3.org/2000/svg" hidden xmlns:xlink="http://www.w3.org/1999/xlink">
+						      <defs>
+						        <symbol id="icon-pause" viewBox="0 0 32 32">
+						          <title>icon-pause</title>
+						          <path d="M16 0.32c-8.64 0-15.68 7.040-15.68 15.68s7.040 15.68 15.68 15.68 15.68-7.040 15.68-15.68-7.040-15.68-15.68-15.68zM16 29.216c-7.296 0-13.216-5.92-13.216-13.216s5.92-13.216 13.216-13.216 13.216 5.92 13.216 13.216-5.92 13.216-13.216 13.216z"></path>
+						          <path d="M16 32c-8.832 0-16-7.168-16-16s7.168-16 16-16 16 7.168 16 16-7.168 16-16 16zM16 0.672c-8.448 0-15.328 6.88-15.328 15.328s6.88 15.328 15.328 15.328c8.448 0 15.328-6.88 15.328-15.328s-6.88-15.328-15.328-15.328zM16 29.568c-7.488 0-13.568-6.080-13.568-13.568s6.080-13.568 13.568-13.568c7.488 0 13.568 6.080 13.568 13.568s-6.080 13.568-13.568 13.568zM16 3.104c-7.104 0-12.896 5.792-12.896 12.896s5.792 12.896 12.896 12.896c7.104 0 12.896-5.792 12.896-12.896s-5.792-12.896-12.896-12.896z"></path>
+						          <path d="M12.16 22.336v0c-0.896 0-1.6-0.704-1.6-1.6v-9.472c0-0.896 0.704-1.6 1.6-1.6v0c0.896 0 1.6 0.704 1.6 1.6v9.504c0 0.864-0.704 1.568-1.6 1.568z"></path>
+						          <path d="M19.84 22.336v0c-0.896 0-1.6-0.704-1.6-1.6v-9.472c0-0.896 0.704-1.6 1.6-1.6v0c0.896 0 1.6 0.704 1.6 1.6v9.504c0 0.864-0.704 1.568-1.6 1.568z"></path>
+						        </symbol>
+						        <symbol id="icon-play" viewBox="0 0 32 32">
+						          <title>icon-play</title>
+						          <path d="M21.216 15.168l-7.616-5.088c-0.672-0.416-1.504 0.032-1.504 0.832v10.176c0 0.8 0.896 1.248 1.504 0.832l7.616-5.088c0.576-0.416 0.576-1.248 0-1.664z"></path>
+						          <path d="M13.056 22.4c-0.224 0-0.416-0.064-0.608-0.16-0.448-0.224-0.704-0.672-0.704-1.152v-10.176c0-0.48 0.256-0.928 0.672-1.152s0.928-0.224 1.344 0.064l7.616 5.088c0.384 0.256 0.608 0.672 0.608 1.088s-0.224 0.864-0.608 1.088l-7.616 5.088c-0.192 0.16-0.448 0.224-0.704 0.224zM13.056 10.272c-0.096 0-0.224 0.032-0.32 0.064-0.224 0.128-0.352 0.32-0.352 0.576v10.176c0 0.256 0.128 0.48 0.352 0.576 0.224 0.128 0.448 0.096 0.64-0.032l7.616-5.088c0.192-0.128 0.288-0.32 0.288-0.544s-0.096-0.416-0.288-0.544l-7.584-5.088c-0.096-0.064-0.224-0.096-0.352-0.096z"></path>
+						          <path d="M16 0.32c-8.64 0-15.68 7.040-15.68 15.68s7.040 15.68 15.68 15.68 15.68-7.040 15.68-15.68-7.040-15.68-15.68-15.68zM16 29.216c-7.296 0-13.216-5.92-13.216-13.216s5.92-13.216 13.216-13.216 13.216 5.92 13.216 13.216-5.92 13.216-13.216 13.216z"></path>
+						          <path d="M16 32c-8.832 0-16-7.168-16-16s7.168-16 16-16 16 7.168 16 16-7.168 16-16 16zM16 0.672c-8.448 0-15.328 6.88-15.328 15.328s6.88 15.328 15.328 15.328c8.448 0 15.328-6.88 15.328-15.328s-6.88-15.328-15.328-15.328zM16 29.568c-7.488 0-13.568-6.080-13.568-13.568s6.080-13.568 13.568-13.568c7.488 0 13.568 6.080 13.568 13.568s-6.080 13.568-13.568 13.568zM16 3.104c-7.104 0-12.896 5.792-12.896 12.896s5.792 12.896 12.896 12.896c7.104 0 12.896-5.792 12.896-12.896s-5.792-12.896-12.896-12.896z"></path>
+						        </symbol>
+						        <symbol id="icon-next" viewBox="0 0 32 32">
+						          <title>next</title>
+						          <path d="M2.304 18.304h14.688l-4.608 4.576c-0.864 0.864-0.864 2.336 0 3.232 0.864 0.864 2.336 0.864 3.232 0l8.448-8.48c0.864-0.864 0.864-2.336 0-3.232l-8.448-8.448c-0.448-0.448-1.056-0.672-1.632-0.672s-1.184 0.224-1.632 0.672c-0.864 0.864-0.864 2.336 0 3.232l4.64 4.576h-14.688c-1.248 0-2.304 0.992-2.304 2.272s1.024 2.272 2.304 2.272z"></path>
+						          <path d="M29.696 26.752c1.248 0 2.304-1.024 2.304-2.304v-16.928c0-1.248-1.024-2.304-2.304-2.304s-2.304 1.024-2.304 2.304v16.928c0.064 1.28 1.056 2.304 2.304 2.304z"></path>
+						        </symbol>
+						        <symbol id="icon-prev" viewBox="0 0 32 32">
+						          <title>prev</title>
+						          <path d="M29.696 13.696h-14.688l4.576-4.576c0.864-0.864 0.864-2.336 0-3.232-0.864-0.864-2.336-0.864-3.232 0l-8.448 8.48c-0.864 0.864-0.864 2.336 0 3.232l8.448 8.448c0.448 0.448 1.056 0.672 1.632 0.672s1.184-0.224 1.632-0.672c0.864-0.864 0.864-2.336 0-3.232l-4.608-4.576h14.688c1.248 0 2.304-1.024 2.304-2.304s-1.024-2.24-2.304-2.24z"></path>
+						          <path d="M2.304 5.248c-1.248 0-2.304 1.024-2.304 2.304v16.928c0 1.248 1.024 2.304 2.304 2.304s2.304-1.024 2.304-2.304v-16.928c-0.064-1.28-1.056-2.304-2.304-2.304z"></path>
+						        </symbol>
+						      </defs>
+						    </svg>
+						    <!-- 뮤직플레이어 종료 -->
                         </div>
                     </div>
                 </div>
@@ -217,36 +314,22 @@ https://templatemo.com/tm-558-klassy-cafe
                                             <div class="row">
                                                 <div class="left-list">
                                                 	<!-- 최신 리스트 3개 -->
+                                                    <c:forEach var="v" items="${brdatas}">
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-01.png" alt="">
-                                                            <h4>Fresh Chicken Salad</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="img/like.png" alt="">
+                                                            <div class="mainboardsize">
+                                                            <h4>제목 : ${v.wdbtitle}</h4>
+                                                            <p>작성자 : ${v.wdbwriter }</p>
+                                                            </div>
                                                             <div class="price">
-                                                                <h6>$10.50</h6>
+                                                            	<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
+                                                                <h6>이동</h6>
+                                                            	</a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-02.png" alt="">
-                                                            <h4>Orange Juice</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$8.50</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-03.png" alt="">
-                                                            <h4>Fruit Salad</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$9.90</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                	</c:forEach>
                                                     <!-- 최신 리스트 3개 끝 -->
                                                 </div>
                                             </div>
@@ -255,36 +338,22 @@ https://templatemo.com/tm-558-klassy-cafe
                                             <div class="row">
                                                 <div class="right-list">
                                                 	<!-- 좋아요순 리스트 3개 -->
+                                                    <c:forEach var="v" items="${bldatas}">
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-04.png" alt="">
-                                                            <h4>Eggs Omelette</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="img/new.png" alt="">
+                                                            <div class="mainboardsize">
+                                                            <h4>제목 : ${v.wdbtitle}</h4>
+                                                            <p>작성자 : ${v.wdbwriter }</p>
+                                                            </div>
                                                             <div class="price">
-                                                                <h6>$6.50</h6>
+                                                            	<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
+                                                                <h6>이동</h6>
+                                                            	</a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-05.png" alt="">
-                                                            <h4>Dollma Pire</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$5.00</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-06.png" alt="">
-                                                            <h4>Omelette & Cheese</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$4.10</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                	</c:forEach>
                                                     <!-- 좋아요순 리스트 3개 끝 -->
                                                 </div>
                                             </div>
@@ -322,85 +391,27 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="owl-menu-item owl-carousel">
                 	<!-- 반복이 필요한 부분 -->
                 	<!-- 데이터는 onedayselectAll자료 필요함 -->
+                	<c:forEach var="v" items="${odatas}">
                     <div class="item">
                         <div class='card card1'>
-                            <div class="price"><h6>1</h6></div>
+                            <div class="price"><h6>${v.wdopk}</h6></div>
                             <div class='info'>
-                              <h1 class='title'>타이틀</h1>
-                              <p class='description'>서브젝트, 지역</p>
+                              <h1 class='title'>${v.wdoname}</h1>
+                              <p class='description'>${v.wdoregion}</p>
                               <div class="main-text-button">
                                   <div class="scroll-to-section"><a href="#reservation">이게머임<i class="fa fa-angle-down"></i></a></div>
                               </div>
                             </div>
                         </div>
                     </div>
+                	</c:forEach>
                     <!-- 반복이 필요한 부분 -->
-                    <div class="item">
-                        <div class='card card2'>
-                            <div class="price"><h6></h6></div>
-                            <div class='info'>
-                              <h1 class='title'>Klassy Pancake</h1>
-                              <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card3'>
-                            <div class="price"><h6>$18</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>Tall Klassy Bread</h1>
-                              <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card4'>
-                            <div class="price"><h6>$10</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>Blueberry CheeseCake</h1>
-                              <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card5'>
-                            <div class="price"><h6>$8.50</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>Klassy Cup Cake</h1>
-                              <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card3'>
-                            <div class="price"><h6>$7.25</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>Klassic Cake</h1>
-                              <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 	<center>
-		<a href="#" class="jua">
+		<a href="oneday.do" class="jua">
 			<div>더보기 ></div>
 		</a>
 	</center>
@@ -493,6 +504,8 @@ https://templatemo.com/tm-558-klassy-cafe
     
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="./scripts/script.js"></script>
     <script>
 
         $(function() {

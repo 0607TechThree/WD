@@ -30,7 +30,7 @@ public class WdcoupleDAO {
 }
 class WdcoupleRowMapper implements RowMapper<WdcoupleVO> {
 
-	@Override
+	 
 	public WdcoupleVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		WdcoupleVO data=new WdcoupleVO();
 		data.setWdcpk(rs.getInt("WDCPK"));

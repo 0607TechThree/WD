@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wooridoori.app.board.WdboardService;
@@ -46,16 +47,19 @@ public class WdboardController {
 	}
 	
 	@RequestMapping("/board.do")
-	public String selectAllBoard(WdboardVO vo) {
+	public String selectAllBoard(WdboardVO vo, Model model) {
 		List<WdboardVO> datas=null;
 		datas=WdboardService.selectAllWdboard(vo);
+		System.out.println(datas);
+		model.addAttribute("boarddatas",datas);
 		return "board.jsp";
 	}
 	
 	@RequestMapping("/selectOneWdboard.do")
-	public String selectOneWdboard(WdboardVO vo) {
+	public String selectOneWdboard(WdboardVO vo, Model model) {
 		vo=WdboardService.selectOneWdboard(vo);
-		return "board.jsp";
+		model.addAttribute("boarddata",vo);
+		return "boarddetail.jsp";
 	}
 	
 }

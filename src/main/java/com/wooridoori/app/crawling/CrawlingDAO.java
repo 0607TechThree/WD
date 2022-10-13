@@ -13,7 +13,7 @@ public class CrawlingDAO {
 	private PreparedStatement pstmt;
 	
 	final String sql_insert_I="INSERT INTO WDIMAGE VALUES(?,?,?)";
-	final String sql_insert_O="INSERT INTO WDONEDAY VALUES(?,?,?,?,?)";
+	final String sql_insert_O="INSERT INTO WDONEDAY VALUES(?,?,?,?,?,?)";
 	
 	public void insertWdoneday(WdonedayVO vo) {
 		conn=JDBCUtil.connect();
@@ -24,6 +24,7 @@ public class CrawlingDAO {
 			pstmt.setString(3, vo.getWdoregion());
 			pstmt.setString(4, vo.getWdoaddress());
 			pstmt.setString(5, vo.getWdosubject());
+			pstmt.setString(6, vo.getWdomainimg());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
