@@ -43,8 +43,18 @@
 			<!-- Me -->
 			<article id="home" class="panel intro">
 				<header>
-					<h1>Jane Doe</h1>
-					<p>Senior Astral Projectionist</p>
+					<h1><c:if test="${boarddata == null}">
+						${data.wdbtitle}					
+					</c:if>
+					<c:if test="${boarddata != null}">
+						${boarddata.wdbtitle}					
+					</c:if></h1>
+					<p><c:if test="${boarddata == null}">
+						${data.wdbwriter}					
+					</c:if>
+					<c:if test="${boarddata != null}">
+						${boarddata.wdbwriter}					
+					</c:if></p>
 				</header>
 				<a href="#work" class="jumplink pic"> <span
 					class="arrow icon solid fa-chevron-right"><span>See
@@ -55,7 +65,12 @@
 			<!-- Work -->
 			<article id="work" class="panel">
 				<header>
-					<h2>Work</h2>
+					<h2><c:if test="${boarddata == null}">
+						${data.wdbtitle}					
+					</c:if>
+					<c:if test="${boarddata != null}">
+						${boarddata.wdbtitle}					
+					</c:if></h2>
 				</header>
 				<section>
 					<div id="readEditor">
