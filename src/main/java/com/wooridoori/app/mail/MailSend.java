@@ -42,7 +42,7 @@ public class MailSend {
 			InternetAddress to = new InternetAddress(request.getParameter("address"));
 			msg.setRecipient(Message.RecipientType.TO, to);
 			msg.setSubject("제목", "UTF-8");
-			msg.setText("안녕하세요, 테스트 메일입니다.", "UTF-8");
+			msg.setText("http://localhost:8088/app/couplecheck.jsp?wdcwoori="+request.getParameter("wdcwoori"), "UTF-8");
 			
 			Transport.send(msg);
 		} catch (AddressException ae) {
