@@ -44,7 +44,7 @@
 								
 								<!-- 반복 필요 boarddatas -->
 								<c:forEach var="v" items="${boarddatas}">
-								<article class="style2">
+								<article class="style${v.wdbrandom}">
 									<span class="image">
 										<img src="assets/images/pic01.jpg" alt="" />
 									</span>

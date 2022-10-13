@@ -58,7 +58,14 @@
 				</header>
 				<a href="#work" class="jumplink pic"> <span
 					class="arrow icon solid fa-chevron-right"><span>See
-							my work</span></span> <img src="assets/images/me.jpg" alt="" />
+							my work</span></span> 
+							<c:if test="${boarddata == null}">
+							<img src="assets/images/pic01.jpg" alt="" />				
+							</c:if>
+							<c:if test="${boarddata != null}">
+							<img src="assets/images/pic0${boarddata.wdbrandom}.jpg" alt="" />
+							</c:if>
+							<img src="assets/images/pic0${boarddata.wdbrandom}.jpg" alt="" />
 				</a>
 			</article>
 

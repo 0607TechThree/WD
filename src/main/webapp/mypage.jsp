@@ -41,13 +41,19 @@
 	</div>
 	<div id="tabs">
 	  <ul id="tabsli">
-	    <li id="1"><a class="ina" href="#fragment-1"><center><img class="tabimg" alt="내정보" src="img/mypage/info.png"></center><p>내 정보</p></a></li>
-	    <li id="2"><a class="ina" href="#fragment-2"><center><img class="tabimg" alt="커플정보" src="img/mypage/couple.png"></center><p>커플 정보</p></a></li>
-	    <li id="3"><a class="ina" href="#fragment-3"><center><img class="tabimg" alt="vip정보" src="img/mypage/vip.png"></center><p>VIP 정보</p></a></li>
+	    <li id="1"><a class="ina" href="#fragment-1"><center><img class="tabimg" alt="내정보" src="img/mypage/info.png"><p>내 정보</p></center></a></li>
+	    <li id="2"><a class="ina" href="#fragment-2"><center><img class="tabimg" alt="커플정보" src="img/mypage/couple.png"><p>커플 정보</p></center></a></li>
+	    <li id="3"><a class="ina" href="#fragment-3"><center><img class="tabimg" alt="vip정보" src="img/mypage/vip.png"><p>VIP 정보</p></center></a></li>
 	  </ul>
 	  <div id="fragment-1">
-	    <p>First tab is active by default:</p>
-	    <pre><code>$( "#tabs" ).tabs(); </code></pre>
+	    <div id="mypagemy">
+	    	<div id="myuserimg">
+	    		<img id="myuserimg2"alt="유저이미지" src="img/myuser.png">
+	    	</div>
+	    	<div id="myuserinfo">
+	    		안녕
+	    	</div>
+	    </div>
 	  </div>
 	  <div id="fragment-2">
 	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.

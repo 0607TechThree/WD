@@ -30,3 +30,26 @@
 	height: 50px;
 	
 }
+
+#mypagemy{
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
+	margin: auto;
+	height: auto;
+	border: 1px solid rgb(240,99,99);
+}
+
+#myuserimg{
+	flex-basis: 45%;
+	border: 1px solid rgb(240,99,99);
+}
+
+#myuserimg2{
+	
+}
+
+#myuserinfo{
+	flex-basis: 45%;
+	border: 1px solid rgb(240,99,99);
+}

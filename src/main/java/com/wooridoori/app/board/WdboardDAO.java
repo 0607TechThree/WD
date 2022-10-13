@@ -3,6 +3,7 @@ package com.wooridoori.app.board;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -73,6 +74,9 @@ class WdboardRowMapper implements RowMapper<WdboardVO> {
 		data.setWdbcontent(rs.getString("WDBCONTENT"));
 		data.setWdblike(rs.getInt("WDBLIKE"));
 		data.setWdbopen(rs.getInt("WDBOPEN"));
+		Random rd = new Random();
+		int rand = rd.nextInt(6)+1;
+		data.setWdbrandom(rand);
 		return data;
 	}
 }

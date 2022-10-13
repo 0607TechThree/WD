@@ -11,6 +11,13 @@ public class WdboardVO {
 	private String searchContent;
 	private int wdblike;
 	private int wdbopen;
+	private int wdbrandom;
+	public int getWdbrandom() {
+		return wdbrandom;
+	}
+	public void setWdbrandom(int wdbrandom) {
+		this.wdbrandom = wdbrandom;
+	}
 	public int getWdbpk() {
 		return wdbpk;
 	}
@@ -63,6 +70,7 @@ public class WdboardVO {
 	public String toString() {
 		return "WdboardVO [wdbpk=" + wdbpk + ", wdbwriter=" + wdbwriter + ", wdbtitle=" + wdbtitle + ", wdbcontent="
 				+ wdbcontent + ", searchCondition=" + searchCondition + ", searchContent=" + searchContent
-				+ ", wdblike=" + wdblike + ", wdbopen=" + wdbopen + "]";
+				+ ", wdblike=" + wdblike + ", wdbopen=" + wdbopen + ", wdbrandom=" + wdbrandom + "]";
 	}
+	
 }
