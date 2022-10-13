@@ -48,7 +48,7 @@
 			};
 			$.ajax({
 				type : 'GET',
-				url : '${pageContext.request.contextPath}/checkId.do?userid=' + userid,
+				url : '${pageContext.request.contextPath}/checkId.do?wdmid=' + userid,
 				data : {
 					userid : userid
 				},
@@ -96,10 +96,6 @@
 			var userM = document.getElementById("userm");
 	
 			var userR = document.getElementById("userRe");
-	
-			var userBr = document.getElementById("birth");
-	
-			var userh = document.getElementById("userh");
 			
 			var idDuplication = document.getElementById("idDuplication");
 	
@@ -163,12 +159,12 @@
 			//===========================================================
 			
 			// 전화번호
+			/*
 			else if (userh.value == "") {
 				alert("전화번호가 입력되지 않았습니다.");
 				$("#userh").focus();
 				validation=false;
 			}
-			/*
 			else if (!phoneExp.test(userh.value)) {
 				alert("전화번호 형식이 맞지 않습니다.");
 				$("#userh").focus();
@@ -186,7 +182,7 @@
 			
 			if(validation) {
 		           alert('회원가입 성공!!')
-		           form.action = 'tuserinsert.do';   //유효성 통과완료되면 서버로 데이터 전달하기.
+		           form.action = 'insertWdmember.do';   //유효성 통과완료되면 서버로 데이터 전달하기.
 		           form.method = 'POST';
 		       		// 폼을 제출하려면 반드시 폼이 문서 안에 있어야 합니다.
 		           form.submit();          // 서버로 데이터 전달하기 동작                                     
@@ -211,7 +207,7 @@
 			<table>
 				<tr>
 					<td class="jointabletitle"><div>아이디</div></td>
-					<td><input name="tuid" id="userid"  class="jointablevalueid"
+					<td><input name="wdmid" id="userid"  class="jointablevalueid"
 						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합" onkeydown="inputIdChk()">
 						<a class="ck_btn" href="javascript:check();">
 							<button type="button" id="joincheckidbutton">중복확인</button>
@@ -224,7 +220,7 @@
 				</tr>
 				<tr>
 					<td class="jointabletitle"><div>비밀번호</div></td>
-					<td><input type="password" name="tupw"  class="jointablevalue" id="userps"
+					<td><input type="password" name="wdmpw"  class="jointablevalue" id="userps"
 						required placeholder="아이디와 다른 6~12자리 영문과 숫자를 조합"></td>
 				</tr>
 				<tr class="tablebordertop">
@@ -234,9 +230,10 @@
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>닉네임</div></td>
-					<td><input required  class="jointablevalue" name="tunickname"
+					<td><input required  class="jointablevalue" name="wdmnick"
 						placeholder="닉네임을 입력해주세요"></td>
 				</tr>
+				<!-- 사용안함
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>휴대폰</div></td>
 					<c:if test="${param.userh != null}">
@@ -248,21 +245,22 @@
 						placeholder="전화번호를 입력해주세요 ex)01012345678"></td>
 					</c:if>
 				</tr>
+				 -->
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>이메일</div></td>
-					<td><input required  class="jointablevalue" name="tunickname"
+					<td><input required  class="jointablevalue" name="wdmemail"
 						placeholder="이메일을 입력해주세요"></td>
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle">성별</td>
 					<td>남&nbsp;<input type="radio"
-						name="tugender" checked="checked" value="남">여&nbsp;<input type="radio" name="tugender" value="여">
+						name="wdmgender" checked="checked" value="남">여&nbsp;<input type="radio" name="wdmgender" value="여">
 					</td>
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle">MBTI</td>
 					<td>
-						<select>
+						<select name="wdmmbti">
 							<option>ESTJ</option>
 							<option>ESTP</option>
 							<option>ESFJ</option>
@@ -295,6 +293,7 @@
 		</form>
 	</div>
 </div>
+<!-- 
 <script type="text/javascript">
 $( "#datepicker" ).datepicker();
 
@@ -320,5 +319,6 @@ $.datepicker.setDefaults({
 $('#datepicker').datepicker('setDate', '-30Y');
 // 초기 세팅 날짜
 </script>
+ -->
 </body>
 </html>

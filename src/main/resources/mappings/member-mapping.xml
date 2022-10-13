@@ -26,7 +26,15 @@
 	</delete>
 
 	<select id="selectOne" resultType="member">
+	<if test="kemail != null">
+		SELECT * FROM WDMEMBER WHERE KEMAIL=#{kemail}
+	</if>
+	<if test="nemail != null">
+		SELECT * FROM WDMEMBER WHERE NEMAIL=#{nemail}
+	</if>
+	<if test="kemail == null and nemail == null">
 		SELECT * FROM WDMEMBER WHERE WDMID=#{wdmid} AND WDMPW=#{wdmpw}
+	</if>
 	</select>
 	
 	<select id="checkId" resultType="member">

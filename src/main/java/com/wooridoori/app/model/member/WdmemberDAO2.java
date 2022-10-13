@@ -11,19 +11,19 @@ public class WdmemberDAO2 {
 	private SqlSessionTemplate mybatis;
 
 	public void insertWdmember(WdmemberVO vo) {
-		mybatis.insert("WdmemberDAO.insertWdmember",vo);
+		mybatis.insert("MemberDAO.insertWdmember",vo);
 	}
 	public void updateWdmember(WdmemberVO vo) {
-		mybatis.update("WdmemberDAO.updateWdmember",vo);
+		mybatis.update("MemberDAO.updateWdmember",vo);
 	}
 	public void deleteWdmember(WdmemberVO vo) {
-		mybatis.delete("WdmemberDAO.deleteWdmember",vo);
+		mybatis.delete("MemberDAO.deleteWdmember",vo);
 	}
 	public WdmemberVO selectOne(WdmemberVO vo) {
-		return mybatis.selectOne("WdmemberDAO.selectOne",vo);
+		return mybatis.selectOne("MemberDAO.selectOne",vo);
 	}
 	public WdmemberVO checkId(WdmemberVO vo) {
-		return mybatis.selectOne("WdmemberDAO.checkId",vo);
+		return mybatis.selectOne("MemberDAO.checkId",vo);
 	}
 
 
