@@ -127,7 +127,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             <li class="scroll-to-section"><a href="#chefs">Activity</a></li>
                            	<li class="scroll-to-section"><a href="javascript:winopen()">chat</a></li>
                        		
-                            <li><a href="login.jsp">
+                            <li><a href="loginaction.do">
     	                         	<img class="actionimg" alt="로그인" src="img/login2.png" title="로그인 페이지로 이동">
 	                             </a>
                              </li>
