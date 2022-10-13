@@ -11,7 +11,11 @@
 
 <div class="form-group" style="width: 38%; margin: 10px auto;">
 <button type="button" class="btn btn-primary btn-lg btn-block" onclick="send_mail()">보내기</button>
-</div>  
+</div>
+<form action="sendMail.do" method="post">
+	<input type="text" name="address">
+	<input type="submit" value="전송">
+</form>
 
 
 <script type="text/javascript">

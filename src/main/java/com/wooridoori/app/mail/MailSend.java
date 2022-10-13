@@ -12,10 +12,16 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+@Controller
 public class MailSend {
-
-	public void MailSend() {
+	@RequestMapping("/sendMail.do")
+	public String MailSend(HttpServletRequest request) {
 		Properties prop = System.getProperties();
 		prop.put("mail.smtp.starttls.enable", "true");
 		prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -33,7 +39,7 @@ public class MailSend {
 			msg.setSentDate(new Date());
 			
 			msg.setFrom(new InternetAddress("codecu6@gmail.com", "VISITOR"));
-			InternetAddress to = new InternetAddress("codecu6@gmail.com");
+			InternetAddress to = new InternetAddress(request.getParameter("address"));
 			msg.setRecipient(Message.RecipientType.TO, to);
 			msg.setSubject("제목", "UTF-8");
 			msg.setText("안녕하세요, 테스트 메일입니다.", "UTF-8");
@@ -46,6 +52,6 @@ public class MailSend {
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("UnsupportedEncodingException : " + e.getMessage());
 		}
-	    
+	    return "main.do";
 	}
 }
