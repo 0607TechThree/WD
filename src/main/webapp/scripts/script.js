@@ -10,13 +10,37 @@ new Vue({
       isTimerPlaying: false,
       tracks: [
         {
-          name: "[저작권 없는 음악 모음] 봄이 생각나는 산뜻하고 설레는 느낌의 브이로그 브금 모음💕",
+          name: "Culture Code - Make Me Move (feat. Karra) [NCS Release]",
           artist: "xxx",
           cover: "",
-          source: "mp3/1.mp3",
-          url: "https://www.youtube.com/watch?v=kLsB0mv4WlQ",
+          source: "mp3/Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3",
+          url: "",
           favorited: false
-        }
+        },
+        {
+          name: "Different Heaven - Safe And Sound [NCS Release]",
+          artist: "xxx",
+          cover: "",
+          source: "mp3/Different Heaven - Safe And Sound [NCS Release].mp3",
+          url: "",
+          favorited: false
+        },
+        {
+          name: "Elektronomia - Energy [NCS Release]",
+          artist: "xxx",
+          cover: "",
+          source: "mp3/Elektronomia - Energy [NCS Release].mp3",
+          url: "",
+          favorited: false
+        },
+        {
+          name: "Ship Wrek - Pain (feat. Mia Vaile) [NCS Release]",
+          artist: "xxx",
+          cover: "",
+          source: "mp3/Ship Wrek - Pain (feat. Mia Vaile) [NCS Release].mp3",
+          url: "",
+          favorited: false
+        }                
       ],
       currentTrack: null,
       currentTrackIndex: 0,
