@@ -13,7 +13,7 @@ new Vue({
           name: "Culture Code - Make Me Move (feat. Karra) [NCS Release]",
           artist: "xxx",
           cover: "",
-          source: "mp3/Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3",
+          source: "mp3/1.mp3",
           url: "",
           favorited: false
         },
@@ -21,7 +21,7 @@ new Vue({
           name: "Different Heaven - Safe And Sound [NCS Release]",
           artist: "xxx",
           cover: "",
-          source: "mp3/Different Heaven - Safe And Sound [NCS Release].mp3",
+          source: "mp3/2.mp3",
           url: "",
           favorited: false
         },
@@ -29,7 +29,7 @@ new Vue({
           name: "Elektronomia - Energy [NCS Release]",
           artist: "xxx",
           cover: "",
-          source: "mp3/Elektronomia - Energy [NCS Release].mp3",
+          source: "mp3/3.mp3",
           url: "",
           favorited: false
         },
@@ -37,7 +37,7 @@ new Vue({
           name: "Ship Wrek - Pain (feat. Mia Vaile) [NCS Release]",
           artist: "xxx",
           cover: "",
-          source: "mp3/Ship Wrek - Pain (feat. Mia Vaile) [NCS Release].mp3",
+          source: "mp3/4.mp3",
           url: "",
           favorited: false
         }                
