@@ -13,13 +13,13 @@ public class WdcoupleController {
 	@Autowired
 	private WdcoupleService WdcoupleService;
 	
-	@RequestMapping("/insertWdcouple")
+	@RequestMapping("/insertWdcouple.do")
 	public String insertWdcouple(WdcoupleVO vo){
 		WdcoupleService.insertWdcouple(vo);
 		return "redirect:main.do";
 	}
 	
-	@RequestMapping("/deleteWdcouple")
+	@RequestMapping("/deleteWdcouple.do")
 	public String deleteWdcouple(WdcoupleVO vo){
 		WdcoupleService.deleteWdcouple(vo);
 		return "redirect:main.do";

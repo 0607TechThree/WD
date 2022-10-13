@@ -14,7 +14,7 @@ public class WdcoupleDAO {
 	private JdbcTemplate jdbcTemplate;
 	
 	final String sql_selectOne="SELECT * FROM WDCOUPLE WHERE WDCPK = ?";
-	final String sql_insert="INSERT INTO WDCOUPLE VALUES((SELECT NVL(MAX(WDCPK),0) +1 FROM WDBOARD),?,?,?)";
+	final String sql_insert="INSERT INTO WDCOUPLE VALUES((SELECT NVL(MAX(WDCPK),0) +1 FROM WDCOUPLE),?,?,?)";
 	final String sql_delete="DELETE FROM WDCOUPLE WHERE WDCPK=?";
 	
 	void insertWdcouple(WdcoupleVO vo) {
