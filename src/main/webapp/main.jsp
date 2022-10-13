@@ -190,7 +190,7 @@ https://templatemo.com/tm-558-klassy-cafe
 						             -->
 						          </div>
 						          <div class="progress__bar">
-						            <div class="progress__current" :style="{ width : barWidth }"></div>
+						            <div class="progress__current" style="{ width : barWidth }"></div>
 						          </div>
 						          <span class="progress__time">{{ currentTime }}</span>
 						          <span class="progress__duration">{{ duration }}</span>
@@ -445,7 +445,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             <img src="img/dday.jpg" alt="디데이계산기" class="mimg">
                         </div>
                         <div class="down-content">
-                            <h4>D-day 계산기</h4>
+                            <h4>D+day 계산기</h4>
                             <span></span>
                         </div>
                     	</a>

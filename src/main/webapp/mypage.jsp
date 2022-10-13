@@ -51,7 +51,15 @@
 	    		<img id="myuserimg2"alt="유저이미지" src="img/myuser.png">
 	    	</div>
 	    	<div id="myuserinfo">
-	    		안녕
+	    		<h3>아이디 : ${udata.wdmid}</h3>
+	    		<br>
+	    		<p>닉네임 : ${udata.wdmnick}</p>
+	    		<br>
+	    		<p>이메일 : ${udata.wdmemail}</p>
+	    		<br>
+	    		<p>MBTI : ${udata.wdmmbti}</p>
+	    		<br>
+	    		<p>VIP 신청여부 : ${udata.wdmvip}</p>
 	    	</div>
 	    </div>
 	  </div>
