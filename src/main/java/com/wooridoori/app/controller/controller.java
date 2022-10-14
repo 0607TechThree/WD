@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -43,7 +44,6 @@ public class controller {
 		Map<String,String> scMap=new HashMap<String,String>();
 		scMap.put("제목", "TITLE");
 		scMap.put("작성자", "WRITER");
-		scMap.put("내용", "CONTENT");
 		return scMap;
 	}
 	
@@ -98,7 +98,7 @@ public class controller {
 	}
 	
 	@RequestMapping("/login.do")
-    public String selectOneMember(WdmemberVO wdmvo,HttpServletRequest request,HttpSession session,Model model,WdcoupleVO wdcvo) {
+    public String selectOneMember(WdmemberVO wdmvo,HttpServletRequest request,HttpSession session,Model model,WdcoupleVO wdcvo,ServletContext application) {
 		String paramLocation=request.getParameter("location");
 		wdmvo=wdmemberService.selectOneWdmember(wdmvo);
 		if(wdmvo==null) {
@@ -116,6 +116,12 @@ public class controller {
 			}else if(wdcoupleService.selectOneD(wdcvo) != null){
 				session.setAttribute("coupledata", wdmemberService.selectOneC(wdcoupleService.selectOneW(wdcvo).getWdcwoori()));
 			}
+			
+			// chat 비밀번호 설정
+			if(request.getParameter("chatpw") != null) {
+				application.setAttribute("chatpw", request.getParameter("chatpw"));
+			}
+			
 			return paramLocation;
 		}
     }
