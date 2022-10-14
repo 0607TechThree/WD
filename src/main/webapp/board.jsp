@@ -59,9 +59,11 @@
 								
 								<!-- 반복 필요 boarddatas -->
 								<c:forEach var="v" items="${boarddatas}">
+								<!-- 공개 -->
+								<c:if test="${v.wdbopen == 0}">
 								<article class="style${v.wdbrandom}">
 									<span class="image">
-										<img src="assets/images/pic01.jpg" alt="" />
+										<img src="assets/images/pic0${v.wdbrandom}.jpg" alt="" />
 									</span>
 									<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
 										<h2>제목 : ${v.wdbtitle}</h2>
@@ -70,6 +72,38 @@
 										</div>
 									</a>
 								</article>
+								</c:if>
+								<!-- 비공개 -->
+								<c:if test="${v.wdbopen == 1}">
+									<!-- 내가 쓴 글 -->
+									<c:if test="${udata.wdmid == v.wdbwriter}">
+								<article class="style${v.wdbrandom}">
+									<span class="image">
+										<img src="assets/images/pic0${v.wdbrandom}.jpg" alt="" />
+									</span>
+									<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
+										<h2>제목 : ${v.wdbtitle}</h2>
+										<div class="content">
+											<p>작성자 : ${v.wdbwriter}</p>
+										</div>
+									</a>
+								</article>
+									</c:if>
+									<!-- 커플 정보에 있는 사람 -->
+									<c:if test="${udata.wdmid == coupledata.wdmid}">
+								<article class="style${v.wdbrandom}">
+									<span class="image">
+										<img src="assets/images/pic0${v.wdbrandom}.jpg" alt="" />
+									</span>
+									<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
+										<h2>제목 : ${v.wdbtitle}</h2>
+										<div class="content">
+											<p>작성자 : ${v.wdbwriter}</p>
+										</div>
+									</a>
+								</article>
+									</c:if>
+								</c:if>
 								</c:forEach>
 								
 							</section>
