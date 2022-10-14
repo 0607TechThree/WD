@@ -43,11 +43,11 @@ public class WdblikeController {
 		WdblikeService.updateWdlike(vo);
 		wdbvo.setWdbpk(vo.getWdbpk());
 		if(vo.getWdbpk() == 0) {
-			WdboardService.updateWdboardlikeD(wdbvo);
-		}else {
 			WdboardService.updateWdboardlikeU(wdbvo);
+		}else {
+			WdboardService.updateWdboardlikeD(wdbvo);
 		}
-		return location;
+		return "board.do";
 	}
 
 }

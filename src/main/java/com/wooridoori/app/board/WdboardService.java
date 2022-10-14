@@ -9,6 +9,7 @@ public interface WdboardService {
 	void updateWdboardlikeU(WdboardVO vo);
 	void updateWdboardlikeD(WdboardVO vo);
 	WdboardVO selectOneWdboard(WdboardVO vo);
+	Integer selectOnePk(WdboardVO vo);
 	List<WdboardVO> selectAllWdboard(WdboardVO vo);
 	List<WdboardVO> selectAWdboard(WdboardVO vo);
 	List<WdboardVO> selectBWdboard(WdboardVO vo);

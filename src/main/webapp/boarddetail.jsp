@@ -35,9 +35,9 @@
 		<br>
 		<!-- Nav -->
 		<nav id="nav">
-			<a href="#" class="icon solid fa-envelope"><span>기본</span></a>
-			<a href="#work" class="icon solid fa-folder"><span>상세 보기</span></a>
-			<a href="board.do" class="icon solid fa-home"><span>목록보기</span></a>
+			<a href="#" class="icon solid fa-envelope"><span>기본</span></a> <a
+				href="#work" class="icon solid fa-folder"><span>상세 보기</span></a> <a
+				href="board.do" class="icon solid fa-home"><span>목록보기</span></a>
 		</nav>
 
 		<!-- Main -->
@@ -46,68 +46,48 @@
 			<!-- Me -->
 			<article id="home" class="panel intro">
 				<header>
-					<h1><c:if test="${boarddata == null}">
-						${data.wdbtitle}					
-					</c:if>
-					<c:if test="${boarddata != null}">
-						${boarddata.wdbtitle}					
-					</c:if></h1>
-					<p><c:if test="${boarddata == null}">
-						${data.wdbwriter}					
-					</c:if>
-					<c:if test="${boarddata != null}">
-						${boarddata.wdbwriter}					
-					</c:if></p>
+					<h1>${boarddata.wdbtitle}</h1>
+					<p>${boarddata.wdbwriter}</p>
+					<p>${boarddata.wdblike}</p>
 				</header>
 				<a href="#work" class="jumplink pic"> <span
 					class="arrow icon solid fa-chevron-right"><span>See
-							my work</span></span> 
-							<c:if test="${boarddata == null}">
-							<img src="assets/images/pic01.jpg" alt="" />				
-							</c:if>
-							<c:if test="${boarddata != null}">
-							<img src="assets/images/pic0${boarddata.wdbrandom}.jpg" alt="" />
-							</c:if>
-				</a>
+							my work</span></span> <img src="assets/images/pic0${boarddata.wdbrandom}.jpg"
+					alt="" /></a>
 			</article>
 
 			<!-- Work -->
 			<article id="work" class="panel">
-			<form action="updateWdboard.do" method="post">
-			<input type="hidden" value="boarddata.wdbpk">
-				<header>
-					<h2>
-					<p>게시글 제목<p>
-					<c:if test="${boarddata == null}">
-						<textarea id="writertitle" name="wdbtitle">${data.wdbtitle}</textarea>					
+				<form action="updateWdboard.do" method="post">
+					<input type="hidden" value="boarddata.wdbpk">
+					<header>
+						<h2>
+							<p>게시글 제목</p>
+							<textarea id="writertitle" name="wdbtitle">${boarddata.wdbtitle}</textarea>
+						</h2>
+					</header>
+					<section>
+						<div class="form-group" id="form">
+							<textarea id="writeEditor" name="wdbcontent" rows="20" cols="12">${boarddata.wdbcontent}</textarea>
+						</div>
+						전체공개&nbsp;<input type="radio" name="wdbopen" checked="checked"
+							value="0"> 커플공개&nbsp;<input type="radio" name="wdbopen"
+							value="1"> <br>
+					</section>
+					<c:if test="${udata != null}">
+						<c:if test="${likedata == null}">
+							<a
+								href="insertwdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}">좋아요</a>
+						</c:if>
+						<c:if test="${likedata != null}">
+							<a
+								href="updatewdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}&wdcheck=${likedata.wdcheck}">좋아요</a>
+						</c:if>
+						<c:if test="${boarddata.wdbwriter == udata.wdmid}">
+							<input type="submit" value="수정">
+						</c:if>
 					</c:if>
-					<c:if test="${boarddata != null}">
-						<textarea id="writertitle" name="wdbtitle">${boarddata.wdbtitle}</textarea>						
-					</c:if></h2>
-				</header>
-				<section>
-					<div class="form-group" id="form">
-					<c:if test="${boarddata == null}">
-						<textarea id="writeEditor" name="wdbcontent" rows="20" cols="12">${data.wdbcontent}</textarea>					
-					</c:if>
-					<c:if test="${boarddata != null}">				
-						<textarea id="writeEditor" name="wdbcontent" rows="20" cols="12">${boarddata.wdbcontent}</textarea>					
-					</c:if>
-					</div>
-					전체공개&nbsp;<input type="radio" name="wdbopen" checked="checked" value="0">
-					커플공개&nbsp;<input type="radio" name="wdbopen" value="1">
-					<br>
-				</section>
-				<c:if test="${likedata == null}">
-					<a href="insertwdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}">좋아요</a>
-				</c:if>
-				<c:if test="${likedata != null}">
-					<a href="updatewdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}&wdcheck=${likedata.wdcheck}">좋아요</a>
-				</c:if>
-			<c:if test="${boarddata.wdbwriter == udata.wdmid}">
-				<input type="submit" value="수정">
-			</c:if>
-			</form>
+				</form>
 			</article>
 		</div>
 	</div>
@@ -117,7 +97,7 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-<script>
+	<script>
 class MyUploadAdapter {
     constructor( loader ) {
     	// 업로드하는 동안 사용할 파일 로더 인스턴스입니다.

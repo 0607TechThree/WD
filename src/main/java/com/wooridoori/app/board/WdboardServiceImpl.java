@@ -44,4 +44,8 @@ public class WdboardServiceImpl implements WdboardService{
 	public List<WdboardVO> selectBWdboard(WdboardVO vo) {
 		return wdboardDAO.selectBBoard(vo);
 	}
+
+	public Integer selectOnePk(WdboardVO vo) {
+		return wdboardDAO.selectOnePk(vo);
+	}
 }

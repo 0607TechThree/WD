@@ -4,3 +4,4 @@ CREATE TABLE WDBLIKE (
 	wdmpk	int		NOT NULL,
 	wdcheck int not null
 );
+select * from WDBLIKE;

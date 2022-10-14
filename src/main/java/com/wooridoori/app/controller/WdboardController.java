@@ -38,8 +38,9 @@ public class WdboardController {
 	@RequestMapping("/insertWdboard.do")
 	public String insertWdboard(WdboardVO vo,Model model) {
 		WdboardService.insertWdboard(vo);
-		model.addAttribute("data", vo);
-		return "boarddetail.jsp";
+		WdboardService.selectOnePk(vo);
+
+		return "selectOneWdboard.do?wdbpk="+WdboardService.selectOnePk(vo);
 	}
 	
 	@RequestMapping("/deleteWdboard.do")

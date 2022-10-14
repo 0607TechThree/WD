@@ -7,6 +7,7 @@ CREATE TABLE WDBOARD (
 	wdbopen	int	DEFAULT 0	
 );
 drop table wdboard;
-select * from WDBOARD;
+select * from wdboard;
+SELECT MAX(wdbpk) FROM WDBOARD;
 
 SELECT A.*,ROWNUM FROM (SELECT * FROM WDBOARD WHERE WDBOPEN = 0 ORDER BY WDBPK DESC) A WHERE ROWNUM <= 3;

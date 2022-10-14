@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -16,6 +17,7 @@ public class WdboardDAO {
 	private JdbcTemplate jdbcTemplate;
 	
 	final String sql_selectOne="SELECT * FROM WDBOARD WHERE WDBPK = ?";
+	final String sql_selectPk="SELECT MAX(WDBPK) FROM WDBOARD";
 	final String sql_selectAll_RB = "SELECT A.*,ROWNUM FROM (SELECT * FROM WDBOARD WHERE WDBOPEN = 0 ORDER BY WDBPK DESC) A WHERE ROWNUM <= 3";
 //	final String sql_selectAll_RB = "SELECT * FROM (SELECT * FROM WDBOARD WHERE WDBOPEN = 0 ORDER BY WDBPK DESC) WHERE ROWNUM <= 3";
 //	final String sql_selectAll_LB = "SELECT * FROM (SELECT * FROM WDBOARD WHERE WDBOPEN = 0 ORDER BY WDBLIKE DESC) WHERE ROWNUM <= 3";
@@ -47,6 +49,13 @@ public class WdboardDAO {
 	WdboardVO selectOne(WdboardVO vo) {
 		Object[] args= {vo.getWdbpk()};
 		return jdbcTemplate.queryForObject(sql_selectOne, args,new WdboardRowMapper());
+	}
+	Integer selectOnePk(WdboardVO vo) {
+		try {	
+			return jdbcTemplate.queryForObject(sql_selectPk,Integer.class);
+		} catch (EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 	List<WdboardVO> selectAllBoard(WdboardVO vo) {
 		if(vo.getWdbtitle() != null) {
