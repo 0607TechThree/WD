@@ -33,7 +33,7 @@
 		</div>
 	</center>
 	<br>
-	<form action="imageUpload.do" method="post"
+	<form action="insertWdboard.do" method="post"
 		enctype="multipart/form-data">
 		<p>게시글 제목<p>
 		<textarea id="writertitle" name=""></textarea>
@@ -112,7 +112,7 @@ class MyUploadAdapter {
         }
 		//console.log(document.getElementById('form'));
 		
-        xhr.open( 'POST', 'http://localhost:8088/app/ckeditor.jsp', true );
+        xhr.open( 'POST', 'http://localhost:8088/app/boardwrite.jsp', true );
         xhr.responseType = 'json';
         //xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 

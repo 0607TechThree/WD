@@ -17,9 +17,10 @@ public class WdboardController {
 	private WdboardService WdboardService;
 	
 	@RequestMapping("/insertWdboard.do")
-	public String insertWdboard(WdboardVO vo) {
+	public String insertWdboard(WdboardVO vo,Model model) {
 		WdboardService.insertWdboard(vo);
-		return "redirect:main.do";
+		model.addAttribute("data", vo);
+		return "boarddetail.jsp";
 	}
 	
 	@RequestMapping("/deleteWdboard.do")
