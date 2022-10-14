@@ -40,7 +40,7 @@ public class WdboardController {
 		WdboardService.insertWdboard(vo);
 		WdboardService.selectOnePk(vo);
 
-		return "selectOneWdboard.do?wdbpk="+WdboardService.selectOnePk(vo);
+		return "redirect:selectOneWdboard.do?wdbpk="+WdboardService.selectOnePk(vo);
 	}
 	
 	@RequestMapping("/deleteWdboard.do")
