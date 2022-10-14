@@ -1,11 +1,15 @@
 package com.wooridoori.app.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wooridoori.app.board.WdboardService;
 import com.wooridoori.app.board.WdboardVO;
@@ -16,10 +20,19 @@ public class WdboardController {
 	@Autowired
 	private WdboardService WdboardService;
 	
+	@ModelAttribute("scMap")
+	public Map<String,String> searchConditionMap(){
+		Map<String,String> scMap=new HashMap<String,String>();
+		scMap.put("제목", "TITLE");
+		scMap.put("작성자", "WRITER");
+		return scMap;
+	}
+	
 	@RequestMapping("/insertWdboard.do")
-	public String insertWdboard(WdboardVO vo) {
+	public String insertWdboard(WdboardVO vo,Model model) {
 		WdboardService.insertWdboard(vo);
-		return "redirect:main.do";
+		model.addAttribute("data", vo);
+		return "boarddetail.jsp";
 	}
 	
 	@RequestMapping("/deleteWdboard.do")
@@ -47,8 +60,15 @@ public class WdboardController {
 	}
 	
 	@RequestMapping("/board.do")
-	public String selectAllBoard(WdboardVO vo, Model model) {
+	public String selectAllBoard(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,@RequestParam(value="searchContent",defaultValue="",required=false)String searchContent,WdboardVO vo, Model model) {
 		List<WdboardVO> datas=null;
+		if(!(searchContent.equals("") || searchContent.equals(null))) {
+			if(searchCondition.equals("TITLE") || searchCondition.equals("제목")) {
+				vo.setWdbtitle(searchContent);
+			}else {
+				vo.setWdbwriter(searchContent);
+			}	
+		}
 		datas=WdboardService.selectAllWdboard(vo);
 		System.out.println(datas);
 		model.addAttribute("boarddatas",datas);

@@ -56,7 +56,17 @@
 							</header>
 							
 							<section class="tiles">
-								
+							<!-- 검색 -->
+								<tr>
+										<th><select name="searchCondition">
+											<c:forEach var="v" items="${scMap}">
+											<option value="${v.value}">${v.key}</option>											
+											</c:forEach>
+										</select></th>
+										<th><input type="text" name="searchContent" placeholder="검색어를 입력하세요"></th>
+										<th><input type="submit" class="button" value="검색"></th>
+									</tr>
+									
 								<!-- 반복 필요 boarddatas -->
 								<c:forEach var="v" items="${boarddatas}">
 								<!-- 공개 -->
