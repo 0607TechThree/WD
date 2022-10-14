@@ -1,5 +1,58 @@
 @charset "UTF-8";
 
+* {
+  font-family: 'Jua';
+  letter-spacing :1px;
+}
+
+#pageAll{
+	width:350px;
+}
+
+#dDaycarPage{
+	display: flex;
+	align-items: center;
+}
+
+#logo{
+	margin:0 auto;
+}
+
+#hd_h1{
+	text-align: center;
+	color:#666666;
+	letter-spacing:1px;
+}
+
+#table{
+	align-items: center;
+}
+
+table{
+    border: 1px solid #ff8080;
+}
+
+td{
+	text-align: center;
+}
+
+th{
+	width: 100px;
+	height: 20px;
+}
+
+input {
+	width: 50px;
+	height: 20px;
+	text-align: center;
+	border: none;
+	background-color: lightpink;
+}
+
+#copyright{
+	text-align: right;
+}
+
 /*
 원하는요소{
 	적용사항 : 설정
