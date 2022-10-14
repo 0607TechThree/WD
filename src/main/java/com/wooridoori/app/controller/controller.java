@@ -123,4 +123,10 @@ public class controller {
 
     	return "login.jsp";
     }
+    
+    @RequestMapping("dDayCar.do")
+    public String dDayCarOpen() {
+    	return "dDayCar.jsp";
+    }
+    
 }

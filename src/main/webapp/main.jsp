@@ -438,7 +438,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 </div>
                 <div class="col-lg-4">
                     <div class="chef-item">
-                    	<a href="#">
+                    	<a href="javascript:winopen2()">
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
@@ -519,6 +519,9 @@ https://templatemo.com/tm-558-klassy-cafe
         });
 	function winopen(){
 		window.open("opensocket.do?id=${udata.wdmid}", "","width=330, height=430");
+	}
+	function winopen2(){
+		window.open("dDayCar.do", "","width=375, height=230");
 	}
     </script>
   </body>
