@@ -98,30 +98,38 @@ public class controller {
 	}
 	
 	@RequestMapping("/login.do")
-    public String selectOneMember(WdmemberVO wdmvo,HttpServletRequest request,HttpSession session,Model model,WdcoupleVO wdcvo,ServletContext application) {
+    public String selectOneMember(WdmemberVO wdmvo,HttpServletRequest request,HttpSession session,Model model,WdcoupleVO wdcvo) {
 		String paramLocation=request.getParameter("location");
+		System.out.println("로그인 do1");
 		wdmvo=wdmemberService.selectOneWdmember(wdmvo);
+		System.out.println("로그인 do2");
 		if(wdmvo==null) {
 			return "redirect:login.jsp";
 		}
 		else {
 			session.setAttribute("udata", wdmvo);
-			
+			/*
 			// 커플 조회
 			wdcvo.setWdcwoori(wdmvo.getWdmid());
 			wdcvo.setWdcdoori(wdmvo.getWdmid());
-			
-			if(wdcoupleService.selectOneW(wdcvo) != null) {
+			System.out.println("세팅완료");
+			if(wdcoupleService.selectOneW(wdcvo) != null) {				
+				System.out.println("1번 if 문 전");
 				session.setAttribute("coupledata", wdmemberService.selectOneC(wdcoupleService.selectOneW(wdcvo).getWdcdoori()));
+				System.out.println("1번 if 문 후");
 			}else if(wdcoupleService.selectOneD(wdcvo) != null){
+				System.out.println("2번 if 문 전");
 				session.setAttribute("coupledata", wdmemberService.selectOneC(wdcoupleService.selectOneW(wdcvo).getWdcwoori()));
+				System.out.println("2번 if 문 후");
 			}
 			
+			System.out.println("if 문 지나침");
 			// chat 비밀번호 설정
 			if(request.getParameter("chatpw") != null) {
-				application.setAttribute("chatpw", request.getParameter("chatpw"));
+				// application.setAttribute("chatpw", request.getParameter("chatpw"));
 			}
-			
+			System.out.println("챗 지나침");
+			 */
 			return paramLocation;
 		}
     }

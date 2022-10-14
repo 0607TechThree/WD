@@ -18,6 +18,7 @@ public class WdmemberDAO {
 	final String sql_update="UPDATE WDMEMBER SET WDMPW=? AND WDMNICK=? WHERE WDMID=?";
 	final String sql_delete="DELETE FROM WDMEMBER WHERE WDMID=?";
 	final String sql_checkId="SELECT * FROM WDMEMBER WHERE WDMID=?";
+	final String sql_vipupdate="UPDATE WDMEMBER SET WDMVIP=1 WHERE WDMID=?";
 	
 	void insertWdmember(WdmemberVO vo) {
 		if(vo.getNemail() == null && vo.getKemail() == null) {
@@ -29,6 +30,9 @@ public class WdmemberDAO {
 			vo.setNemail("-");
 		}
 		jdbcTemplate.update(sql_insert,vo.getWdmid(),vo.getWdmpw(),vo.getWdmnick(),vo.getWdmemail(),vo.getWdmgender(),vo.getWdmmbti(),vo.getNemail(),vo.getKemail(),vo.getWdmvip());
+	}
+	void vipupdate(WdmemberVO vo) {
+		jdbcTemplate.update(sql_vipupdate,vo.getWdmid());
 	}
 	void updateWdmember(WdmemberVO vo) {
 		jdbcTemplate.update(sql_update,vo.getWdmpw(),vo.getWdmnick(),vo.getWdmid());

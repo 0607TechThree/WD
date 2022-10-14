@@ -72,36 +72,37 @@
 			</article>
 
 			<!-- Work -->
+			<article id="work" class="panel">
 			<form action="updateWdboard.do" method="post">
 			<input type="hidden" value="boarddata.wdbpk">
-			<article id="work" class="panel">
 				<header>
 					<h2>
+					<p>게시글 제목<p>
 					<c:if test="${boarddata == null}">
-						<textarea id="writertitle" name="wdbtitle" value="${data.wdbtitle}"></textarea>					
+						<textarea id="writertitle" name="wdbtitle">${data.wdbtitle}</textarea>					
 					</c:if>
 					<c:if test="${boarddata != null}">
-						<textarea id="writertitle" name="wdbtitle" value="${boarddata.wdbtitle}"></textarea>						
+						<textarea id="writertitle" name="wdbtitle">${boarddata.wdbtitle}</textarea>						
 					</c:if></h2>
 				</header>
 				<section>
 					<div class="form-group" id="form">
 					<c:if test="${boarddata == null}">
-						<textarea id="writeEditor" name="wdbcontent" rows="20" cols="12" value="${data.wdbcontent}"></textarea>					
+						<textarea id="writeEditor" name="wdbcontent" rows="20" cols="12">${data.wdbcontent}</textarea>					
 					</c:if>
 					<c:if test="${boarddata != null}">				
-						<textarea id="writeEditor" name="wdbcontent" rows="20" cols="12" value="${boarddata.wdbcontent}"></textarea>					
+						<textarea id="writeEditor" name="wdbcontent" rows="20" cols="12">${boarddata.wdbcontent}</textarea>					
 					</c:if>
 					</div>
 					전체공개&nbsp;<input type="radio" name="wdbopen" checked="checked" value="0">
 					커플공개&nbsp;<input type="radio" name="wdbopen" value="1">
 					<br>
 				</section>
-			</article>
 			<c:if test="${boarddata.wdbwriter == udata.wdmid}">
 				<input type="submit" value="수정">
 			</c:if>
 			</form>
+			</article>
 		</div>
 	</div>
 	<!-- Scripts -->
@@ -248,19 +249,21 @@ let editor;
 let fileData;
 
 ClassicEditor
-.createdocument.querySelector( '#writeEditor' ){
+.create( document.querySelector( '#writeEditor' ) , {
 	extraPlugins: [MyCustomUploadAdapterPlugin],
 })
 
+.then( newEditor => {
+	editor=newEditor;
+})
 .then( editor => {
 	window.editor = editor;
+	/*
 	editor.disableReadOnlyMode( '#writeEditor' );
 	const toolbarElement = editor.ui.view.toolbar.element;
+	*/
 	//toolbarElement.style.display = 'none';
 } )
-.then(editor => {
-	
-})
 .catch( error => {
 	console.error( error );
 } );

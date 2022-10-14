@@ -40,4 +40,9 @@ public class WdmemberServiceImpl implements WdmemberService{
 		return wdmemberDAO.selectOneC(vo);
 	}
 
+
+	public void vipupdate(WdmemberVO vo) {
+		wdmemberDAO.vipupdate(vo);
+	}
+
 }
