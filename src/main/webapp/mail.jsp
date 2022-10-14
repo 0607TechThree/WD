@@ -4,7 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>mail</title>
+<!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
+<title>WooriDoori - mail</title>
 </head>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <body>
@@ -14,7 +17,7 @@
 </div>
 <form action="sendMail.do" method="post">
 	<input type="text" name="address">
-	<input type="text" name="wdcwoori" value="1">
+	<input type="text" name="wdcwoori" value="${udata.wdmid}">
 	<input type="submit" value="전송">
 </form>
 

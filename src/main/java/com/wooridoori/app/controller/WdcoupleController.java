@@ -25,9 +25,4 @@ public class WdcoupleController {
 		return "redirect:main.do";
 	}
 	
-	@RequestMapping("/selectOneWdcouple.do")
-	public String selectOne(WdcoupleVO vo) {
-		WdcoupleService.selectOneWdcouple(vo);
-		return "redirect:main.do";
-	}
 }

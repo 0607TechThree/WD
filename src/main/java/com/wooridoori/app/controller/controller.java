@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.wooridoori.app.board.WdboardService;
 import com.wooridoori.app.board.WdboardVO;
+import com.wooridoori.app.couple.WdcoupleService;
+import com.wooridoori.app.couple.WdcoupleVO;
 import com.wooridoori.app.model.member.WdmemberService;
 import com.wooridoori.app.model.member.WdmemberVO;
 import com.wooridoori.app.model.oneday.WdonedayService;
@@ -33,13 +36,14 @@ public class controller {
 	private WdmemberService wdmemberService;
 	@Autowired
 	private WdonedayService wdonedayService;
+	@Autowired
+	private WdcoupleService wdcoupleService;
 	
 	@ModelAttribute("scMap")
 	public Map<String,String> searchConditionMap(){
 		Map<String,String> scMap=new HashMap<String,String>();
 		scMap.put("제목", "TITLE");
 		scMap.put("작성자", "WRITER");
-		scMap.put("내용", "CONTENT");
 		return scMap;
 	}
 	
@@ -94,14 +98,44 @@ public class controller {
 	}
 	
 	@RequestMapping("/login.do")
-    public String selectOneMember(WdmemberVO wdmvo,HttpServletRequest request,HttpSession session,Model model) {
+    public String selectOneMember(WdmemberVO wdmvo,HttpServletRequest request,HttpSession session,Model model,WdcoupleVO wdcvo) {
 		String paramLocation=request.getParameter("location");
+		System.out.println("로그인 do1");
 		wdmvo=wdmemberService.selectOneWdmember(wdmvo);
+		System.out.println("로그인 do2");
 		if(wdmvo==null) {
 			return "redirect:login.jsp";
 		}
 		else {
 			session.setAttribute("udata", wdmvo);
+			/*
+			
+			
+			// 커플 조회
+			wdcvo.setWdcwoori(wdmvo.getWdmid());
+			//wdcvo.setWdcdoori(wdmvo.getWdmid());
+			System.out.println("세팅완료");
+			System.out.println("wdcvo = " + wdcvo);
+			System.out.println("셀렉원" + wdcoupleService.selectOneW(wdcvo));
+			System.out.println();
+			if(wdcoupleService.selectOneW(wdcvo) != null) {				
+				System.out.println("1번 if 문 전");
+				session.setAttribute("coupledata", wdmemberService.selectOneC(wdcoupleService.selectOneW(wdcvo).getWdcdoori()));
+				System.out.println("1번 if 문 후");
+			}else if(wdcoupleService.selectOneD(wdcvo) != null){
+				System.out.println("2번 if 문 전");
+				session.setAttribute("coupledata", wdmemberService.selectOneC(wdcoupleService.selectOneW(wdcvo).getWdcwoori()));
+				System.out.println("2번 if 문 후");
+			}
+			
+			System.out.println("if 문 지나침");
+			// chat 비밀번호 설정
+			if(request.getParameter("chatpw") != null) {
+				// application.setAttribute("chatpw", request.getParameter("chatpw"));
+			}
+			System.out.println("챗 지나침");
+			 */
+			
 			return paramLocation;
 		}
     }
@@ -114,13 +148,19 @@ public class controller {
     
     @RequestMapping("/loginaction.do")
     public String loginaction(HttpServletRequest request,HttpSession session) {
-    	String uri = request.getHeader("REFERER"); // 로그인을 누를 시 frontcontroller를 거치는데, 이 때 거치기 전 페이지의 주소를 저장
+    	String uri = request.getHeader("REFERER"); // 로그인을 누를 시 페이지의 주소를 저장
 		System.out.println("uri : "+uri);
 		String location = uri.substring(26); // uri에서 필요한 action만 자름
 		System.out.println(location);
 		
-		session.setAttribute("location", location);
+		request.setAttribute("location", location);
 
     	return "login.jsp";
     }
+    
+    @RequestMapping("dDayCar.do")
+    public String dDayCarOpen() {
+    	return "dDayCar.jsp";
+    }
+    
 }

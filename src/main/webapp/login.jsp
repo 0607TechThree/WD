@@ -4,7 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인 | TechTrip</title>
+<!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
+<title>WooriDoori - 로그인</title>
 <!--  favicon -->
 <link rel="icon" type="image/x-icon" href="images/fav/favicon.jpg" />
 <link rel="

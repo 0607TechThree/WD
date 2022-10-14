@@ -6,7 +6,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>tabs demo</title>
+  <!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
+  <title>WooriDoori - 마이페이지</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="css/mypage.css">
   <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
@@ -117,10 +120,22 @@
 		  			</table>
 		  			<br>
 		  			<div>
-		  				현재 회원님의 등급은 ( ) 등급입니다!
+		  				현재 회원님의 등급은
+		  				<c:if test="${udata.wdmvip == 0}">
+			  				일반
+		  				</c:if>
+		  				<c:if test="${udata.wdmvip == 1}">
+		  					VIP
+		  				</c:if>
+		  				등급입니다!
 		  			</div>
 		  			<div>
-		  				VIP등급으로 전환 (결제하기) <button>dd</button>
+		  				<c:if test="${udata.wdmvip == 0}">
+			  				VIP등급으로 전환 (결제하기) <button onclick="javascript:kakaopayopen()">결제하기</button>
+		  				</c:if>
+		  				<c:if test="${udata.wdmvip == 1}">
+		  					VIP등급입니다!
+		  				</c:if>
 		  			</div>
 	  			</center>
 	  		</div>
@@ -135,6 +150,10 @@
 <script>
 $( "#tabs" ).tabs();
 
+
+function kakaopayopen(){
+	window.open("kakaoPay.jsp", "","width=500, height=600");
+}
 </script>
 
 </body>

@@ -6,7 +6,9 @@
 <html lang="en">
 
   <head>
-
+<!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -24,7 +26,7 @@
       rel="stylesheet"
       href="https://meyerweb.com/eric/tools/css/reset/reset.css"
     />
-    <title>Klassy Cafe - Restaurant HTML Template</title>
+    <title>WooriDoori - 메인페이지</title>
 <!--
     
 TemplateMo 558 Klassy Cafe
@@ -126,7 +128,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             <li class="scroll-to-section"><a href="#menu">OnedayClass</a></li>
                             <li class="scroll-to-section"><a href="#chefs">Activity</a></li>
                            	<li class="scroll-to-section"><a href="javascript:winopen()">chat</a></li>
-                       		
+                       		<c:if test="${udata == null}">
                             <li><a href="loginaction.do">
     	                         	<img class="actionimg" alt="로그인" src="img/login2.png" title="로그인 페이지로 이동">
 	                             </a>
@@ -135,6 +137,17 @@ https://templatemo.com/tm-558-klassy-cafe
     	                         	<img class="actionimg" alt="회원가입" src="img/join2.png" title="회원가입 페이지로 이동">
 	                             </a>
                              </li>
+                       		</c:if>
+                       		<c:if test="${udata != null}">
+                       		<li><a href="mypage.do">
+    	                         	<img class="actionimg" alt="마이페이지" src="img/user2.png" title="마이페이지로 이동">
+	                             </a>
+                             </li>
+                             <li><a href="logout.do">
+    	                         	<img class="actionimg" alt="로그아웃" src="img/logout2.png" title="로그아웃">
+	                             </a>
+                             </li>
+                       		</c:if>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -300,38 +313,15 @@ https://templatemo.com/tm-558-klassy-cafe
                                         <div class="col-lg-6">
                                             <div class="row">
                                                 <div class="left-list">
-                                                	<!-- 최신 리스트 3개 -->
-                                                    <c:forEach var="v" items="${brdatas}">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="img/like.png" alt="">
-                                                            <div class="mainboardsize">
-                                                            <h4>제목 : ${v.wdbtitle}</h4>
-                                                            <p>작성자 : ${v.wdbwriter }</p>
-                                                            </div>
-                                                            <div class="price">
-                                                            	<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
-                                                                <h6>이동</h6>
-                                                            	</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                	</c:forEach>
-                                                    <!-- 최신 리스트 3개 끝 -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="right-list">
                                                 	<!-- 좋아요순 리스트 3개 -->
+                                                	
                                                     <c:forEach var="v" items="${bldatas}">
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="img/new.png" alt="">
+                                                            <img src="img/like${v.wdbrandom}.png" alt="">
                                                             <div class="mainboardsize">
                                                             <h4>제목 : ${v.wdbtitle}</h4>
-                                                            <p>작성자 : ${v.wdbwriter }</p>
+                                                            <p>작성자 : ${v.wdbwriter} <br>좋아요 : ${v.wdblike}</p>
                                                             </div>
                                                             <div class="price">
                                                             	<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
@@ -342,6 +332,31 @@ https://templatemo.com/tm-558-klassy-cafe
                                                     </div>
                                                 	</c:forEach>
                                                     <!-- 좋아요순 리스트 3개 끝 -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="right-list">
+                                                	<!-- 최신 리스트 3개 -->
+                                                    <c:forEach var="v" items="${brdatas}">
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="img/newblog.png" alt="신규블로그">
+                                                            <div class="mainboardsize">
+                                                            <h4>제목 : ${v.wdbtitle}</h4>
+                                                            <p>작성자 : ${v.wdbwriter} <br>좋아요 : ${v.wdblike}</p>
+                                                            </div>
+                                                            <div class="price">
+                                                            	<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
+                                                                <h6>이동</h6>
+                                                            	</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                	</c:forEach>
+                                                	<!-- 최신 리스트 3개 끝 -->
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -386,9 +401,7 @@ https://templatemo.com/tm-558-klassy-cafe
                         </div>
 						<div>
 							<h5>${v.wdoname}</h5>
-							<center>
-								<p>${v.wdoregion}</p>
-							</center>
+							<span class="onedayp">- ${v.wdoregion} -</span>
 						</div>
                     </div>
                 	</a>
@@ -419,7 +432,7 @@ https://templatemo.com/tm-558-klassy-cafe
             <div class="row">
                 <div class="col-lg-4">
                     <div class="chef-item">
-                        <a href="https://www.16personalities.com/ko">
+                        <a href="javascript:winopen3()">
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
@@ -436,7 +449,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 </div>
                 <div class="col-lg-4">
                     <div class="chef-item">
-                    	<a href="#">
+                    	<a href="javascript:winopen2()">
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
@@ -453,7 +466,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 </div>
                 <div class="col-lg-4">
                     <div class="chef-item">
-                    	<a href="https://www.banggooso.com/gl/1002/">
+                    	<a href="javascript:winopen4()">
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
@@ -517,6 +530,15 @@ https://templatemo.com/tm-558-klassy-cafe
         });
 	function winopen(){
 		window.open("opensocket.do?id=${udata.wdmid}", "","width=330, height=430");
+	}
+	function winopen2(){
+		window.open("dDayCar.do", "","width=375, height=230");
+	}
+	function winopen3(){
+		window.open("https://www.16personalities.com/ko", "","");
+	}
+	function winopen4(){
+		window.open("https://www.banggooso.com/gl/1002/", "","");
 	}
     </script>
   </body>

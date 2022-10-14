@@ -36,9 +36,16 @@
 		SELECT * FROM WDMEMBER WHERE WDMID=#{wdmid} AND WDMPW=#{wdmpw}
 	</if>
 	</select>
+	<select id="selectOneC" resultType="member">
+		SELECT * FROM WDMEMBER WHERE WDMID=#{wdmid}
+	</select>
 	
 	<select id="checkId" resultType="member">
 		SELECT * FROM WDMEMBER WHERE WDMID=#{wdmid}
 	</select>
+	
+	<update id="vipupdate">
+		UPDATE WDMEMBER SET WDMVIP=1 WHERE WDMID=#{wdmid}
+	</update>
 
 </mapper>

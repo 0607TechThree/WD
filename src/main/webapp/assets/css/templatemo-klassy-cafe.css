@@ -925,11 +925,18 @@ menu
 
 .onedayitem{
 	color: rgb(240,100,100);
+	text-align: center;
 }
 
 .onedayitem:hover{
 	box-shadow: gray;
-	border: 2px solid rgb(240,100,100);
+	border: 1.5px solid rgb(240,100,100);
+}
+
+.onedayp{
+	font-size: 17px;
+	color: black;
+	text-align: center;
 }
 
 .card1 {
@@ -982,6 +989,7 @@ menu
   width: 70px;
   height: 70px;
   background-color: #fb5849;
+  opacity: 0.8;
   font-size: 20px;
   font-weight: 700;
   color: #fff;
@@ -1434,7 +1442,7 @@ offers
   border-radius: 5px;
 }
 #offers .tabs-content h4 {
-  padding-top: 20px;
+  padding-top: 10px;
   font-size: 20px;
   font-weight: 700;
   color: #2a2a2a;

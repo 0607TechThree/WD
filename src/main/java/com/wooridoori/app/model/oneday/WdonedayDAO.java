@@ -17,7 +17,7 @@ public class WdonedayDAO {
 	
 	final String sql_selectOne="SELECT * FROM WDONEDAY WHERE WDOPK = ?";
 	final String sql_selectAll="SELECT * FROM WDONEDAY";
-	final String sql_selectAll_RB = "SELECT * FROM (SELECT * FROM WDONEDAY ORDER BY WDOPK DESC) WHERE ROWNUM <= 6";
+	final String sql_selectAll_RB = "SELECT * FROM (SELECT * FROM WDONEDAY ORDER BY WDOPK) WHERE ROWNUM <= 6";
 //	final String sql_insert="INSERT INTO WDONEDAY VALUES((SELECT NVL(MAX(WDOPK),0) +1 FROM WDONEDAY),?,?,?,?)";
 
 //	public void insertWdoneday(WdonedayVO vo) {

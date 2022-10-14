@@ -10,7 +10,10 @@
 -->
 <html>
 	<head>
-		<title>Phantom by HTML5 UP</title>
+	<!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
+		<title>WooriDoori - 원데이클래스</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets2/css/main.css" />
@@ -49,11 +52,14 @@
 							<br/>
 							<header>
 							<center>
+								<br>
 								<h1>원데이클래스<br />
 								</h1>
-								<p>커플과 함께 즐거운 활동을 신청해봐요!</p>
+								<p>커플과 함께 즐거운 활동을 신청해봐요</p>
+								<p><span> <a href="main.do"> <img alt="메인으로" src="img/home.png" style="width:40px; height:40px;"></a></span></p>
 							</center>
-							</header>
+							
+						</header>
 							<section class="tiles">
 							<!-- onedaydatas -->
 								<c:forEach var="v" items="${onedaydatas}">

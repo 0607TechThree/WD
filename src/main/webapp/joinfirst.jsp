@@ -6,7 +6,10 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/joinfirst.css" type="text/css">
-<title>회원가입약관 </title>
+<!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
+<title>WooriDoori - 회원가입약관</title>
 
 </head>
 <body>
