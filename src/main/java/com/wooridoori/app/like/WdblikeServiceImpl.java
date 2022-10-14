@@ -18,4 +18,8 @@ public class WdblikeServiceImpl implements WdblikeService{
 		wdblikeDAO.updateWdlike(vo);
 	}
 
+	public WdblikeVO selectOneWdlike(WdblikeVO vo) {
+		return wdblikeDAO.selectOne(vo);
+	}
+
 }
