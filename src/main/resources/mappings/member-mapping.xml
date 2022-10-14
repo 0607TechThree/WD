@@ -43,5 +43,9 @@
 	<select id="checkId" resultType="member">
 		SELECT * FROM WDMEMBER WHERE WDMID=#{wdmid}
 	</select>
+	
+	<update id="vipupdate">
+		UPDATE WDMEMBER SET WDMVIP=1 WHERE WDMID=#{wdmid}
+	</update>
 
 </mapper>

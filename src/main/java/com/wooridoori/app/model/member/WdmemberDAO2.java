@@ -28,6 +28,8 @@ public class WdmemberDAO2 {
 	public WdmemberVO checkId(WdmemberVO vo) {
 		return mybatis.selectOne("MemberDAO.checkId",vo);
 	}
-
+	public void vipupdate(WdmemberVO vo) {
+		mybatis.update("MemberDAO.vipupdate",vo);
+	}
 
 }
