@@ -81,7 +81,7 @@
 							<a href="oneday.do">
 								<img class="himg" alt="목록으로" src="img/list.png" title="목록으로">
 							</a>
-							<a href="#">
+							<a href="#" class="buttonatag">
 								<img class="himg" alt="문의하기" src="img/ask.png" title="문의하기">
 							</a>
 						</div>
@@ -148,14 +148,6 @@
         body.style.overflow = 'hidden';
       }
     });
-    
-    btnOpenPopup2.addEventListener('click', () => {
-        modal.classList.toggle('show');
-
-        if (modal.classList.contains('show')) {
-          body.style.overflow = 'hidden';
-        }
-      });
 
     modal.addEventListener('click', (event) => {
       if (event.target === modal) {

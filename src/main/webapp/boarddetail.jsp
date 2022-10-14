@@ -29,7 +29,7 @@
 	<!-- Wrapper-->
 	<div id="wrapper">
 		<center>
-			<a href="main.jsp"><img id="logo" alt="로고"
+			<a href="main.do"><img id="logo" alt="로고"
 				src="img/wdmainlogo.png"></a>
 		</center>
 		<br>
@@ -98,6 +98,12 @@
 					커플공개&nbsp;<input type="radio" name="wdbopen" value="1">
 					<br>
 				</section>
+				<c:if test="${likedata == null}">
+					<a href="insertwdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}">좋아요</a>
+				</c:if>
+				<c:if test="${likedata != null}">
+					<a href="updatewdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}&wdcheck=${likedata.wdcheck}">좋아요</a>
+				</c:if>
 			<c:if test="${boarddata.wdbwriter == udata.wdmid}">
 				<input type="submit" value="수정">
 			</c:if>

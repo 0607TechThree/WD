@@ -86,7 +86,9 @@ public class WdboardController {
 	public String selectOneWdboard(WdboardVO vo, Model model,WdblikeVO wdblvo,HttpSession session,WdmemberVO wdmvo) {
 		vo=WdboardService.selectOneWdboard(vo);
 		model.addAttribute("boarddata",vo);
+		System.out.println("if문 실행 전");
 		if(session.getAttribute("udata") != null) {
+			System.out.println("if문 안쪽으로");
 			wdmvo = (WdmemberVO) session.getAttribute("udata");			
 			wdblvo.setWdbpk(vo.getWdbpk());
 			wdblvo.setWdmpk(wdmvo.getWdmpk());		

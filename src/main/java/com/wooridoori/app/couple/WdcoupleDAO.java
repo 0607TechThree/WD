@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -26,11 +27,19 @@ public class WdcoupleDAO {
 	}
 	WdcoupleVO selectOneW(WdcoupleVO vo) {
 		Object[] args= {vo.getWdcwoori()};
-		return jdbcTemplate.queryForObject(sql_selectOne_W, args,new WdcoupleRowMapper());
+		try {	
+			return jdbcTemplate.queryForObject(sql_selectOne_W, args,new WdcoupleRowMapper());
+		} catch (EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 	WdcoupleVO selectOneD(WdcoupleVO vo) {
 		Object[] args= {vo.getWdcdoori()};
-		return jdbcTemplate.queryForObject(sql_selectOne_D, args,new WdcoupleRowMapper());
+		try {	
+			return jdbcTemplate.queryForObject(sql_selectOne_D, args,new WdcoupleRowMapper());
+		} catch (EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 }
 class WdcoupleRowMapper implements RowMapper<WdcoupleVO> {

@@ -25,11 +25,12 @@ public class WdblikeController {
 		System.out.println("uri : "+uri);
 		String location = uri.substring(26); // uri에서 필요한 action만 자름
 		System.out.println(location);
-		
+		System.out.println(vo);
+		System.out.println(wdbvo);
 		WdblikeService.insertWdlike(vo);
 		wdbvo.setWdbpk(vo.getWdbpk());
 		WdboardService.updateWdboardlikeU(wdbvo);
-		return location;
+		return "board.do";
 	}
 	
 	@RequestMapping("/updatewdlike.do")
