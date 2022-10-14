@@ -2,8 +2,8 @@ package com.wooridoori.app.couple;
 
 public class WdcoupleVO {
 	private int wdcpk;
-	private int wdcwoori;
-	private int wdcdoori;
+	private String wdcwoori;
+	private String wdcdoori;
 	private String wdcdate;
 	public int getWdcpk() {
 		return wdcpk;
@@ -11,16 +11,16 @@ public class WdcoupleVO {
 	public void setWdcpk(int wdcpk) {
 		this.wdcpk = wdcpk;
 	}
-	public int getWdcwoori() {
+	public String getWdcwoori() {
 		return wdcwoori;
 	}
-	public void setWdcwoori(int wdcwoori) {
+	public void setWdcwoori(String wdcwoori) {
 		this.wdcwoori = wdcwoori;
 	}
-	public int getWdcdoori() {
+	public String getWdcdoori() {
 		return wdcdoori;
 	}
-	public void setWdcdoori(int wdcdoori) {
+	public void setWdcdoori(String wdcdoori) {
 		this.wdcdoori = wdcdoori;
 	}
 	public String getWdcdate() {

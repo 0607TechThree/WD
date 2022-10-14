@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.wooridoori.app.board.WdboardService;
 import com.wooridoori.app.board.WdboardVO;
+import com.wooridoori.app.couple.WdcoupleService;
+import com.wooridoori.app.couple.WdcoupleVO;
 import com.wooridoori.app.model.member.WdmemberService;
 import com.wooridoori.app.model.member.WdmemberVO;
 import com.wooridoori.app.model.oneday.WdonedayService;
@@ -33,6 +35,8 @@ public class controller {
 	private WdmemberService wdmemberService;
 	@Autowired
 	private WdonedayService wdonedayService;
+	@Autowired
+	private WdcoupleService wdcoupleService;
 	
 	@ModelAttribute("scMap")
 	public Map<String,String> searchConditionMap(){
@@ -94,7 +98,7 @@ public class controller {
 	}
 	
 	@RequestMapping("/login.do")
-    public String selectOneMember(WdmemberVO wdmvo,HttpServletRequest request,HttpSession session,Model model) {
+    public String selectOneMember(WdmemberVO wdmvo,HttpServletRequest request,HttpSession session,Model model,WdcoupleVO wdcvo) {
 		String paramLocation=request.getParameter("location");
 		wdmvo=wdmemberService.selectOneWdmember(wdmvo);
 		if(wdmvo==null) {
@@ -102,6 +106,16 @@ public class controller {
 		}
 		else {
 			session.setAttribute("udata", wdmvo);
+			
+			// 커플 조회
+			wdcvo.setWdcwoori(wdmvo.getWdmid());
+			wdcvo.setWdcdoori(wdmvo.getWdmid());
+			
+			if(wdcoupleService.selectOneW(wdcvo) != null) {
+				session.setAttribute("coupledata", wdmemberService.selectOneC(wdcoupleService.selectOneW(wdcvo).getWdcdoori()));
+			}else if(wdcoupleService.selectOneD(wdcvo) != null){
+				session.setAttribute("coupledata", wdmemberService.selectOneC(wdcoupleService.selectOneW(wdcvo).getWdcwoori()));
+			}
 			return paramLocation;
 		}
     }

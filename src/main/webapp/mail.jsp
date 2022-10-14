@@ -17,7 +17,7 @@
 </div>
 <form action="sendMail.do" method="post">
 	<input type="text" name="address">
-	<input type="text" name="wdcwoori" value="1">
+	<input type="text" name="wdcwoori" value="${udata.wdmid}">
 	<input type="submit" value="전송">
 </form>
 

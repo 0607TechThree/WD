@@ -22,6 +22,9 @@ public class WdmemberDAO2 {
 	public WdmemberVO selectOne(WdmemberVO vo) {
 		return mybatis.selectOne("MemberDAO.selectOne",vo);
 	}
+	public WdmemberVO selectOneC(String vo) {
+		return mybatis.selectOne("MemberDAO.selectOneC",vo);
+	}
 	public WdmemberVO checkId(WdmemberVO vo) {
 		return mybatis.selectOne("MemberDAO.checkId",vo);
 	}

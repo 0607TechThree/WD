@@ -19,7 +19,10 @@ public class WdcoupleServiceImpl implements WdcoupleService{
 	}
 
 	 
-	public WdcoupleVO selectOneWdcouple(WdcoupleVO vo) {
-		return wdcoupleDAO.selectOne(vo);
+	public WdcoupleVO selectOneW(WdcoupleVO vo) {
+		return wdcoupleDAO.selectOneW(vo);
+	}
+	public WdcoupleVO selectOneD(WdcoupleVO vo) {
+		return wdcoupleDAO.selectOneD(vo);
 	}
 }
