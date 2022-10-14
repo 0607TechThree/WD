@@ -388,9 +388,7 @@ https://templatemo.com/tm-558-klassy-cafe
                         </div>
 						<div>
 							<h5>${v.wdoname}</h5>
-							<center>
-								<p>${v.wdoregion}</p>
-							</center>
+							<span class="onedayp">- ${v.wdoregion} -</span>
 						</div>
                     </div>
                 	</a>
@@ -421,7 +419,7 @@ https://templatemo.com/tm-558-klassy-cafe
             <div class="row">
                 <div class="col-lg-4">
                     <div class="chef-item">
-                        <a href="https://www.16personalities.com/ko">
+                        <a href="javascript:winopen3()">
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
@@ -455,7 +453,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 </div>
                 <div class="col-lg-4">
                     <div class="chef-item">
-                    	<a href="https://www.banggooso.com/gl/1002/">
+                    	<a href="javascript:winopen4()">
                         <div class="thumb">
                             <div class="overlay"></div>
                             <ul class="social-icons">
@@ -522,6 +520,12 @@ https://templatemo.com/tm-558-klassy-cafe
 	}
 	function winopen2(){
 		window.open("dDayCar.do", "","width=375, height=230");
+	}
+	function winopen3(){
+		window.open("https://www.16personalities.com/ko", "","");
+	}
+	function winopen4(){
+		window.open("https://www.banggooso.com/gl/1002/", "","");
 	}
     </script>
   </body>
