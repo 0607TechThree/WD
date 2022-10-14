@@ -6,7 +6,9 @@
 <html lang="en">
 
   <head>
-
+<!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -24,7 +26,7 @@
       rel="stylesheet"
       href="https://meyerweb.com/eric/tools/css/reset/reset.css"
     />
-    <title>Klassy Cafe - Restaurant HTML Template</title>
+    <title>WooriDoori - 메인페이지</title>
 <!--
     
 TemplateMo 558 Klassy Cafe

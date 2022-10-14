@@ -6,7 +6,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>tabs demo</title>
+  <!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
+  <title>WooriDoori - 마이페이지</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="css/mypage.css">
   <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"

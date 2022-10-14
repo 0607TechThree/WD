@@ -4,7 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>mail</title>
+<!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
+<title>WooriDoori - mail</title>
 </head>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <body>
