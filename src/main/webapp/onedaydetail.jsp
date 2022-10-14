@@ -47,8 +47,6 @@
 	width: 200px;
 	height: 200px;
 	
-	padding: 40px;
-	
 	text-align: center;
 	
 	background-color: rgb(255, 255, 255);
@@ -89,21 +87,7 @@
 					<div class="modal" style="z-index:1000;">
 						<div class="modal_body">
 							<div class="bt-idpw">
-								<h4>
-									<center>
-									로그인 후 이용 가능합니다!
-									</center>
-								</h4>
-								<a href="login.do">
-									<button class="bt-id" type="submit" height="54" radius="3">
-										<span class="btn-idpw">로그인</span>
-									</button>
-								</a>
-								<a href="joinfirst.jsp">
-									<button class="bt-pw" type="button" height="54" radius="3">
-										<span class="btn-idpw">회원가입</span>
-									</button>
-								</a>
+								<img alt="문의하기" src="img/kakaoqr.png" style="width:195px; height:195px; border-radius: 10px;">
 							</div>
 						</div>
 					</div>
