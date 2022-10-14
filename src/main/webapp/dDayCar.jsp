@@ -4,14 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
+<title>WooriDoori - D+Day계산기</title>
 <!-- favicon start -->
 <link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
 <!-- favicon end -->
-<title>D-Day계산기</title>
-=======
-<title>D+Day계산기 | WooriDoori</title>
->>>>>>> c382c2c0b9f0e2c6ba4525609609a78837104770
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="css/dDayCar.css" />
