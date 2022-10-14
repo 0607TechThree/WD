@@ -15,7 +15,7 @@ public class WdblikeDAO {
 	
 	final String sql_insert="INSERT INTO WDBLIKE VALUES((SELECT NVL(MAX(WDLPK),0) +1 FROM WDBLIKE),?,?,1)";
 	final String sql_update="UPDATE WDBLIKE SET WDCHECK=? WHERE WDBPK=? AND WDMPK=?";
-	final String sql_selectOne="SELECT * FROM WDBLIKE WHERE WDMPK = ?";
+	final String sql_selectOne="SELECT * FROM WDBLIKE WHERE WDMPK = ? AND WDBPK=?";
 	
 	void insertWdlike(WdblikeVO vo) {
 		jdbcTemplate.update(sql_insert, vo.getWdbpk(),vo.getWdmpk());
@@ -29,7 +29,7 @@ public class WdblikeDAO {
 		jdbcTemplate.update(sql_update, vo.getWdcheck(),vo.getWdbpk(),vo.getWdmpk());
 	}
 	WdblikeVO selectOne(WdblikeVO vo) {
-		Object[] args= {vo.getWdmpk()};
+		Object[] args= {vo.getWdmpk(),vo.getWdbpk()};
 		return jdbcTemplate.queryForObject(sql_selectOne, args,new WdblikeRowMapper());
 	}
 }

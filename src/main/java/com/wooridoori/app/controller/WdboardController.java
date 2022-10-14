@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,12 +15,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wooridoori.app.board.WdboardService;
 import com.wooridoori.app.board.WdboardVO;
+import com.wooridoori.app.like.WdblikeService;
+import com.wooridoori.app.like.WdblikeVO;
+import com.wooridoori.app.model.member.WdmemberVO;
 
 @Controller
 public class WdboardController {
 
 	@Autowired
 	private WdboardService WdboardService;
+	@Autowired
+	private WdblikeService WdblikeService;
 	
 	@ModelAttribute("scMap")
 	public Map<String,String> searchConditionMap(){
@@ -76,9 +83,16 @@ public class WdboardController {
 	}
 	
 	@RequestMapping("/selectOneWdboard.do")
-	public String selectOneWdboard(WdboardVO vo, Model model) {
+	public String selectOneWdboard(WdboardVO vo, Model model,WdblikeVO wdblvo,HttpSession session,WdmemberVO wdmvo) {
 		vo=WdboardService.selectOneWdboard(vo);
 		model.addAttribute("boarddata",vo);
+		if(session.getAttribute("udata") != null) {
+			wdmvo = (WdmemberVO) session.getAttribute("udata");			
+			wdblvo.setWdbpk(vo.getWdbpk());
+			wdblvo.setWdmpk(wdmvo.getWdmpk());		
+			wdblvo=WdblikeService.selectOneWdlike(wdblvo);
+			model.addAttribute("likedata",wdblvo);
+		}
 		return "boarddetail.jsp";
 	}
 	
