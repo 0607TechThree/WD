@@ -123,7 +123,7 @@
 		  				현재 회원님의 등급은 ( ) 등급입니다!
 		  			</div>
 		  			<div>
-		  				VIP등급으로 전환 (결제하기) <button>dd</button>
+		  				VIP등급으로 전환 (결제하기) <button onclick="javascript:kakaopayopen()">결제하기</button>
 		  			</div>
 	  			</center>
 	  		</div>
@@ -138,6 +138,10 @@
 <script>
 $( "#tabs" ).tabs();
 
+
+function kakaopayopen(){
+	window.open("kakaoPay.jsp", "","width=500, height=600");
+}
 </script>
 
 </body>
