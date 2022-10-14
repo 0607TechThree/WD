@@ -128,7 +128,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             <li class="scroll-to-section"><a href="#menu">OnedayClass</a></li>
                             <li class="scroll-to-section"><a href="#chefs">Activity</a></li>
                            	<li class="scroll-to-section"><a href="javascript:winopen()">chat</a></li>
-                       		
+                       		<c:if test="${udata == null}">
                             <li><a href="loginaction.do">
     	                         	<img class="actionimg" alt="로그인" src="img/login2.png" title="로그인 페이지로 이동">
 	                             </a>
@@ -137,6 +137,17 @@ https://templatemo.com/tm-558-klassy-cafe
     	                         	<img class="actionimg" alt="회원가입" src="img/join2.png" title="회원가입 페이지로 이동">
 	                             </a>
                              </li>
+                       		</c:if>
+                       		<c:if test="${udata != null}">
+                       		<li><a href="mypage.do">
+    	                         	<img class="actionimg" alt="마이페이지" src="img/user2.png" title="마이페이지로 이동">
+	                             </a>
+                             </li>
+                             <li><a href="logout.do">
+    	                         	<img class="actionimg" alt="로그아웃" src="img/logout2.png" title="로그아웃">
+	                             </a>
+                             </li>
+                       		</c:if>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

@@ -68,4 +68,18 @@ public class WdmemberController {
 			return paramLocation;
 		}
 	}
+	@RequestMapping("/vipupdate.do")
+	public String vipupdate(WdmemberVO vo, HttpSession session) {
+		vo = (WdmemberVO)session.getAttribute("udata");
+		WdmemberService.vipupdate(vo);
+		vo = WdmemberService.selectOneWdmember(vo);
+		session.setAttribute("udata", vo);
+
+		return "close.jsp";
+	}
+	@RequestMapping("/mypage.do")
+	public String mypage(WdmemberVO vo, HttpSession session) {
+		return "mypage.jsp";
+	}
+	
 }

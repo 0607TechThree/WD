@@ -46,7 +46,8 @@
 				var msg = '결제가 완료되었습니다.';
 				msg += '결제 금액 : ' + rsp.paid_amount;
 				alert(msg);
-				//location.href="tbookinsert.do?tupk=${logininfo.tupk}&trpk=${data.trpk}";
+				location.href="vipupdate.do?wdmpk=${udata.wdmpk}";
+				
 				// success.submit();
 				// 결제 성공 시 정보를 넘겨줘야한다면 body에 form을 만든 뒤 위의 코드를 사용하는 방법이 있습니다.
 				// 자세한 설명은 구글링으로 보시는게 좋습니다.
@@ -56,6 +57,7 @@
 				alert(msg);
 				history.forward(-1);
 			}
+			Window.close();
 		});
 	});
 </script>
