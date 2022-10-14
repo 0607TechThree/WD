@@ -36,7 +36,7 @@
 	<form action="insertWdboard.do" method="post"
 		enctype="multipart/form-data">
 		<p>게시글 제목<p>
-		<textarea id="writertitle" name=""></textarea>
+		<textarea id="writertitle" name="wdbtitle"></textarea>
 		<input type="hidden" value="${udata.wdmid}" name="wdbwriter" id="form1">
 		<br>
 		<div class="form-group" id="form">

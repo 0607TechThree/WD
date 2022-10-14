@@ -313,38 +313,15 @@ https://templatemo.com/tm-558-klassy-cafe
                                         <div class="col-lg-6">
                                             <div class="row">
                                                 <div class="left-list">
-                                                	<!-- 최신 리스트 3개 -->
-                                                    <c:forEach var="v" items="${brdatas}">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="img/like.png" alt="">
-                                                            <div class="mainboardsize">
-                                                            <h4>제목 : ${v.wdbtitle}</h4>
-                                                            <p>작성자 : ${v.wdbwriter }</p>
-                                                            </div>
-                                                            <div class="price">
-                                                            	<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
-                                                                <h6>이동</h6>
-                                                            	</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                	</c:forEach>
-                                                    <!-- 최신 리스트 3개 끝 -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="right-list">
                                                 	<!-- 좋아요순 리스트 3개 -->
+                                                	
                                                     <c:forEach var="v" items="${bldatas}">
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="img/new.png" alt="">
+                                                            <img src="img/like${v.wdbrandom}.png" alt="">
                                                             <div class="mainboardsize">
                                                             <h4>제목 : ${v.wdbtitle}</h4>
-                                                            <p>작성자 : ${v.wdbwriter }</p>
+                                                            <p>작성자 : ${v.wdbwriter} <br>좋아요 : ${v.wdblike}</p>
                                                             </div>
                                                             <div class="price">
                                                             	<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
@@ -355,6 +332,31 @@ https://templatemo.com/tm-558-klassy-cafe
                                                     </div>
                                                 	</c:forEach>
                                                     <!-- 좋아요순 리스트 3개 끝 -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="right-list">
+                                                	<!-- 최신 리스트 3개 -->
+                                                    <c:forEach var="v" items="${brdatas}">
+                                                    <div class="col-lg-12">
+                                                        <div class="tab-item">
+                                                            <img src="img/newblog.png" alt="신규블로그">
+                                                            <div class="mainboardsize">
+                                                            <h4>제목 : ${v.wdbtitle}</h4>
+                                                            <p>작성자 : ${v.wdbwriter} <br>좋아요 : ${v.wdblike}</p>
+                                                            </div>
+                                                            <div class="price">
+                                                            	<a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
+                                                                <h6>이동</h6>
+                                                            	</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                	</c:forEach>
+                                                	<!-- 최신 리스트 3개 끝 -->
+                                                   
                                                 </div>
                                             </div>
                                         </div>

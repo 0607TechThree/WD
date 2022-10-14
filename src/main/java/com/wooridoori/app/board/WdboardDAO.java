@@ -16,9 +16,11 @@ public class WdboardDAO {
 	private JdbcTemplate jdbcTemplate;
 	
 	final String sql_selectOne="SELECT * FROM WDBOARD WHERE WDBPK = ?";
-	final String sql_selectAll_RB = "SELECT * FROM (SELECT * FROM WDBOARD ORDER BY WDBPK DESC) WHERE ROWNUM <= 3";
-	final String sql_selectAll_LB = "SELECT * FROM (SELECT * FROM WDBOARD ORDER BY WDBLIKE DESC) WHERE ROWNUM <= 3";
-	final String sql_insert="INSERT INTO WDBOARD(WDBPK,WDBWRITER,WDBTITLE,WDBCONTENT) VALUES((SELECT NVL(MAX(WDBPK),0) +1 FROM WDBOARD),?,?,?)";
+	final String sql_selectAll_RB = "SELECT A.*,ROWNUM FROM (SELECT * FROM WDBOARD WHERE WDBOPEN = 0 ORDER BY WDBPK DESC) A WHERE ROWNUM <= 3";
+//	final String sql_selectAll_RB = "SELECT * FROM (SELECT * FROM WDBOARD WHERE WDBOPEN = 0 ORDER BY WDBPK DESC) WHERE ROWNUM <= 3";
+//	final String sql_selectAll_LB = "SELECT * FROM (SELECT * FROM WDBOARD WHERE WDBOPEN = 0 ORDER BY WDBLIKE DESC) WHERE ROWNUM <= 3";
+	final String sql_selectAll_LB = "SELECT A.*,ROWNUM FROM (SELECT * FROM WDBOARD WHERE WDBOPEN = 0 ORDER BY WDBLIKE DESC) A WHERE ROWNUM <= 3";
+	final String sql_insert="INSERT INTO WDBOARD(WDBPK,WDBWRITER,WDBTITLE,WDBCONTENT,WDBOPEN) VALUES((SELECT NVL(MAX(WDBPK),0) +1 FROM WDBOARD),?,?,?,?)";
 	final String sql_delete="DELETE FROM WDBOARD WHERE WDBPK=?";
 	final String sql_update="UPDATE WDBOARD SET WDBTITLE=? AND WDBCONTENT=? WHERE WDBPK=?";
 	final String sql_update_LU="UPDATE WDBOARD SET WDBLIKE=WDBLIKE+1 WHERE WDBPK=?";
@@ -28,7 +30,7 @@ public class WdboardDAO {
 	final String sql_searchWriter="SELECT * FROM WDBOARD WHERE WDBCONTENT LIKE '%'||?||'%' ORDER BY WDBPK DESC";
 	
 	void insertWdboard(WdboardVO vo) {
-		jdbcTemplate.update(sql_insert, vo.getWdbwriter(),vo.getWdbtitle(),vo.getWdbcontent());	
+		jdbcTemplate.update(sql_insert, vo.getWdbwriter(),vo.getWdbtitle(),vo.getWdbcontent(),vo.getWdbopen());	
 	}
 	void deleteWdboard(WdboardVO vo) {
 		jdbcTemplate.update(sql_delete, vo.getWdbpk());
@@ -58,10 +60,10 @@ public class WdboardDAO {
 		}
 	}
 	List<WdboardVO> selectABoard(WdboardVO vo) {
-			return jdbcTemplate.query(sql_selectAll_RB,new WdboardRowMapper());
+			return jdbcTemplate.query(sql_selectAll_RB,new WdboardRowMapper2());
 	}
 	List<WdboardVO> selectBBoard(WdboardVO vo) {
-		return jdbcTemplate.query(sql_selectAll_LB,new WdboardRowMapper());
+		return jdbcTemplate.query(sql_selectAll_LB,new WdboardRowMapper2());
 	}
 }
 class WdboardRowMapper implements RowMapper<WdboardVO> {
@@ -79,4 +81,21 @@ class WdboardRowMapper implements RowMapper<WdboardVO> {
 		data.setWdbrandom(rand);
 		return data;
 	}
+	
+}
+
+class WdboardRowMapper2 implements RowMapper<WdboardVO> {
+
+	public WdboardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+		WdboardVO data=new WdboardVO();
+		data.setWdbpk(rs.getInt("WDBPK"));
+		data.setWdbwriter(rs.getString("WDBWRITER"));
+		data.setWdbtitle(rs.getString("WDBTITLE"));
+		data.setWdbcontent(rs.getString("WDBCONTENT"));
+		data.setWdblike(rs.getInt("WDBLIKE"));
+		data.setWdbopen(rs.getInt("WDBOPEN"));
+		data.setWdbrandom(rs.getInt("ROWNUM"));
+		return data;
+	}
+	
 }

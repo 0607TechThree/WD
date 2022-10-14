@@ -935,7 +935,7 @@ menu
 
 .onedayp{
 	font-size: 17px;
-	color: #97e0ff;
+	color: black;
 	text-align: center;
 }
 
@@ -1442,7 +1442,7 @@ offers
   border-radius: 5px;
 }
 #offers .tabs-content h4 {
-  padding-top: 20px;
+  padding-top: 10px;
   font-size: 20px;
   font-weight: 700;
   color: #2a2a2a;

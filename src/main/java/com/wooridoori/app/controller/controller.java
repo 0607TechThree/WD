@@ -109,10 +109,15 @@ public class controller {
 		else {
 			session.setAttribute("udata", wdmvo);
 			/*
+			
+			
 			// 커플 조회
 			wdcvo.setWdcwoori(wdmvo.getWdmid());
-			wdcvo.setWdcdoori(wdmvo.getWdmid());
+			//wdcvo.setWdcdoori(wdmvo.getWdmid());
 			System.out.println("세팅완료");
+			System.out.println("wdcvo = " + wdcvo);
+			System.out.println("셀렉원" + wdcoupleService.selectOneW(wdcvo));
+			System.out.println();
 			if(wdcoupleService.selectOneW(wdcvo) != null) {				
 				System.out.println("1번 if 문 전");
 				session.setAttribute("coupledata", wdmemberService.selectOneC(wdcoupleService.selectOneW(wdcvo).getWdcdoori()));
@@ -130,6 +135,7 @@ public class controller {
 			}
 			System.out.println("챗 지나침");
 			 */
+			
 			return paramLocation;
 		}
     }

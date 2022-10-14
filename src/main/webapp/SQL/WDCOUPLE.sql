@@ -4,3 +4,5 @@ CREATE TABLE WDCOUPLE (
 	wdcdoori	varchar(30)		NOT NULL,
 	wdcdate	varchar(30)		NOT NULL
 );
+
+drop table wdcouple;

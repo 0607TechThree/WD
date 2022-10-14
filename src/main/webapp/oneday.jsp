@@ -52,11 +52,14 @@
 							<br/>
 							<header>
 							<center>
+								<br>
 								<h1>원데이클래스<br />
 								</h1>
-								<p>커플과 함께 즐거운 활동을 신청해봐요!</p>
+								<p>커플과 함께 즐거운 활동을 신청해봐요</p>
+								<p><span> <a href="main.do"> <img alt="메인으로" src="img/home.png" style="width:40px; height:40px;"></a></span></p>
 							</center>
-							</header>
+							
+						</header>
 							<section class="tiles">
 							<!-- onedaydatas -->
 								<c:forEach var="v" items="${onedaydatas}">

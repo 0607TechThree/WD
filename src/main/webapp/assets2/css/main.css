@@ -7,6 +7,10 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+.toppadding{
+	padding-top: 12.6px;
+}
+
 #boardh{
 	display:flex;
 	justify-content: space-between;
@@ -16,12 +20,14 @@
 	width: 200px;
 	height: 50px;
 	float: left;
+	line-height: 82px;
 }
 .boardheadr{
 	width: 200px;
 	height: 50px;
 	float: right;
 	text-align: right;
+	line-height: 82px;
 }
 
 html, body, div, span, applet, object,
