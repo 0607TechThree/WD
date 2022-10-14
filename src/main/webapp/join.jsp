@@ -5,7 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입 | techTrip</title>
+<!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
+<title>WooriDoori - 회원가입</title>
 <!--  favicon -->
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"

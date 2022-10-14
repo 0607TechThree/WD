@@ -10,7 +10,10 @@
 -->
 <html>
 <head>
-<title>Astral by HTML5 UP</title>
+<!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
+<title>WooriDoori - 블로그 상세보기</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
