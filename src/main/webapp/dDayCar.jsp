@@ -4,9 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- favicon start -->
-<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
-<!-- favicon end -->
 <title>D-Day계산기</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
