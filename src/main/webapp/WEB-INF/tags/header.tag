@@ -1,4 +1,5 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -41,7 +42,8 @@
                            	<li class="scroll-to-section"><a href="javascript:winopen()">chat</a></li>
                            	<li class="scroll-to-section"><a href="board.do">blog</a></li>
                            	<li class="scroll-to-section"><a href="oneday.do">onedayclass</a></li>
-                        	<li><a href="login.jsp">
+                        	<c:if test="${udata == null}">
+                            <li><a href="loginaction.do">
     	                         	<img class="actionimg" alt="로그인" src="img/login2.png" title="로그인 페이지로 이동">
 	                             </a>
                              </li>
@@ -49,6 +51,17 @@
     	                         	<img class="actionimg" alt="회원가입" src="img/join2.png" title="회원가입 페이지로 이동">
 	                             </a>
                              </li>
+                       		</c:if>
+                       		<c:if test="${udata != null}">
+                       		<li><a href="mypage.do">
+    	                         	<img class="actionimg" alt="마이페이지" src="img/user2.png" title="마이페이지로 이동">
+	                             </a>
+                             </li>
+                             <li><a href="logout.do">
+    	                         	<img class="actionimg" alt="로그아웃" src="img/logout2.png" title="로그아웃">
+	                             </a>
+                             </li>
+                       		</c:if>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

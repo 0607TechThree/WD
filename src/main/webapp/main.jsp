@@ -92,13 +92,46 @@ https://templatemo.com/tm-558-klassy-cafe
 .mimg{
 	min-height: 338px;
 }
-
+/*popup*/
+.popup_layer {position:fixed;top:0;left:0;z-index: 10000; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); }
+/*팝업 박스*/
+.popup_box{position: relative;top:50%;left:50%; overflow: auto; height: auto; width:375px;transform:translate(-50%, -50%);z-index:1002;box-sizing:border-box;background:#fff;box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);-webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);-moz-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);}
+/*컨텐츠 영역*/
+.popup_box .popup_cont {line-height:1.4rem;font-size:20px; font-family: 'Jua'; }
+.popup_box .popup_cont h2 {padding:15px 0;color:#333;margin:0;}
+.popup_box .popup_cont p{ border-top: 1px solid #666;padding-top: 30px;}
+/*버튼영역*/
+.popup_box .popup_btn {display:table;table-layout: fixed;width:100%;height:70px;background:#ECECEC;word-break: break-word;}
+.popup_box .popup_btn a {position: relative; display: table-cell; height:70px;  font-size:17px;text-align:center;vertical-align:middle;text-decoration:none; background:#ECECEC;}
+.popup_box .popup_btn a:before{content:'';display:block;position:absolute;top:26px;right:29px;width:1px;height:21px;background:#fff;-moz-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(-45deg);}
+.popup_box .popup_btn a:after{content:'';display:block;position:absolute;top:26px;right:29px;width:1px;height:21px;background:#fff;-moz-transform: rotate(45deg); -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg);}
+.popup_box .popup_btn a.close_day {background:#5d5d5d;}
+.popup_box .popup_btn a.close_day:before, .popup_box .popup_btn a.close_day:after{display:none;}
+/*오버레이 뒷배경*/
+.popup_overlay{position:fixed;top:0px;right:0;left:0;bottom:0;z-index:1001;;background:rgba(0,0,0,0.5);}
+/*popup*/
 
 </style>
     </head>
     
     <body>
-    
+<c:if test="${udata == null || udata.wdmvip == 0}">
+<div class="popup_layer" id="popup_layer" style="display: none;">
+  <div class="popup_box">
+      <!--팝업 컨텐츠 영역-->
+      <div class="popup_cont">
+          <img alt="광고이미지" src="img/spon.jpg" style="width: 375px; height: auto;">
+          <center>
+	          <span>(광고) 국내여행은 TechTrip</span>
+          </center>
+      </div>
+      <!--팝업 버튼 영역-->
+      <div class="popup_btn" style="float: bottom;">
+          <a href="javascript:closePop();">닫기</a>
+      </div>
+  </div>
+</div>
+</c:if>
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -377,8 +410,17 @@ https://templatemo.com/tm-558-klassy-cafe
     <!-- ***** Chefs Area Ends ***** -->
 
     <!-- ***** Menu Area Starts ***** -->
-    <section class="section" id="menu">
+    <section class="section" id="chefs">
         <div class="container">
+        	<div class="row">
+                <div class="col-lg-4 offset-lg-4 text-center">
+                    <div class="section-heading">
+                        <h6>- Oneday Menu -</h6>
+                        <h2>원데이클래스 확인하기</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- 
             <div class="row">
                 <div class="col-lg-4">
                     <div class="section-heading">
@@ -387,6 +429,7 @@ https://templatemo.com/tm-558-klassy-cafe
                     </div>
                 </div>
             </div>
+             -->
         </div>
         <div class="menu-item-carousel">
             <div class="col-lg-12">
@@ -424,7 +467,7 @@ https://templatemo.com/tm-558-klassy-cafe
             <div class="row">
                 <div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
-                        <h6>-activity-</h6>
+                        <h6>- activity -</h6>
                         <h2>여러 활동을 진행해보세요</h2>
                     </div>
                 </div>
@@ -514,7 +557,15 @@ https://templatemo.com/tm-558-klassy-cafe
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <script src="./scripts/script.js"></script>
     <script>
+    $( document ).ready(function() {
+    	document.getElementById("popup_layer").style.display = "block";
+    });
 
+
+    //팝업 닫기
+    function closePop() {
+        document.getElementById("popup_layer").style.display = "none";
+    }
         $(function() {
             var selectedClass = "";
             $("p").click(function(){
