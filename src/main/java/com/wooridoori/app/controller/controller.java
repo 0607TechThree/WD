@@ -143,7 +143,7 @@ public class controller {
     @RequestMapping("/logout.do")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:main.do";
+        return "main.do";
     }
     
     @RequestMapping("/loginaction.do")

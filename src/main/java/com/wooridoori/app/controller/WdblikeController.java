@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wooridoori.app.board.WdboardService;
 import com.wooridoori.app.board.WdboardVO;
@@ -20,34 +22,27 @@ public class WdblikeController {
 	private WdboardService WdboardService;
 	
 	@RequestMapping("/insertwdlike.do")
-	public String insertWdlike(HttpServletRequest request,WdblikeVO vo,WdboardVO wdbvo) {
-		String uri = request.getHeader("REFERER"); // 거치기 전 페이지의 주소를 저장
-		System.out.println("uri : "+uri);
-		String location = uri.substring(26); // uri에서 필요한 action만 자름
-		System.out.println(location);
+	public String insertWdlike(HttpServletRequest request,WdblikeVO vo,WdboardVO wdbvo, Model model) {
 		System.out.println(vo);
 		System.out.println(wdbvo);
 		WdblikeService.insertWdlike(vo);
 		wdbvo.setWdbpk(vo.getWdbpk());
 		WdboardService.updateWdboardlikeU(wdbvo);
-		return "board.do";
+		vo=WdblikeService.selectOneWdlike(vo);
+		return "redirect:selectOneWdboard.do?wdbpk="+wdbvo.getWdbpk();
 	}
 	
 	@RequestMapping("/updatewdlike.do")
-	public String updateWdlike(HttpServletRequest request,WdblikeVO vo,WdboardVO wdbvo) {
-		String uri = request.getHeader("REFERER"); // 거치기 전 페이지의 주소를 저장
-		System.out.println("uri : "+uri);
-		String location = uri.substring(26); // uri에서 필요한 action만 자름
-		System.out.println(location);
-		
+	public String updateWdlike(HttpServletRequest request,WdblikeVO vo,WdboardVO wdbvo, Model model) {
 		WdblikeService.updateWdlike(vo);
 		wdbvo.setWdbpk(vo.getWdbpk());
-		if(vo.getWdbpk() == 0) {
+		vo=WdblikeService.selectOneWdlike(vo);
+		if(vo.getWdcheck() == 0) {
 			WdboardService.updateWdboardlikeU(wdbvo);
 		}else {
 			WdboardService.updateWdboardlikeD(wdbvo);
 		}
-		return "board.do";
+		return "redirect:selectOneWdboard.do?wdbpk="+wdbvo.getWdbpk();
 	}
 
 }

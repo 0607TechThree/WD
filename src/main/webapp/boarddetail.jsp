@@ -75,14 +75,16 @@
 							value="1"> <br>
 					</section>
 					<c:if test="${udata != null}">
-						<c:if test="${likedata == null}">
-							<a
-								href="insertwdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}">좋아요</a>
-						</c:if>
-						<c:if test="${likedata != null}">
-							<a
-								href="updatewdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}&wdcheck=${likedata.wdcheck}">좋아요</a>
-						</c:if>
+					<c:if test="${likedata.wdcheck==0 || likedata.wdcheck==null}">
+						<a href="insertwdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}"
+								id="likeinsert"><img src="img/좋아요전.png" id="likeimg" width="60px" height="60px"
+							class="likeimg"></a>
+					</c:if>
+					<c:if test="${likedata.wdcheck==1}">
+						<a href="insertwdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}"
+								id="likeinsert"><img src="img/좋아요후.png" id="likeimg" width="60px" height="60px"
+							class="likeimg"></a>
+					</c:if>
 						<c:if test="${boarddata.wdbwriter == udata.wdmid}">
 							<input type="submit" value="수정">
 						</c:if>
