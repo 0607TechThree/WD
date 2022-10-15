@@ -15,7 +15,7 @@ import com.wooridoori.app.model.member.WdmemberVO;
 /**
  * Servlet implementation class Check
  */
-@WebServlet("/checkId.do")
+@WebServlet("/checkId.check")
 public class CheckIdAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private WdmemberService wdmemberService;
@@ -43,7 +43,7 @@ public class CheckIdAction extends HttpServlet {
 		WdmemberDAO dao = new WdmemberDAO();
 		WdmemberVO vo = new WdmemberVO();
 		vo.setWdmid(request.getParameter("userid"));
-		vo =wdmemberService.checkId(vo);
+		vo = wdmemberService.checkId(vo);
 		
 		response.setContentType("application/x-json; charset=UTF-8");
 		response.getWriter().write(vo+"");

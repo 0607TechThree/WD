@@ -5,3 +5,4 @@ CREATE TABLE WDBLIKE (
 	wdcheck int not null
 );
 select * from WDBLIKE;
+drop table wdblike;
