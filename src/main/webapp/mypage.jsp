@@ -23,6 +23,14 @@
 #mypage > * {
 	font-family: 'Jua';
 }
+
+.rttd{
+	width: 200px;
+	height: 70px;
+	text-align: center;
+	border-bottom:1px solid black;
+}
+
 </style> 
 </head>
 
@@ -39,28 +47,27 @@
 <div id="mypage">
 	<div>
 		<center>
-		<h1>마이페이지</h1>
+		<h1 style="color:rgb(240,99,99);">마이페이지</h1>
 		</center>
 	</div>
 	<div id="tabs">
 	  <ul id="tabsli">
-	    <li id="1"><a class="ina" href="#fragment-1"><center><img class="tabimg" alt="내정보" src="img/mypage/info.png"><p>내 정보</p></center></a></li>
-	    <li id="2"><a class="ina" href="#fragment-2"><center><img class="tabimg" alt="커플정보" src="img/mypage/couple.png"><p>커플 정보</p></center></a></li>
-	    <li id="3"><a class="ina" href="#fragment-3"><center><img class="tabimg" alt="vip정보" src="img/mypage/vip.png"><p>VIP 정보</p></center></a></li>
+	    <li id="1"><a class="ina" href="#fragment-1"><center><img class="tabimg" alt="내정보" src="img/mypage/info1.png"><p style="color:rgb(240,99,99);">내 정보</p></center></a></li>
+	    <li id="2"><a class="ina" href="#fragment-2"><center><img class="tabimg" alt="커플정보" src="img/mypage/couple1.png"><p style="color:rgb(240,99,99);">커플 정보</p></center></a></li>
+	    <li id="3"><a class="ina" href="#fragment-3"><center><img class="tabimg" alt="vip정보" src="img/mypage/vip1.png"><p style="color:rgb(240,99,99);">등급 정보</p></center></a></li>
 	  </ul>
 	  <!-- 나의정보시작 -->
 	  <div id="fragment-1">
 	    <div id="mypagemy">
 	    	<div id="myuserimg">
-	    		<img id="myuserimg2"alt="유저이미지" src="img/myuser.png">
+	    		<img id="myuserimg2"alt="유저이미지" src="img/mypage/info3.png">
 	    	</div>
 	    	<div id="myuserinfo">
     		<form action="#" method="post">
-	    		<h3>아이디 : ${udata.wdmid}</h3>
+	    		<h3 style="color:rgb(240,99,99);">회원정보</h3>
+	    		<p>아이디 : ${udata.wdmid}</p>
 	    		<br>
 	    		<p>닉네임 : ${udata.wdmnick}</p>
-	    		<br>
-	    		<p>성별 : ${udata.wdmgender}</p>
 	    		<br>
 	    		<p>이메일 : ${udata.wdmemail}</p>
 	    		<br>
@@ -75,15 +82,16 @@
 	    </div>
 	  </div>
 	  <!-- 나의정보종료 -->
+	  <c:if test="">
 	  <!-- 커플정보시작 -->
 	  <!-- 받아오는 데이터는 coupledata -->
 	  <div id="fragment-2">
 		<div id="mypagecouple">
 			<div id="mycoupleimg">
-	    		<img id="mycoupleimg2"alt="유저이미지" src="img/mycouple.png">
+	    		<img id="mycoupleimg2"alt="유저이미지" src="img/mypage/couple2.png">
 	    	</div>
 	    	<div id="mycoupleinfo">
-	    		<h3>커플정보</h3>
+	    		<h3 style="color:rgb(240,99,99);">커플정보</h3>
 	    		<br>
 	    		<p>우리 : </p>
 	    		<br>
@@ -95,37 +103,41 @@
 		</div>
 	  </div>
 	  <!-- 커플정보종료 -->
+	  </c:if>
 	  <!-- VIP정보시작 -->
 	  <div id="fragment-3">
 	  	<div>
 	  		<div>
 	  			<center>
-		  			<p>등급안내</p>
-		  			<table>
+		  			<h3 style="color:rgb(240,99,99);">- 등급안내 -</h3>
+		  			<br>
+		  			<table id="ranktable">
 		  				<tr>
-		  					<td></td>
-		  					<td>일반등급</td>
-		  					<td>VIP 등급</td>
+		  					<td class="rttd"></td>
+		  					<td class="rttd">일반등급</td>
+		  					<td class="rttd" style="color:rgb(240,99,99);">VIP등급</td>
 		  				</tr>
 		  				<tr>
-		  					<td>등급 이미지</td>
-		  					<td>일반이미지</td>
-		  					<td>VIP이미지</td>
+		  					<td class="rttd">등급 이미지</td>
+		  					<td class="rttd"><img alt="일반등급" src="img/mypage/card.png" style="width:50px; height:auto;"></td>
+		  					<td class="rttd"><img alt="vip등급" src="img/mypage/vipcard.png" style="width:50px; height:auto;"></td>
 		  				</tr>
 		  				<tr>
-		  					<td>등급 효과</td>
-		  					<td>일반 등급</td>
-		  					<td>VIP 등급</td>
+		  					<td class="rttd">등급 혜택</td>
+		  					<td class="rttd">1. 기본 서비스 제공</td>
+		  					<td class="rttd" style="color:rgb(240,99,99);">1. 기본 서비스 제공<br>
+		  									2. 광고전용 팝업창 제외
+		  					</td>
 		  				</tr>
 		  			</table>
 		  			<br>
-		  			<div>
+		  			<div style="color:rgb(240,99,99);">
 		  				현재 회원님의 등급은
 		  				<c:if test="${udata.wdmvip == 0}">
-			  				일반
+			  				<img alt="일반등급" src="img/mypage/card.png" style="width:50px; height:auto;">
 		  				</c:if>
 		  				<c:if test="${udata.wdmvip == 1}">
-		  					VIP
+		  					<img alt="VIP등급" src="img/mypage/vipcard.png" style="width:50px; height:auto;">
 		  				</c:if>
 		  				등급입니다!
 		  			</div>
@@ -133,9 +145,7 @@
 		  				<c:if test="${udata.wdmvip == 0}">
 			  				VIP등급으로 전환 (결제하기) <button onclick="javascript:kakaopayopen()">결제하기</button>
 		  				</c:if>
-		  				<c:if test="${udata.wdmvip == 1}">
-		  					VIP등급입니다!
-		  				</c:if>
+		  				
 		  			</div>
 	  			</center>
 	  		</div>
