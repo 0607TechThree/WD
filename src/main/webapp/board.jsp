@@ -144,7 +144,7 @@
 								<span class="image"> <img
 									src="assets/images/pic0${v.wdbrandom}.jpg" alt="" />
 								</span> <a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
-									<h2>제목 : ${v.wdbtitle}</h2>
+									<h2 style="font-size: 15px;">제목 : ${v.wdbtitle}</h2>
 									<div class="content">
 										<p>작성자 : ${v.wdbwriter}</p>
 										<p>좋아요 : ${v.wdblike}</p>
@@ -160,7 +160,7 @@
 									<span class="image"> <img
 										src="assets/images/pic0${v.wdbrandom}.jpg" alt="" />
 									</span> <a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
-										<h2>제목 : ${v.wdbtitle}</h2>
+										<h2 style="font-size: 15px;">제목 : ${v.wdbtitle}</h2>
 										<div class="content">
 											<p>작성자 : ${v.wdbwriter}</p>
 											<p>좋아요 : ${v.wdblike}</p>
@@ -169,12 +169,13 @@
 								</article>
 							</c:if>
 							<!-- 커플 정보에 있는 사람 -->
-							<c:if test="${udata.wdmid == coupledata.wdmid}">
+							<c:if test="${coupledata.wdmid == v.wdbwriter}">
 								<article class="style${v.wdbrandom}">
 									<span class="image"> <img
 										src="assets/images/pic0${v.wdbrandom}.jpg" alt="" />
 									</span> <a href="selectOneWdboard.do?wdbpk=${v.wdbpk}">
-										<h2>♥ 제목 : ${v.wdbtitle} ♥</h2>
+										<p>♥(커플의 게시글)♥</p>
+										<h2 style="font-size: 15px;">제목 : ${v.wdbtitle}</h2>
 										<div class="content">
 											<p>작성자 : ${v.wdbwriter}</p>
 											<p>좋아요 : ${v.wdblike}</p>

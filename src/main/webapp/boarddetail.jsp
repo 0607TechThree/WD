@@ -35,6 +35,7 @@
 #writertitle{
 	max-width: 780px;
 	resize: none;
+	font-size: 20px;
 }
 #submitbox{
 	display:flex;
@@ -66,7 +67,7 @@
 			<!-- Me -->
 			<article id="home" class="panel intro">
 				<header>
-					<h1>제목 : ${boarddata.wdbtitle}</h1>
+					<h1 style="font-size: 30px;">제목 : ${boarddata.wdbtitle}</h1>
 					<p>작성자 : ${boarddata.wdbwriter}</p>
 					<p>좋아요 : ${boarddata.wdblike}</p>
 				</header>

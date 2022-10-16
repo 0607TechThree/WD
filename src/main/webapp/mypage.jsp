@@ -82,9 +82,9 @@
 	    </div>
 	  </div>
 	  <!-- 나의정보종료 -->
-	  <c:if test="">
 	  <!-- 커플정보시작 -->
-	  <!-- 받아오는 데이터는 coupledata -->
+	  <c:if test="${coupledata != null}">
+	  <!-- 받아오는 데이터는 coupleinfo -->
 	  <div id="fragment-2">
 		<div id="mypagecouple">
 			<div id="mycoupleimg">
@@ -93,17 +93,20 @@
 	    	<div id="mycoupleinfo">
 	    		<h3 style="color:rgb(240,99,99);">커플정보</h3>
 	    		<br>
-	    		<p>우리 : </p>
+	    		<p>우리 : ${coupleinfo.wdcwoori}</p>
 	    		<br>
-	    		<p>두리 : </p>
+	    		<p>두리 : ${coupleinfo.wdcdoori}</p>
 	    		<br>
-	    		<p>만난날짜 : </p>
+	    		<p>만난날짜 : ${coupleinfo.wdcdate}</p>
 	    		<input type="submit" value="수정하기"><button>커플정보삭제하기</button>
 	    	</div>
 		</div>
 	  </div>
-	  <!-- 커플정보종료 -->
 	  </c:if>
+	  <c:if test="${coupledata == null}">
+	  	커플정보 없을때임 ㅋㅋ
+	  </c:if>
+	  <!-- 커플정보종료 -->
 	  <!-- VIP정보시작 -->
 	  <div id="fragment-3">
 	  	<div>
