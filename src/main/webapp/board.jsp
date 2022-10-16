@@ -45,8 +45,13 @@
 					<!-- 로그인시는 이동 비로그인상태라면 모달 -->
 					<div id="boardh">
 						<div class="boardheadl">
+						<c:if test="${udata == null}">
+							<span> <a href="#"> 게시글 작성하기 > 모달처리 </a></span>
+						</c:if>
+						<c:if test="${udata != null}">
 							<span> <a href="boardwrite.jsp"> 게시글 작성하기 </a></span>
-							
+						</c:if>
+						
 						</div>
 						<!-- 검색 -->
 						<form action="board.do" method="post">
@@ -88,6 +93,7 @@
 									<h2>제목 : ${v.wdbtitle}</h2>
 									<div class="content">
 										<p>작성자 : ${v.wdbwriter}</p>
+										<p>좋아요 : ${v.wdblike}</p>
 									</div>
 								</a>
 							</article>
@@ -103,6 +109,7 @@
 										<h2>제목 : ${v.wdbtitle}</h2>
 										<div class="content">
 											<p>작성자 : ${v.wdbwriter}</p>
+											<p>좋아요 : ${v.wdblike}</p>
 										</div>
 									</a>
 								</article>
@@ -116,6 +123,7 @@
 										<h2>제목 : ${v.wdbtitle}</h2>
 										<div class="content">
 											<p>작성자 : ${v.wdbwriter}</p>
+											<p>좋아요 : ${v.wdblike}</p>
 										</div>
 									</a>
 								</article>

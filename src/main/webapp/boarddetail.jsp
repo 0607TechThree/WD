@@ -17,13 +17,25 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
+
 <link rel="stylesheet" href="assets/css/main.css" />
+
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
 <script
 	src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+	
+	
+	
+<style type="text/css">
+#bdform{
+	all : unset;
+}
+
+</style>
 </head>
+
 <body class="is-preload">
 
 	<!-- Wrapper-->
@@ -48,7 +60,7 @@
 				<header>
 					<h1>${boarddata.wdbtitle}</h1>
 					<p>${boarddata.wdbwriter}</p>
-					<p>${boarddata.wdblike}</p>
+					<p>좋아요! : ${boarddata.wdblike}</p>
 				</header>
 				<a href="#work" class="jumplink pic"> <span
 					class="arrow icon solid fa-chevron-right"><span>See
@@ -58,8 +70,8 @@
 
 			<!-- Work -->
 			<article id="work" class="panel">
-				<form action="updateWdboard.do" method="post">
-					<input type="hidden" value="boarddata.wdbpk">
+				<form action="updateWdboard.do" method="post" id="bdform">
+					<input type="hidden" name="wdbpk" value="${boarddata.wdbpk}">
 					<header>
 						<h2>
 							<p>게시글 제목</p>
@@ -70,24 +82,42 @@
 						<div class="form-group" id="form">
 							<textarea id="writeEditor" name="wdbcontent" rows="20" cols="12">${boarddata.wdbcontent}</textarea>
 						</div>
+						<c:if test="${udata != null && udata.wdmid == boarddata.wdbwriter}">
+						<c:if test="${boarddata.wdbopen == 0}">
 						전체공개&nbsp;<input type="radio" name="wdbopen" checked="checked"
 							value="0"> 커플공개&nbsp;<input type="radio" name="wdbopen"
 							value="1"> <br>
+						</c:if>
+						<c:if test="${boarddata.wdbopen == 1}">
+						전체공개&nbsp;<input type="radio" name="wdbopen"
+							value="0"> 커플공개&nbsp;<input type="radio" name="wdbopen" checked="checked"
+							value="1"> <br>
+						</c:if>
+						</c:if>
 					</section>
 					<c:if test="${udata != null}">
-					<c:if test="${likedata.wdcheck==0 || likedata.wdcheck==null}">
+					<c:if test="${likedata.wdcheck==null}">
+						<!-- likedata.wdcheck==0 ||  -->
 						<a href="insertwdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}"
-								id="likeinsert"><img src="img/좋아요전.png" id="likeimg" width="60px" height="60px"
+								id="likeinsert"><img src="img/likeb.png" id="likeimg" width="60px" height="60px"
 							class="likeimg"></a>
 					</c:if>
 					<c:if test="${likedata.wdcheck==1}">
-						<a href="insertwdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}"
-								id="likeinsert"><img src="img/좋아요후.png" id="likeimg" width="60px" height="60px"
+						<a href="updatewdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}&wdcheck=${likedata.wdcheck}"
+								id="likeinsert"><img src="img/likeaf.png" id="likeimg" width="60px" height="60px"
+							class="likeimg"></a>
+					</c:if>
+					<c:if test="${likedata.wdcheck==0}">
+						<a href="updatewdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}&wdcheck=${likedata.wdcheck}"
+								id="likeinsert"><img src="img/likeb.png" id="likeimg" width="60px" height="60px"
 							class="likeimg"></a>
 					</c:if>
 						<c:if test="${boarddata.wdbwriter == udata.wdmid}">
 							<input type="submit" value="수정">
 						</c:if>
+					</c:if>
+					<c:if test="${udata == null}">
+						비로그인 상태 모달창 처리할것
 					</c:if>
 				</form>
 			</article>

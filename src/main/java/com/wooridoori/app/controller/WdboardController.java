@@ -51,8 +51,9 @@ public class WdboardController {
 	
 	@RequestMapping("/updateWdboard.do")
 	public String updateWdboard(WdboardVO vo) {
+		System.out.println(vo);
 		WdboardService.updateWdboard(vo);
-		return "redirect:main.do";
+		return "selectOneWdboard.do";
 	}
 	
 	@RequestMapping("/updateWdblikeU.do")
