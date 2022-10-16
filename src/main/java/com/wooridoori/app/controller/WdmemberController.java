@@ -31,8 +31,9 @@ public class WdmemberController {
 	}
 	
 	@RequestMapping("/updateWdmember.do")
-	public String updateWdmember(WdmemberVO vo) {
+	public String updateWdmember(WdmemberVO vo, HttpSession session) {
 		WdmemberService.updateWdmember(vo);
+		session.invalidate();
 		return "redirect:main.do";
 	}
 	

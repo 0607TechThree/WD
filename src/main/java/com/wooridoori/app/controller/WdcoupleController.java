@@ -1,5 +1,7 @@
 package com.wooridoori.app.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +22,9 @@ public class WdcoupleController {
 	}
 	
 	@RequestMapping("/deleteWdcouple.do")
-	public String deleteWdcouple(WdcoupleVO vo){
+	public String deleteWdcouple(WdcoupleVO vo,HttpSession session){
 		WdcoupleService.deleteWdcouple(vo);
+		session.invalidate();
 		return "redirect:main.do";
 	}
 	
