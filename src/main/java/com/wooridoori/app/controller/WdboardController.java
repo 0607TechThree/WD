@@ -51,8 +51,9 @@ public class WdboardController {
 	
 	@RequestMapping("/updateWdboard.do")
 	public String updateWdboard(WdboardVO vo) {
+		System.out.println(vo);
 		WdboardService.updateWdboard(vo);
-		return "redirect:main.do";
+		return "selectOneWdboard.do";
 	}
 	
 	@RequestMapping("/updateWdblikeU.do")
@@ -95,6 +96,9 @@ public class WdboardController {
 			wdblvo.setWdmpk(wdmvo.getWdmpk());		
 			wdblvo=WdblikeService.selectOneWdlike(wdblvo);
 			model.addAttribute("likedata",wdblvo);
+		}
+		if(vo==null) {
+			return "redirect:board.do";
 		}
 		return "boarddetail.jsp";
 	}

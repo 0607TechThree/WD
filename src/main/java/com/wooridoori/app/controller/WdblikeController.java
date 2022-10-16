@@ -26,23 +26,23 @@ public class WdblikeController {
 		System.out.println(vo);
 		System.out.println(wdbvo);
 		WdblikeService.insertWdlike(vo);
-		wdbvo.setWdbpk(vo.getWdbpk());
+		//wdbvo.setWdbpk(vo.getWdbpk());
 		WdboardService.updateWdboardlikeU(wdbvo);
 		vo=WdblikeService.selectOneWdlike(vo);
-		return "redirect:selectOneWdboard.do?wdbpk="+wdbvo.getWdbpk();
+		return "selectOneWdboard.do";
 	}
 	
 	@RequestMapping("/updatewdlike.do")
 	public String updateWdlike(HttpServletRequest request,WdblikeVO vo,WdboardVO wdbvo, Model model) {
-		WdblikeService.updateWdlike(vo);
-		wdbvo.setWdbpk(vo.getWdbpk());
+		//wdbvo.setWdbpk(vo.getWdbpk());
 		vo=WdblikeService.selectOneWdlike(vo);
 		if(vo.getWdcheck() == 0) {
 			WdboardService.updateWdboardlikeU(wdbvo);
 		}else {
 			WdboardService.updateWdboardlikeD(wdbvo);
 		}
-		return "redirect:selectOneWdboard.do?wdbpk="+wdbvo.getWdbpk();
+		WdblikeService.updateWdlike(vo);
+		return "selectOneWdboard.do"; //wdbvo.getWdbpk();
 	}
 
 }

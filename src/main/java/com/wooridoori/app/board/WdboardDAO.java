@@ -24,7 +24,7 @@ public class WdboardDAO {
 	final String sql_selectAll_LB = "SELECT A.*,ROWNUM FROM (SELECT * FROM WDBOARD WHERE WDBOPEN = 0 ORDER BY WDBLIKE DESC) A WHERE ROWNUM <= 3";
 	final String sql_insert="INSERT INTO WDBOARD(WDBPK,WDBWRITER,WDBTITLE,WDBCONTENT,WDBOPEN) VALUES((SELECT NVL(MAX(WDBPK),0) +1 FROM WDBOARD),?,?,?,?)";
 	final String sql_delete="DELETE FROM WDBOARD WHERE WDBPK=?";
-	final String sql_update="UPDATE WDBOARD SET WDBTITLE=? AND WDBCONTENT=? WHERE WDBPK=?";
+	final String sql_update="UPDATE WDBOARD SET WDBTITLE=?, WDBCONTENT=?, WDBOPEN=? WHERE WDBPK=?";
 	final String sql_update_LU="UPDATE WDBOARD SET WDBLIKE=WDBLIKE+1 WHERE WDBPK=?";
 	final String sql_update_LD="UPDATE WDBOARD SET WDBLIKE=WDBLIKE-1 WHERE WDBPK=?";
 	final String sql_selectAll="SELECT * FROM WDBOARD ORDER BY WDBPK DESC";
@@ -38,7 +38,7 @@ public class WdboardDAO {
 		jdbcTemplate.update(sql_delete, vo.getWdbpk());
 	}
 	void updateWdboard(WdboardVO vo) {
-		jdbcTemplate.update(sql_update,vo.getWdbtitle(),vo.getWdbcontent(),vo.getWdbpk());
+		jdbcTemplate.update(sql_update,vo.getWdbtitle(),vo.getWdbcontent(),vo.getWdbopen(),vo.getWdbpk());
 	}
 	void updateWdblikeU(WdboardVO vo) {
 		jdbcTemplate.update(sql_update_LU,vo.getWdbpk());

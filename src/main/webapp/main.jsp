@@ -92,6 +92,18 @@ https://templatemo.com/tm-558-klassy-cafe
 .mimg{
 	min-height: 338px;
 }
+
+#logobox{
+	margin: auto;
+}
+
+@media (max-width: 1200px) and (min-width: 700px){
+	#logobox{
+		width: 200px;
+		height: auto;
+	}
+}
+
 /*popup*/
 .popup_layer {position:fixed;top:0;left:0;z-index: 10000; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); }
 /*팝업 박스*/
@@ -158,9 +170,11 @@ https://templatemo.com/tm-558-klassy-cafe
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#offers" >blog</a></li>
-                            <li class="scroll-to-section"><a href="#menu">OnedayClass</a></li>
-                            <li class="scroll-to-section"><a href="#chefs">Activity</a></li>
+                            <li class="scroll-to-section"><a href="#chefs">OnedayClass</a></li>
+                            <li class="scroll-to-section"><a href="#activity">Activity</a></li>
+                           	<c:if test="${udata != null}">
                            	<li class="scroll-to-section"><a href="javascript:winopen()">chat</a></li>
+                           	</c:if>
                        		<c:if test="${udata == null}">
                             <li><a href="loginaction.do">
     	                         	<img class="actionimg" alt="로그인" src="img/login2.png" title="로그인 페이지로 이동">
@@ -201,9 +215,11 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-lg-4">
                     <div class="left-content">
                         <div class="inner-content">
-                        	<center>
-	                            <img src="assets/images/wdwhlogo.png">
-                        	</center>
+                        	<div id="logobox">
+                        		<center>
+		                        <img src="assets/images/wdwhlogo.png">
+                        		</center>
+                        	</div>
                             <!-- 뮤직플레이어 시작 -->
                             <div class="wrapper" id="app">
 						      <div class="player">
@@ -462,8 +478,8 @@ https://templatemo.com/tm-558-klassy-cafe
     <!-- ***** Menu Area Ends ***** -->
 
     <!-- ***** Chefs Area Starts ***** -->
-    <section class="section" id="chefs">
-        <div class="container">
+    <section class="section activity" id="chefs">
+        <div class="container"  id="activity">
             <div class="row">
                 <div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
