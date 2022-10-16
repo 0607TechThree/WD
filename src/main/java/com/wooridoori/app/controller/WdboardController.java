@@ -97,6 +97,9 @@ public class WdboardController {
 			wdblvo=WdblikeService.selectOneWdlike(wdblvo);
 			model.addAttribute("likedata",wdblvo);
 		}
+		if(vo==null) {
+			return "redirect:board.do";
+		}
 		return "boarddetail.jsp";
 	}
 	
