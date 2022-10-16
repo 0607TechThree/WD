@@ -48,7 +48,11 @@ public class WdboardDAO {
 	}
 	WdboardVO selectOne(WdboardVO vo) {
 		Object[] args= {vo.getWdbpk()};
+		try {
 		return jdbcTemplate.queryForObject(sql_selectOne, args,new WdboardRowMapper());
+		} catch (EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 	Integer selectOnePk(WdboardVO vo) {
 		try {	
