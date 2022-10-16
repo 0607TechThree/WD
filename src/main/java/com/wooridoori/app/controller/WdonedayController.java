@@ -32,7 +32,7 @@ public class WdonedayController {
 		System.out.println(datas);
 		return "onedaydetail.jsp"; 
 	}
-	
+	/*
 	@RequestMapping("/oneday.do")
 	public String selectAllWdoneday(WdonedayVO vo, Model model) {
 		List<WdonedayVO> datas=null;
@@ -41,5 +41,13 @@ public class WdonedayController {
 		model.addAttribute("onedaydatas",datas);
 		return "oneday.jsp";
 	}
-		
+	*/
+	@RequestMapping("/oneday.do")
+	public String selectPGWdoneday(WdonedayVO vo, Model model) {
+		List<WdonedayVO> datas=null;
+		datas=WdonedayService.selectAllWdoneday(vo);
+		System.out.println(datas);
+		model.addAttribute("onedaydatas",datas);
+		return "oneday.jsp";
+	}
 }
