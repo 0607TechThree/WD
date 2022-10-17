@@ -1,4 +1,4 @@
 CREATE TABLE CHAT(
-	chatpk	int		NOT NULL,
+	chatpk	int		PRIMARY KEY,
 	chatpw	int		NOT NULL,
 );
