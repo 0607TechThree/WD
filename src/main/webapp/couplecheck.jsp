@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,14 @@
 </center>
 <br>
 </div>
+<c:if test="${udata == null}">
+<center>
+<p>로그인 후 다시 시도해주세요.</p>
+</center>
+<button onclick="javascript:newTablogin()" class="submitb">새 창에서 로그인</button>
+</c:if>
 
+<c:if test="${udata != null}">
 <div id="formcontent">
 <form action="insertWdcouple.do" method="post">
 	<input type="hidden" name="wdcwoori" value="${param.wdcwoori}">
@@ -35,6 +43,7 @@
 	<input type="submit" value="입력하기" class="submitb">
 </form>
 </div>
+</c:if>
 </div>
 
 <script type="text/javascript">
@@ -60,6 +69,10 @@ $.datepicker.setDefaults({
 });
 $('#datepicker').datepicker();
 // 초기 세팅 날짜
+
+function newTablogin(){
+	window.open("login.do","");
+}
 </script>
 
 </body>
