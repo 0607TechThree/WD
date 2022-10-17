@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -20,6 +19,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.wooridoori.app.board.WdboardService;
 import com.wooridoori.app.board.WdboardVO;
+import com.wooridoori.app.chat.ChatService;
+import com.wooridoori.app.chat.ChatVO;
 import com.wooridoori.app.couple.WdcoupleService;
 import com.wooridoori.app.couple.WdcoupleVO;
 import com.wooridoori.app.model.member.WdmemberService;
@@ -38,6 +39,8 @@ public class controller {
 	private WdonedayService wdonedayService;
 	@Autowired
 	private WdcoupleService wdcoupleService;
+	@Autowired
+	private ChatService chatService;
 	
 	@ModelAttribute("scMap")
 	public Map<String,String> searchConditionMap(){
@@ -48,29 +51,39 @@ public class controller {
 	}
 	
 	@RequestMapping(value="/main.do",method=RequestMethod.GET)
-	public String index(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,@RequestParam(value="searchContent",defaultValue="",required=false)String searchContent,WdonedayVO wdovo,WdboardVO wdbvo,Model model) {
+	public String index(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,@RequestParam(value="searchContent",defaultValue="",required=false)String searchContent,WdonedayVO wdovo,WdboardVO wdbvo,Model model, ChatVO wsvo) {
 		List<WdboardVO> brdatas=null;
 		List<WdboardVO> bldatas=null;
 		List<WdonedayVO> odatas=null;
+		List<ChatVO> wsdata = null;
 		brdatas=wdboardService.selectAWdboard(wdbvo);
 		bldatas=wdboardService.selectBWdboard(wdbvo);
 		odatas=wdonedayService.selectAWdoneday(wdovo);
+		wsdata = chatService.selectAll(wsvo);
 		model.addAttribute("brdatas", brdatas);
 		model.addAttribute("bldatas", bldatas);
 		model.addAttribute("odatas", odatas);
+		model.addAttribute("wsdata", wsdata);
+		int count = chatService.count(wsvo);
+		model.addAttribute("wsdatacount", count);
+		System.out.println(wsdata);
 		return "main.jsp";
 	}
 	@RequestMapping(value="/main.do",method=RequestMethod.POST)
-	public String main(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,@RequestParam(value="searchContent",defaultValue="",required=false)String searchContent,WdonedayVO wdovo,WdboardVO wdbvo,Model model) {
+	public String main(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,@RequestParam(value="searchContent",defaultValue="",required=false)String searchContent,WdonedayVO wdovo,WdboardVO wdbvo,Model model, ChatVO wsvo) {
 		List<WdboardVO> brdatas=null;
 		List<WdboardVO> bldatas=null;
 		List<WdonedayVO> odatas=null;
+		List<ChatVO> wsdata = null;
 		brdatas=wdboardService.selectAWdboard(wdbvo);
 		bldatas=wdboardService.selectBWdboard(wdbvo);
 		odatas=wdonedayService.selectAWdoneday(wdovo);
+		wsdata = chatService.selectAll(wsvo);
 		model.addAttribute("brdatas", brdatas);
 		model.addAttribute("bldatas", bldatas);
 		model.addAttribute("odatas", odatas);
+		model.addAttribute("wsdata", wsdata);
+		model.addAttribute("wsdatacount", chatService.count(wsvo));
 		return "main.jsp";
 	}
 

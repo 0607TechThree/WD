@@ -1,5 +1,7 @@
 package com.wooridoori.app.chat;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +23,14 @@ public class ChatServiceImpl implements ChatService{
 	public ChatVO selectOne(ChatVO vo) {
 		return chatDAO.selectOne(vo);
 	}
+
+	public List<ChatVO> selectAll(ChatVO vo) {
+		return chatDAO.selectAll(vo);
+	}
+	
+	public Integer count(ChatVO vo) {
+		return chatDAO.count(vo);
+	}
+
 
 }

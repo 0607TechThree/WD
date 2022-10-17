@@ -173,7 +173,14 @@ https://templatemo.com/tm-558-klassy-cafe
                             <li class="scroll-to-section"><a href="#chefs">OnedayClass</a></li>
                             <li class="scroll-to-section"><a href="#activity">Activity</a></li>
                            	<c:if test="${udata != null}">
-                           	<li class="scroll-to-section"><a href="javascript:winopen()">chat</a></li>
+	                           	<!-- 소켓 VO 이름은 wsdata -->
+	                           	<c:if test="${wsdatacount == 0}">
+		                           	<li class="scroll-to-section"><a href="javascript:insertws()">chat</a></li>
+	                           	</c:if>
+	                           	<c:if test="${wsdatacount != 0}">
+		                           	<li class="scroll-to-section"><a href="javascript:selectws()">chat</a></li>
+	                           	</c:if>
+	                           	<!-- 소켓 VO 이름은 wsdata -->
                            	</c:if>
                        		<c:if test="${udata == null}">
                             <li><a href="loginaction.do">
@@ -595,9 +602,20 @@ https://templatemo.com/tm-558-klassy-cafe
                 
             });
         });
-	function winopen(){
-		window.open("opensocket.do?id=${udata.wdmid}", "","width=330, height=430");
+        /*
+	function insertws(){
+		let password = prompt("채팅창 비밀번호를 설정하여주세요");
+		window.open("chatinsert.do?id=${udata.wdmid}&chatpw="+password, "","width=330, height=430");
 	}
+	function selectws(){
+		let password2 = prompt("채팅창 비밀번호를 입력해주세요");
+		if(${wsdata.chatpw == password2}){			
+		window.open("opensocket.do?id=${udata.wdmid}&chatpw="+password2, "","width=330, height=430");
+		}else if{
+			alert('다시 시도해주세요.')
+		}
+	}
+        */
 	function winopen2(){
 		window.open("dDayCar.do", "","width=375, height=230");
 	}
