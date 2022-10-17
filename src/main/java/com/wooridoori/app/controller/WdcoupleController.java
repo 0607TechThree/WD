@@ -19,7 +19,7 @@ public class WdcoupleController {
 	public String insertWdcouple(WdcoupleVO vo,HttpSession session){
 		WdcoupleService.insertWdcouple(vo);
 		session.invalidate();
-		return "redirect:main.do";
+		return "closeCoupleCheck.jsp";
 	}
 	
 	@RequestMapping("/deleteWdcouple.do")

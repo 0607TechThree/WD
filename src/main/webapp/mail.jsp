@@ -18,7 +18,7 @@
  -->
 <form action="sendMail.do" method="post">
 	<input type="text" name="address" placeholder="상대방의 메일주소를 입력해주세요.">
-	<input type="text" name="wdcwoori" value="${udata.wdmid}" readonly>
+	<input type="text" name="wdcwoori" value="${udata.wdmid}" hidden>
 	<input type="submit" value="전송">
 </form>
 
