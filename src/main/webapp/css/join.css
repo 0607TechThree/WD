@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+*{
+	font-family: 'Jua';
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+#joincontent{
+	margin: 0px;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#joincontentbox{
+	
+}
+
+#joinlogobox{
+	display: flex;
+	justify-content: center;
+}
+
+#logo{
+	width: 200px;
+	height: auto;
+}
+
+#joinsubject{
+	text-align: center;
+	color: rgb(240,99,99);
+	font-size: 20px;
+	letter-spacing: 3px;
+}
+
+#jointable{
+	letter-spacing: 3px;
+}
+
+td{
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+.jointabletitle{
+	width: 100px;
+}
+.jointablevalue{
+	width: 220px;
+}
+.jointablevalueid{
+	width: 220px;
+}
+.bt-id {
+	display: block;
+	padding: 0px 10px;
+	text-align: center;
+	overflow: hidden;
+	width: 300px;
+	height: 54px;
+	border-radius: 3px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(240, 99, 99);
+	border: 0px none;
+	cursor: pointer;
+}

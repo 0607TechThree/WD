@@ -20,6 +20,16 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
+<style type="text/css">
+#subbutton{
+	width: 100px;
+	font-size: 20px;
+	cursor: pointer;
+	background-color: white;
+	border: 1px solid lightgray;
+	border-radius: 7px;
+}
+</style>
 </head>
 <body>
 	<div id="boardform">
@@ -35,18 +45,21 @@
 	<br>
 	<form action="insertWdboard.do" method="post"
 		enctype="multipart/form-data">
-		<p>게시글 제목<p>
+		전체공개&nbsp;<input type="radio" name="wdbopen" checked="checked" value="0">
+			커플공개&nbsp;<input type="radio" name="wdbopen" value="1">
+		<p style="font-size: 30px">게시글 제목<p>
 		<textarea id="writertitle" name="wdbtitle"></textarea>
 		<input type="hidden" value="${udata.wdmid}" name="wdbwriter" id="form1">
 		<br>
 		<div class="form-group" id="form">
-			<label class="col-form-label" for="editor">게시판</label>
+			<label class="col-form-label" for="editor"><p style="font-size: 30px">게시판 내용<p></label>
 			<textarea id="writeEditor" name="wdbcontent" rows="20" cols="12"></textarea>
 		</div>
-			전체공개&nbsp;<input type="radio" name="wdbopen" checked="checked" value="0">
-			커플공개&nbsp;<input type="radio" name="wdbopen" value="1">
+		
 		<br>
-		<input type="submit" value="등록">
+		<center>
+			<input type="submit" value="작성하기" id="subbutton">
+		</center>
 	</form>
 	</div>
 	

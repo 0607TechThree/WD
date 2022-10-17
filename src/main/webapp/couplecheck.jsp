@@ -14,7 +14,7 @@
 	<input type="hidden" name="wdcwoori" value="${param.wdcwoori}">
 	<input type="hidden" name="wdcdoori" value="${udata.wdmid}">
 	<input type="text" name="wdcdate">
-	<input type="submit" value="확인">
+	<input type="submit" value="확인하기">
 </form>
 </body>
 </html>

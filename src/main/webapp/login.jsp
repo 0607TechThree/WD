@@ -81,7 +81,7 @@
  -->
 	<div id="loginwrap">
 	<div class="locontent">
-	<a href="main.jsp"><img id="logo" alt="로고" src="img/wdmainlogo.png" ></a>
+	<a href="main.do"><img id="logo" alt="로고" src="img/wdmainlogo.png" ></a>
 		<!-- <div class="login">로그인</div> -->
 		<div class="lomain">
 			<form action="login.do" onsubmit="return Validation();" method="post">

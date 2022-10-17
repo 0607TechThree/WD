@@ -32,7 +32,16 @@
 #bdform{
 	all : unset;
 }
-
+#writertitle{
+	max-width: 780px;
+	resize: none;
+	font-size: 20px;
+}
+#submitbox{
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+}
 </style>
 </head>
 
@@ -58,9 +67,9 @@
 			<!-- Me -->
 			<article id="home" class="panel intro">
 				<header>
-					<h1>${boarddata.wdbtitle}</h1>
-					<p>${boarddata.wdbwriter}</p>
-					<p>좋아요! : ${boarddata.wdblike}</p>
+					<h1 style="font-size: 30px;">제목 : ${boarddata.wdbtitle}</h1>
+					<p>작성자 : ${boarddata.wdbwriter}</p>
+					<p>좋아요 : ${boarddata.wdblike}</p>
 				</header>
 				<a href="#work" class="jumplink pic"> <span
 					class="arrow icon solid fa-chevron-right"><span>See
@@ -74,11 +83,11 @@
 					<input type="hidden" name="wdbpk" value="${boarddata.wdbpk}">
 					<header>
 						<h2>
-							<p>게시글 제목</p>
+							<p style="font-size: 30px">게시글 제목</p>
 							<textarea id="writertitle" name="wdbtitle">${boarddata.wdbtitle}</textarea>
 						</h2>
 					</header>
-					<section>
+					<section style="margin-bottom: 1em;">
 						<div class="form-group" id="form">
 							<textarea id="writeEditor" name="wdbcontent" rows="20" cols="12">${boarddata.wdbcontent}</textarea>
 						</div>
@@ -95,6 +104,7 @@
 						</c:if>
 						</c:if>
 					</section>
+					<div id="submitbox">
 					<c:if test="${udata != null}">
 					<c:if test="${likedata.wdcheck==null}">
 						<!-- likedata.wdcheck==0 ||  -->
@@ -113,12 +123,16 @@
 							class="likeimg"></a>
 					</c:if>
 						<c:if test="${boarddata.wdbwriter == udata.wdmid}">
-							<input type="submit" value="수정">
+							<div>
+								<input type="submit" value="수정하기">
+								<input type="button" value="삭제하기" onclick="javascript:deleteboard()">
+							</div>
 						</c:if>
 					</c:if>
 					<c:if test="${udata == null}">
-						비로그인 상태 모달창 처리할것
+						로그인 이후 좋아요 기능을 이용하실 수 있습니다!
 					</c:if>
+					</div>
 				</form>
 			</article>
 		</div>
@@ -285,6 +299,10 @@ ClassicEditor
 .catch( error => {
 	console.error( error );
 } );
+
+function deleteboard(){
+	location.href="deleteWdboard.do?wdbpk=${boarddata.wdbpk}";
+}
 </script>
 </body>
 </html>

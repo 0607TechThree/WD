@@ -15,7 +15,7 @@ public class WdmemberDAO {
 	
 	final String sql_selectOne="SELECT * FROM WDMEMBER WHERE WDMID=? AND WDMPW=?";
 	final String sql_insert="INSERT INTO WDMEMBER VALUES((SELECT NVL(MAX(WDMPK),0) +1 FROM WDMEMBER),?,?,?,?,?,?,?,?,?)";
-	final String sql_update="UPDATE WDMEMBER SET WDMPW=? AND WDMNICK=? WHERE WDMID=?";
+	final String sql_update="UPDATE WDMEMBER SET WDMMBTI=? AND WDMNICK=? WHERE WDMID=?";
 	final String sql_delete="DELETE FROM WDMEMBER WHERE WDMID=?";
 	final String sql_checkId="SELECT * FROM WDMEMBER WHERE WDMID=?";
 	final String sql_vipupdate="UPDATE WDMEMBER SET WDMVIP=1 WHERE WDMID=?";
@@ -35,7 +35,7 @@ public class WdmemberDAO {
 		jdbcTemplate.update(sql_vipupdate,vo.getWdmid());
 	}
 	void updateWdmember(WdmemberVO vo) {
-		jdbcTemplate.update(sql_update,vo.getWdmpw(),vo.getWdmnick(),vo.getWdmid());
+		jdbcTemplate.update(sql_update,vo.getWdmmbti(),vo.getWdmnick(),vo.getWdmid());
 	}
 	void deleteWdmember(WdmemberVO vo) {
 		jdbcTemplate.update(sql_delete,vo.getWdmid());

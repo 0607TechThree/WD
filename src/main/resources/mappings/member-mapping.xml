@@ -18,7 +18,7 @@
 	</insert>
 
 	<update id="updateWdmember">
-		UPDATE WDMEMBER SET WDMPW=#{wdmpw} WHERE WDMID=#{wdmid}
+		UPDATE WDMEMBER SET WDMMBTI=#{wdmmbti}, WDMNICK=#{wdmnick} WHERE WDMPK=#{wdmpk}
 	</update>
 
 	<delete id="deleteWdmember">

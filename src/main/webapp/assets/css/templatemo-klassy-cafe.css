@@ -143,6 +143,7 @@ body {
   .mobile-bottom-fix-big {
     margin-bottom: 60px;
   }
+  
 }
 
 .main-white-button a {
@@ -672,6 +673,12 @@ banner
   top: 50%;
   transform: translate(-50%, -50%);
   left: 50%;
+}
+
+.inner-content{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 #top .left-content h4 {

@@ -10,20 +10,16 @@
 <!-- favicon end -->
 <title>WooriDoori - 회원가입</title>
 <!--  favicon -->
-
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+	rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/join.css" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<style type="text/css">
-/*datepicer 버튼 롤오버 시 손가락 모양 표시*/
-.ui-datepicker-trigger{cursor: pointer;}
-/*datepicer input 롤오버 시 손가락 모양 표시*/
-.hasDatepicker{cursor: pointer;}
 
-</style>
 </head>
 <body>
 <script
@@ -198,7 +194,7 @@
 	<div id="joincontentbox">
 		<div id="joinlogobox">
 			<a href="main.do">
-				<a href="main.jsp"><img id="logo" alt="로고" src="img/wdmainlogo.png" ></a>
+				<img id="logo" alt="로고" src="img/wdmainlogo.png">
 			</a>
 		</div>
 			<div id="joinsubject">
@@ -207,7 +203,7 @@
 			<form action="" name="userInfo" id="joinform">
 						<input type="hidden" name="kemail" value="${param.kemail}">
 						<input type="hidden" name="nemail" value="${param.nemail}">
-			<table>
+			<table id="jointable">
 				<tr>
 					<td class="jointabletitle"><div>아이디</div></td>
 					<td><input name="wdmid" id="userid"  class="jointablevalueid"
@@ -217,14 +213,14 @@
 						</a>
 						<input type="hidden" id="idDuplication" value="idUnCheck"></td>
 				</tr>
-				<tr>
+				<tr class="tablebordertop">
 					<td></td>
 					<td><div id="result"></div></td>
 				</tr>
-				<tr>
+				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>비밀번호</div></td>
 					<td><input type="password" name="wdmpw"  class="jointablevalue" id="userps"
-						required placeholder="아이디와 다른 6~12자리 영문과 숫자를 조합"></td>
+						required placeholder="아이디와 다른 6~12자리 영문 숫자 조합"></td>
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>비밀번호확인</div></td>
@@ -252,7 +248,7 @@
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>이메일</div></td>
 					<td><input required  class="jointablevalue" name="wdmemail"
-						placeholder="이메일을 입력해주세요"></td>
+						placeholder="woodoo@wooridoori.com"></td>
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle">성별</td>
@@ -287,9 +283,9 @@
 				<tr>
 					<td colspan="2">
 						<br>
-						<center>					
-							<input type="button" value="회원가입하기" id="joinbutton" onclick="Validation()">
-						</center>
+						<center>
+							<input type="button" value="회원가입하기" class="bt-id" onclick="Validation()">
+						</center>				
 					</td>
 				</tr>
 			</table>

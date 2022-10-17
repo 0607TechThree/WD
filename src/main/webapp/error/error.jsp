@@ -37,7 +37,7 @@
                             <img src="/assets/images/wdwhlogo.png">
                             <h2>${exception.message}</h2>
                             <div class="main-white-button scroll-to-section">
-                                <a href="/main.do" align="center">main go >></a>
+                                <a href="app/main.do" align="center">main go >></a>
                             </div>
                         </div>
                     </div>

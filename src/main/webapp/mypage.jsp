@@ -63,28 +63,51 @@
 	    		<img id="myuserimg2"alt="유저이미지" src="img/mypage/info3.png">
 	    	</div>
 	    	<div id="myuserinfo">
-    		<form action="#" method="post">
+    		<form action="updateWdmember.do" method="post">
 	    		<h3 style="color:rgb(240,99,99);">회원정보</h3>
+	    		<input type="hidden" name="wdmpk" value="${udata.wdmpk}">
 	    		<p>아이디 : ${udata.wdmid}</p>
 	    		<br>
-	    		<p>닉네임 : ${udata.wdmnick}</p>
+	    		<p>
+	    		닉네임 : <input type="text" name="wdmnick" value="${udata.wdmnick}">
+	    		</p>
 	    		<br>
 	    		<p>이메일 : ${udata.wdmemail}</p>
 	    		<br>
-	    		<p>MBTI : ${udata.wdmmbti}</p>
+	    		<p>엠비티아이 : ${udata.wdmmbti}
+	    		<select name="wdmmbti">
+					<option>ESTJ</option>
+					<option>ESTP</option>
+					<option>ESFJ</option>
+					<option>ESFP</option>
+					<option>ENTJ</option>
+					<option>ENTP</option>
+					<option>ENFJ</option>
+					<option>ENFP</option>
+					<option>ISTJ</option>
+					<option>ISTP</option>
+					<option>ISFJ</option>
+					<option>ISFP</option>
+					<option>INTJ</option>
+					<option>INTP</option>
+					<option>INFJ</option>
+					<option>INFP</option>
+					<option>모른다</option>
+				</select>
+	    		</p>
 	    		<br>
 	    		<p>VIP 신청여부 : ${udata.wdmvip}</p>
 	    		<center>
-			    	<input type="submit" value="수정하기"><button>삭제하기</button>
+			    	<input type="submit" value="수정하기"><button onclick="memberdelete()">계정탈퇴</button>
 	    		</center>
 	   		</form>
 	    	</div>
 	    </div>
 	  </div>
 	  <!-- 나의정보종료 -->
-	  <c:if test="">
 	  <!-- 커플정보시작 -->
-	  <!-- 받아오는 데이터는 coupledata -->
+	  <c:if test="${coupledata != null}">
+	  <!-- 받아오는 데이터는 coupleinfo -->
 	  <div id="fragment-2">
 		<div id="mypagecouple">
 			<div id="mycoupleimg">
@@ -93,17 +116,38 @@
 	    	<div id="mycoupleinfo">
 	    		<h3 style="color:rgb(240,99,99);">커플정보</h3>
 	    		<br>
-	    		<p>우리 : </p>
+	    		<p>우리 : ${coupleinfo.wdcwoori}</p>
 	    		<br>
-	    		<p>두리 : </p>
+	    		<p>두리 : ${coupleinfo.wdcdoori}</p>
 	    		<br>
-	    		<p>만난날짜 : </p>
-	    		<input type="submit" value="수정하기"><button>커플정보삭제하기</button>
+	    		<p>만난날짜 : ${coupleinfo.wdcdate}</p>
+	    		<br>
+	    		<p>* 커플정보 삭제 시 자동 로그아웃 됩니다</p>
+	    		<button onclick="coupledelete()">커플정보삭제하기</button>
 	    	</div>
 		</div>
 	  </div>
-	  <!-- 커플정보종료 -->
 	  </c:if>
+	  <c:if test="${coupledata == null}">
+	  <div id="fragment-2">
+		<div id="mypagecouple">
+			<div id="mycoupleimg">
+	    		<img id="mycoupleimg2"alt="유저이미지" src="img/mypage/couple2.png">
+	    	</div>
+	    	<div id="mycoupleinfo">
+	    		<h3 style="color:rgb(240,99,99);">커플정보가 존재하지 않습니다</h3>
+	    		<br>
+	    		<p></p>
+	    		<br>
+	    		<p>커플 신청 버튼을 통해 상대방에게 신청할 수 있습니다!</p>
+	    		<br>
+	    		<p></p>
+	    		<button onclick="javascript:couplemail()">커플신청하기</button>
+	    	</div>
+		</div>
+	  </div>
+	  </c:if>
+	  <!-- 커플정보종료 -->
 	  <!-- VIP정보시작 -->
 	  <div id="fragment-3">
 	  	<div>
@@ -160,9 +204,34 @@
 <script>
 $( "#tabs" ).tabs();
 
-
 function kakaopayopen(){
 	window.open("kakaoPay.jsp", "","width=500, height=600");
+}
+
+function couplemail(){
+	window.open("couplecheck.jsp","","width=500, height=600");
+}
+
+function coupledelete(){
+	if(confirm("정말 커플정보를 삭제하시겠습니까?"))
+	{
+	location.href="deleteWdcouple.do?wdcpk=${coupleinfo.wdcpk}";
+	}
+	else
+	{
+	alert('취소를 누르셨습니다');
+	}
+}
+
+function memberdelete(){
+	if(confirm("정말 탈퇴하시겠습니까!?"))
+	{
+		location.href="deleteWdmember.do?wdmid=${udata.wdmid}&wdmpw=${udata.wdmpw}";
+	}
+	else
+	{
+	alert('취소를 누르셨습니다');
+	}
 }
 </script>
 

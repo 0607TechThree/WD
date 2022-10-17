@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.wooridoori.app.couple.WdcoupleService;
+import com.wooridoori.app.couple.WdcoupleVO;
 import com.wooridoori.app.model.member.WdmemberService;
 import com.wooridoori.app.model.member.WdmemberVO;
 
@@ -19,6 +21,8 @@ public class WdmemberController {
 
 	@Autowired
 	private WdmemberService WdmemberService;
+	@Autowired
+	private WdcoupleService wdcoupleService;
 	
 	@RequestMapping("/insertWdmember.do")
 	public String insertWdmember(WdmemberVO vo) {
@@ -27,8 +31,9 @@ public class WdmemberController {
 	}
 	
 	@RequestMapping("/updateWdmember.do")
-	public String updateWdmember(WdmemberVO vo) {
+	public String updateWdmember(WdmemberVO vo, HttpSession session) {
 		WdmemberService.updateWdmember(vo);
+		session.invalidate();
 		return "redirect:main.do";
 	}
 	
@@ -78,7 +83,24 @@ public class WdmemberController {
 		return "close.jsp";
 	}
 	@RequestMapping("/mypage.do")
-	public String mypage(WdmemberVO vo, HttpSession session) {
+	public String mypage(WdmemberVO vo,Model model,WdcoupleVO wdcvo,HttpSession session) {
+		vo = (WdmemberVO)session.getAttribute("udata");
+		wdcvo.setWdcwoori(vo.getWdmid());
+		wdcvo.setWdcdoori(vo.getWdmid());
+		System.out.println("wdcvo = " + wdcvo);
+		System.out.println(wdcoupleService.selectOneW(wdcvo));
+		System.out.println(wdcoupleService.selectOneD(wdcvo));
+		if(wdcoupleService.selectOneW(wdcvo) != null) {				
+			System.out.println("my1번 if 문 전");
+			System.out.println(wdcoupleService.selectOneW(wdcvo));
+			System.out.println("my1번 if 문 후");
+			model.addAttribute("coupleinfo", wdcoupleService.selectOneW(wdcvo));
+		}else if(wdcoupleService.selectOneD(wdcvo) != null){
+			System.out.println("my2번 if 문 전");
+			System.out.println(wdcoupleService.selectOneD(wdcvo));
+			System.out.println("my2번 if 문 후");
+			model.addAttribute("coupleinfo", wdcoupleService.selectOneD(wdcvo));
+		}
 		return "mypage.jsp";
 	}
 	
