@@ -29,6 +29,7 @@ var naverLogin = new naver.LoginWithNaverId(
 			if (status) {
 				/* (5) 필수적으로 받아야하는 프로필 정보가 있다면 callback처리 시점에 체크 */
 				var email = naverLogin.user.getEmail();
+				var location = 
 				console.log(email); // 사용자 이메일 정보를 받을수 있습니다.
         		console.log(naverLogin.user); //사용자 정보를 받을수 있습니다.
                 if( email == undefined || email == null) {
@@ -37,7 +38,7 @@ var naverLogin = new naver.LoginWithNaverId(
 					naverLogin.reprompt();
 					return;
 				}
-				window.location.replace("snslogin.do?nemail="+email);
+				window.location.replace("snslogin.do?nemail="+email+"&location=${param.location}");
 			} else {
 				console.log("callback 처리에 실패하였습니다.");
 			}

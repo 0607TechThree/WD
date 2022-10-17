@@ -249,7 +249,7 @@
 				 -->
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>이메일</div></td>
-					<td><input required  class="jointablevalue" name="wdmemail"
+					<td><input required  class="jointablevalue" name="wdmemail" id="userm"
 						placeholder="woodoo@wooridoori.com"></td>
 				</tr>
 				<tr class="tablebordertop">

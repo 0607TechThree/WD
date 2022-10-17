@@ -112,9 +112,9 @@
 	  </div>
 	  <!-- 나의정보종료 -->
 	  <!-- 커플정보시작 -->
-	  <c:if test="${coupledata != null}">
 	  <!-- 받아오는 데이터는 coupleinfo -->
 	  <div id="fragment-2">
+	  <c:if test="${coupleinfo != null}">
 		<div id="mypagecouple">
 			<div id="mycoupleimg">
 	    		<img id="mycoupleimg2"alt="유저이미지" src="img/mypage/couple2.png">
@@ -130,10 +130,9 @@
 	    		<button onclick="coupledelete()" class="mybtn">이별하기</button>
 	    	</div>
 		</div>
-	  </div>
 	  </c:if>
-	  <c:if test="${coupledata == null}">
-	  <div id="fragment-2">
+	  
+	  <c:if test="${coupleinfo == null}">
 		<div id="mypagecouple">
 			<div id="mycoupleimg">
 	    		<img id="mycoupleimg2"alt="유저이미지" src="img/mypage/couple2.png">
@@ -148,9 +147,9 @@
 	    		<p></p>
 	    		<button onclick="javascript:couplemail()" class="mybtn">커플신청하기</button>
 	    	</div>
-		</div>
-	  </div>
 	  </c:if>
+	  </div>
+	  
 	  <!-- 커플정보종료 -->
 	  <!-- VIP정보시작 -->
 	  <div id="fragment-3">
