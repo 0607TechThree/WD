@@ -16,8 +16,9 @@ public class WdcoupleController {
 	private WdcoupleService WdcoupleService;
 	
 	@RequestMapping("/insertWdcouple.do")
-	public String insertWdcouple(WdcoupleVO vo){
+	public String insertWdcouple(WdcoupleVO vo,HttpSession session){
 		WdcoupleService.insertWdcouple(vo);
+		session.invalidate();
 		return "redirect:main.do";
 	}
 	

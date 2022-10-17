@@ -209,7 +209,7 @@ function kakaopayopen(){
 }
 
 function couplemail(){
-	window.open("couplecheck.jsp","","width=500, height=600");
+	window.open("mail.jsp","","width=500, height=600");
 }
 
 function coupledelete(){
@@ -224,7 +224,7 @@ function coupledelete(){
 }
 
 function memberdelete(){
-	if(confirm("정말 탈퇴하시겠습니까!?"))
+	if(confirm("정말 회원 탈퇴를 진행하시겠습니까!?"))
 	{
 		location.href="deleteWdmember.do?wdmid=${udata.wdmid}&wdmpw=${udata.wdmpw}";
 	}
