@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.wooridoori.app.couple.WdcoupleService;
@@ -102,6 +104,14 @@ public class WdmemberController {
 			model.addAttribute("coupleinfo", wdcoupleService.selectOneD(wdcvo));
 		}
 		return "mypage.jsp";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/checkId.do",method=RequestMethod.GET, produces = "application/json; charset=utf-8")
+	public WdmemberVO checkId(WdmemberVO vo) {	
+		System.out.println(vo);
+		vo=WdmemberService.checkId(vo);
+		return vo;
 	}
 	
 }
