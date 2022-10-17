@@ -75,7 +75,21 @@
 									</a>
 								</article>
 								</c:forEach>
-								
+								<!-- 2. 이전버튼 활성화 여부 -->
+	               				<c:if test="${pageVO.prev }">
+                        			<li><a href="oneday.do?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount}">이전</a></li>
+								</c:if>
+								                        		
+                        		<!-- 1. 페이지번호 처리 -->
+                        		<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
+	                        		<li  class="${pageVO.pageNum eq num ? 'active' : '' }">
+	                        		<a href="oneday.do?pageNum=${num }&amount=${pageVO.amount}">${num }</a></li>
+                        		</c:forEach>
+                        		
+                        		<!-- 3. 다음버튼 활성화 여부 -->
+                        		<c:if test="${pageVO.next }">
+                        			<li><a href="oneday.do?pageNum=${pageVO.endPage + 1 }&amount=${pageVO.amount}">다음</a></li>
+                        		</c:if>
 							</section>
 						</div>
 					</div>

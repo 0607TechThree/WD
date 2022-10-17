@@ -19,7 +19,8 @@ public class WdonedayDAO {
 	final String sql_selectAll="SELECT * FROM WDONEDAY";
 	final String sql_selectAll_RB = "SELECT * FROM (SELECT * FROM WDONEDAY ORDER BY WDOPK) WHERE ROWNUM <= 6";
 //	final String sql_insert="INSERT INTO WDONEDAY VALUES((SELECT NVL(MAX(WDOPK),0) +1 FROM WDONEDAY),?,?,?,?)";
-	final String sql_selectAll_PG = "SELECT * FROM (SELECT A.*, ROWNUM AS RNUM FROM (SELECT * FROM WDONEDAY ORDER BY WDOPK) A WHERE ROWNUM <= ?) WHERE RNUM>=?";
+	final String sql_selectAll_PG = "SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM WDONEDAY ORDER BY WDOPK DESC) A) WHERE RN > ? AND RN <= ?";
+	final String sql_total = "SELECT COUNT(*) AS TOTAL FROM WDONEDAY";
 	//	public void insertWdoneday(WdonedayVO vo) {
 //		jdbcTemplate.update(sql_insert,vo.getWdoname(),vo.getWdoregion(),vo.getWdoaddress(),vo.getWdosubject());
 //	}
@@ -34,8 +35,12 @@ public class WdonedayDAO {
         return jdbcTemplate.query(sql_selectAll_RB,new WdonedayRowMapper());
 	}
 	
-	public List<WdonedayVO> selectPGWdoneday(WdonedayVO vo) {
-        return jdbcTemplate.query(sql_selectAll_PG,new WdonedayRowMapper(), vo.getPage(), vo.getBeginPage());
+	public List<WdonedayVO> selectPGWdoneday(WdonedayVO vo,int pageNum, int amount) {
+		Object[] args= {(pageNum - 1) * amount , pageNum * amount};
+        return jdbcTemplate.query(sql_selectAll_PG, args, new WdonedayRowMapper());
+	}
+	public Integer total(WdonedayVO vo) {
+		return jdbcTemplate.queryForObject(sql_total,Integer.class);
 	}
 }
 class WdonedayRowMapper implements RowMapper<WdonedayVO> {
