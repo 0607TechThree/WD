@@ -107,14 +107,14 @@ public class PageVO {
 		}
 		
 		// 4. prev결정 ( startPage의 번호는 1, 11, 21... )
-		this.prev = this.startPage > 1;
+		this.prev = this.pageNum > 1;
 		
 		// 5. next결정
 //		 ex: 131개 게시물
 //		 1~10 클릭시 endPage = 10, realEnd = 14 -> 다음버튼 true
 //		 11 클릭시 endPage = 14 , realEnd = 14 -> 다음버튼 false
-		this.next = this.endPage < realEnd;
-		
+		this.next = this.pageNum < realEnd;
+		System.out.println("prev : "+prev + "next : "+next);
 		// 확인
 		System.out.println("시작페이지:" + this.startPage + ", 끝페이지:" + this.endPage);
 		
