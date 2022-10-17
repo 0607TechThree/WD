@@ -77,7 +77,8 @@
 						    <div class="btn_confirm">
 						        <button type="submit" class="btn_submit bt-id">다음으로</button>
 						    </div>
-					
+							<input type="hidden" name="kemail" value="${param.kemail}">
+							<input type="hidden" name="nemail" value="${param.nemail}">
 						</form>
 
 					</div>

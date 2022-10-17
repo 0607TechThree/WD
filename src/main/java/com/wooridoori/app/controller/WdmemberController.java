@@ -24,7 +24,8 @@ public class WdmemberController {
 	@Autowired
 	private WdmemberService WdmemberService;
 	@Autowired
-	private WdcoupleService wdcoupleService;
+	private WdcoupleService wdcoupleService;	
+	
 	
 	@RequestMapping("/insertWdmember.do")
 	public String insertWdmember(WdmemberVO vo) {
@@ -55,7 +56,8 @@ public class WdmemberController {
 	public String snslogin(WdmemberVO vo, HttpSession session,Model model,HttpServletRequest request) {
 		String paramkemail = null;
 		String paramnemail = null;
-		String paramLocation = (String) session.getAttribute("location");
+		//System.out.println("이게뭐임 1 : " + request.getParameter("location"));
+		String paramLocation = (String)request.getParameter("location");
 		if(request.getParameter("kemail") != null) {
 			paramkemail = request.getParameter("kemail");
 			request.setAttribute("kemail", paramkemail);
@@ -65,7 +67,7 @@ public class WdmemberController {
 			request.setAttribute("nemail", paramnemail);
 			vo.setNemail(paramnemail);
 		}
-
+		//System.out.println("이거뭐임" + paramLocation);
 		vo=WdmemberService.selectOneWdmember(vo);
 		System.out.println("snslogaction에서의 tuvo "+vo);
 		if(vo==null) {
@@ -93,14 +95,16 @@ public class WdmemberController {
 		System.out.println(wdcoupleService.selectOneW(wdcvo));
 		System.out.println(wdcoupleService.selectOneD(wdcvo));
 		if(wdcoupleService.selectOneW(wdcvo) != null) {				
-			System.out.println("my1번 if 문 전");
+			//System.out.println("my1번 if 문 전");
 			System.out.println(wdcoupleService.selectOneW(wdcvo));
-			System.out.println("my1번 if 문 후");
+			//System.out.println("my1번 if 문 후");
+			session.setAttribute("coupledata", WdmemberService.selectOneC(wdcoupleService.selectOneW(wdcvo).getWdcdoori()));
 			model.addAttribute("coupleinfo", wdcoupleService.selectOneW(wdcvo));
 		}else if(wdcoupleService.selectOneD(wdcvo) != null){
-			System.out.println("my2번 if 문 전");
+			//System.out.println("my2번 if 문 전");
 			System.out.println(wdcoupleService.selectOneD(wdcvo));
-			System.out.println("my2번 if 문 후");
+			//System.out.println("my2번 if 문 후");
+			session.setAttribute("coupledata", WdmemberService.selectOneC(wdcoupleService.selectOneD(wdcvo).getWdcwoori()));
 			model.addAttribute("coupleinfo", wdcoupleService.selectOneD(wdcvo));
 		}
 		return "mypage.jsp";
