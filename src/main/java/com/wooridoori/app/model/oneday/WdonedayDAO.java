@@ -19,7 +19,7 @@ public class WdonedayDAO {
 	final String sql_selectAll="SELECT * FROM WDONEDAY";
 	final String sql_selectAll_RB = "SELECT * FROM (SELECT * FROM WDONEDAY ORDER BY WDOPK) WHERE ROWNUM <= 6";
 //	final String sql_insert="INSERT INTO WDONEDAY VALUES((SELECT NVL(MAX(WDOPK),0) +1 FROM WDONEDAY),?,?,?,?)";
-	final String sql_selectAll_PG = "SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM WDONEDAY ORDER BY WDOPK DESC) A) WHERE RN > ? AND RN <= ?";
+	final String sql_selectAll_PG = "SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM WDONEDAY ORDER BY WDOPK) A) WHERE RN > ? AND RN <= ?";
 	final String sql_total = "SELECT COUNT(*) AS TOTAL FROM WDONEDAY";
 	//	public void insertWdoneday(WdonedayVO vo) {
 //		jdbcTemplate.update(sql_insert,vo.getWdoname(),vo.getWdoregion(),vo.getWdoaddress(),vo.getWdosubject());

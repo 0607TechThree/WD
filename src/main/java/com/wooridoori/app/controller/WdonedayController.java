@@ -49,7 +49,7 @@ public class WdonedayController {
 	public String selectPGWdoneday(WdonedayVO vo, Model model,HttpServletRequest request) {
 		List<WdonedayVO> datas=null;
 		int pageNum = 1;
-		int amount = 10;
+		int amount = 12;
 		if(request.getParameter("pageNum") != null && request.getParameter("amount") != null) {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 			amount = Integer.parseInt(request.getParameter("amount"));
@@ -58,6 +58,7 @@ public class WdonedayController {
 		int total = WdonedayService.total(vo);
 		PageVO pageVO = new PageVO(pageNum, amount, total);
 		System.out.println(datas);
+		System.out.println(pageVO);
 		// 3. 페이지네이션을 화면에 전달
 		model.addAttribute("pageVO", pageVO);
 		model.addAttribute("onedaydatas",datas);
