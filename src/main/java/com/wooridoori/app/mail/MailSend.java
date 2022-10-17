@@ -38,11 +38,15 @@ public class MailSend {
 	    try {
 			msg.setSentDate(new Date());
 			
-			msg.setFrom(new InternetAddress("codecu6@gmail.com", "VISITOR"));
+			msg.setFrom(new InternetAddress("codecu6@gmail.com", "WooriDoori@Tech.Three"));
 			InternetAddress to = new InternetAddress(request.getParameter("address"));
 			msg.setRecipient(Message.RecipientType.TO, to);
-			msg.setSubject("제목", "UTF-8");
-			msg.setText("http://localhost:8088/app/couplecheck.jsp?wdcwoori="+request.getParameter("wdcwoori"), "UTF-8");
+			msg.setSubject("WooriDoori 커플 정보 확인 메세지 입니다.", "UTF-8");
+			msg.setText(
+					"&nbsp"+"WooriDoori입니다. request.getParameter(\"wdcwoori\") 님과 커플이 되고싶다면 아래의 링크를 클릭해주세요."
+					+"http://localhost:8088/app/couplecheck.jsp?wdcwoori="+request.getParameter("wdcwoori")+
+					"\n"+"줄바꿈 테스트"
+					+"&nbsp", "UTF-8");
 			
 			Transport.send(msg);
 		} catch (AddressException ae) {
