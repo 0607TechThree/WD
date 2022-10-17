@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Controller;
+
 import com.wooridoori.app.model.member.WdmemberDAO;
 import com.wooridoori.app.model.member.WdmemberService;
 import com.wooridoori.app.model.member.WdmemberVO;
@@ -15,7 +17,8 @@ import com.wooridoori.app.model.member.WdmemberVO;
 /**
  * Servlet implementation class Check
  */
-@WebServlet("/checkId.check")
+
+
 public class CheckIdAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private WdmemberService wdmemberService;
