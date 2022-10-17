@@ -55,18 +55,18 @@ public class controller {
 		List<WdboardVO> brdatas=null;
 		List<WdboardVO> bldatas=null;
 		List<WdonedayVO> odatas=null;
-		List<ChatVO> wsdata = null;
 		brdatas=wdboardService.selectAWdboard(wdbvo);
 		bldatas=wdboardService.selectBWdboard(wdbvo);
 		odatas=wdonedayService.selectAWdoneday(wdovo);
-		wsdata = chatService.selectAll(wsvo);
 		model.addAttribute("brdatas", brdatas);
 		model.addAttribute("bldatas", bldatas);
 		model.addAttribute("odatas", odatas);
-		model.addAttribute("wsdata", wsdata);
 		int count = chatService.count(wsvo);
 		model.addAttribute("wsdatacount", count);
-		System.out.println(wsdata);
+		wsvo = chatService.selectOne(wsvo);
+		System.out.println(wsvo);
+		model.addAttribute("wsdata", wsvo);
+		System.out.println(count);
 		return "main.jsp";
 	}
 	@RequestMapping(value="/main.do",method=RequestMethod.POST)
@@ -74,16 +74,18 @@ public class controller {
 		List<WdboardVO> brdatas=null;
 		List<WdboardVO> bldatas=null;
 		List<WdonedayVO> odatas=null;
-		List<ChatVO> wsdata = null;
 		brdatas=wdboardService.selectAWdboard(wdbvo);
 		bldatas=wdboardService.selectBWdboard(wdbvo);
 		odatas=wdonedayService.selectAWdoneday(wdovo);
-		wsdata = chatService.selectAll(wsvo);
 		model.addAttribute("brdatas", brdatas);
 		model.addAttribute("bldatas", bldatas);
 		model.addAttribute("odatas", odatas);
-		model.addAttribute("wsdata", wsdata);
-		model.addAttribute("wsdatacount", chatService.count(wsvo));
+		int count = chatService.count(wsvo);
+		model.addAttribute("wsdatacount", count);
+		wsvo = chatService.selectOne(wsvo);
+		System.out.println(wsvo);
+		model.addAttribute("wsdata", wsvo);
+		System.out.println(count);
 		return "main.jsp";
 	}
 

@@ -16,16 +16,16 @@ public class ChatDAO {
 	private JdbcTemplate jdbcTemplate;
 	
 	final String sql_insert="INSERT INTO CHAT(CHATPK,CHATPW) VALUES((SELECT NVL(MAX(CHATPK),0) +1 FROM CHAT),?)";
-	final String sql_delete="DELETE FROM CHAT WHERE CHATPK=?";
-	final String sql_selectOne="SELECT * FROM CHAT WHERE CHATPW = ?";
+	final String sql_delete="DELETE FROM CHAT WHERE CHATPK=1";
+	final String sql_selectOne="SELECT * FROM CHAT WHERE CHATPK = 1";
 	final String sql_selectAll="SELECT * FROM CHAT";
 	final String sql_count="SELECT COUNT(*) AS TOTAL FROM CHAT";
 	
 	void insertChat(ChatVO vo) {
 		jdbcTemplate.update(sql_insert, vo.getChatpw());	
 	}
-	void deleteChat(ChatVO vo) {
-		jdbcTemplate.update(sql_delete, vo.getChatpk());
+	public void deleteChat(ChatVO vo) {
+		jdbcTemplate.update(sql_delete);
 	}
 	
 	List<ChatVO> selectAll(ChatVO vo) {
@@ -45,9 +45,11 @@ public class ChatDAO {
 	}
 	
 	ChatVO selectOne(ChatVO vo) {
-		Object[] args= {vo.getChatpw()};
-		return jdbcTemplate.queryForObject(sql_selectOne, args,new ChatRowMapper());
-		
+		try {	
+			return jdbcTemplate.queryForObject(sql_selectOne,new ChatRowMapper());
+		} catch (EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 }
 class ChatRowMapper implements RowMapper<ChatVO> {
