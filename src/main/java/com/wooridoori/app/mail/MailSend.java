@@ -60,6 +60,6 @@ public class MailSend {
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("UnsupportedEncodingException : " + e.getMessage());
 		}
-	    return "close.jsp";
+	    return "closeMail.jsp";
 	}
 }
