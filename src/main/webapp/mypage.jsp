@@ -102,7 +102,10 @@
 					<option>모른다</option>
 				</select>
 	    		</p>
-	    		<p>VIP 신청여부 : ${udata.wdmvip}</p>
+	    		<p>VIP 신청여부 : 
+	    			<c:if test="${udata.wdmvip == 0}">X</c:if>
+	    			<c:if test="${udata.wdmvip == 1}">O</c:if>
+	    		</p>
 	    		<br>
 			    <input type="submit" value="수정하기" class="mybtn">&nbsp;<button class="mybtn" onclick="memberdelete()">계정탈퇴</button>
 	    		

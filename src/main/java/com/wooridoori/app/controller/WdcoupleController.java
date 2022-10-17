@@ -18,7 +18,6 @@ public class WdcoupleController {
 	@RequestMapping("/insertWdcouple.do")
 	public String insertWdcouple(WdcoupleVO vo,HttpSession session){
 		WdcoupleService.insertWdcouple(vo);
-		session.invalidate();
 		return "closeCoupleCheck.jsp";
 	}
 	

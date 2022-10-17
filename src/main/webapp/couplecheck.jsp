@@ -71,7 +71,7 @@ $('#datepicker').datepicker();
 // 초기 세팅 날짜
 
 function newTablogin(){
-	window.open("login.do","");
+	location.href = "loginaction.do";
 }
 </script>
 
