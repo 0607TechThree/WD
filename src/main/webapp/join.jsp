@@ -47,10 +47,10 @@
 			};
 
 			$.ajax({
-				type : 'GET',
-				url : 'checkId.do?wdmid='+document.getElementById("userid").value,
+				type : 'POST',
+				url : 'checkId.do',
 				data : {
-					wdmid : userid
+					wdmid : document.getElementById("userid").value
 				},
 				contextType : "application/json",
 				success : function(result) {

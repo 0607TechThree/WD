@@ -107,7 +107,7 @@ public class WdmemberController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/checkId.do",method=RequestMethod.GET, produces = "application/json; charset=utf-8")
+	@RequestMapping(value="/checkId.do",method=RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public WdmemberVO checkId(WdmemberVO vo) {	
 		System.out.println(vo);
 		vo=WdmemberService.checkId(vo);
