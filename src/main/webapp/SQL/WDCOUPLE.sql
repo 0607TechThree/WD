@@ -1,5 +1,5 @@
 CREATE TABLE WDCOUPLE (
-	wdcpk	int		NOT NULL,
+	wdcpk	int		PRIMARY KEY,
 	wdcwoori	varchar(30)		NOT NULL,
 	wdcdoori	varchar(30)		NOT NULL,
 	wdcdate	varchar(30)		NOT NULL

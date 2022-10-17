@@ -1,5 +1,5 @@
 CREATE TABLE WDMEMBER (
-	wdmpk	int		NOT NULL,
+	wdmpk	int		PRIMARY KEY,
 	wdmid	varchar(30)		NOT NULL,
 	wdmpw	varchar(30)		NOT NULL,
 	wdmnick	varchar(30)		NOT NULL,
