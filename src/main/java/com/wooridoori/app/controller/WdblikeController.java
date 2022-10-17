@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wooridoori.app.board.WdboardService;
@@ -21,7 +22,8 @@ public class WdblikeController {
 	@Autowired
 	private WdboardService WdboardService;
 	
-	@RequestMapping("/insertwdlike.do")
+	@ResponseBody
+	@RequestMapping(value="/insertwdlike.do",method=RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public String insertWdlike(HttpServletRequest request,WdblikeVO vo,WdboardVO wdbvo, Model model) {
 		System.out.println(vo);
 		System.out.println(wdbvo);
@@ -29,20 +31,25 @@ public class WdblikeController {
 		//wdbvo.setWdbpk(vo.getWdbpk());
 		WdboardService.updateWdboardlikeU(wdbvo);
 		vo=WdblikeService.selectOneWdlike(vo);
-		return "selectOneWdboard.do";
+		return "1";
 	}
 	
-	@RequestMapping("/updatewdlike.do")
+	@ResponseBody
+	@RequestMapping(value="/updatewdlike.do",method=RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public String updateWdlike(HttpServletRequest request,WdblikeVO vo,WdboardVO wdbvo, Model model) {
+		System.out.println(vo);
+		System.out.println(wdbvo);
 		//wdbvo.setWdbpk(vo.getWdbpk());
 		vo=WdblikeService.selectOneWdlike(vo);
 		if(vo.getWdcheck() == 0) {
 			WdboardService.updateWdboardlikeU(wdbvo);
+			WdblikeService.updateWdlike(vo);
+			return "1";
 		}else {
 			WdboardService.updateWdboardlikeD(wdbvo);
+			WdblikeService.updateWdlike(vo);
+			return "0";
 		}
-		WdblikeService.updateWdlike(vo);
-		return "selectOneWdboard.do"; //wdbvo.getWdbpk();
 	}
 
 }

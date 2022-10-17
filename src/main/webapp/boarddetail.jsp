@@ -107,20 +107,16 @@
 					<div id="submitbox">
 					<c:if test="${udata != null}">
 					<c:if test="${likedata.wdcheck==null}">
-						<!-- likedata.wdcheck==0 ||  -->
-						<a href="insertwdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}"
-								id="likeinsert"><img src="img/likeb.png" id="likeimg" width="60px" height="60px"
-							class="likeimg"></a>
+						<img src="img/likeb.png" id="likeimg" width="60px" height="60px"
+							class="likeimg">
 					</c:if>
 					<c:if test="${likedata.wdcheck==1}">
-						<a href="updatewdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}&wdcheck=${likedata.wdcheck}"
-								id="likeinsert"><img src="img/likeaf.png" id="likeimg" width="60px" height="60px"
-							class="likeimg"></a>
+						<img src="img/likeaf.png" id="ulikeimg" width="60px" height="60px"
+							class="likeimg">
 					</c:if>
 					<c:if test="${likedata.wdcheck==0}">
-						<a href="updatewdlike.do?wdbpk=${boarddata.wdbpk}&wdmpk=${udata.wdmpk}&wdcheck=${likedata.wdcheck}"
-								id="likeinsert"><img src="img/likeb.png" id="likeimg" width="60px" height="60px"
-							class="likeimg"></a>
+						<img src="img/likeb.png" id="ulikeimg" width="60px" height="60px"
+							class="likeimg">
 					</c:if>
 						<c:if test="${boarddata.wdbwriter == udata.wdmid}">
 							<div>
@@ -144,6 +140,52 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
+	$('#likeimg').on("click",function() {
+		$.ajax({
+			type : 'POST',
+			url : 'insertwdlike.do',
+			data : {
+				wdbpk : '${boarddata.wdbpk}',
+				wdmpk : '${udata.wdmpk}'
+			},
+			contextType : "application/json",
+			success : function(result) {
+				console.log("로그1 [" + result + "]");
+				if (result == 1) {
+					$('#likeimg').prop("src" , "img/likeaf.png");
+				}
+			},
+			error : function(request, status, error) {
+				console.log("code: " + request.status);
+				console.log("message: " + request.responseText);
+				console.log("error: " + error);
+			}
+		});
+	});
+	$('#ulikeimg').on("click",function() {
+		$.ajax({
+			type : 'POST',
+			url : 'updatewdlike.do',
+			data : {
+				wdbpk : '${boarddata.wdbpk}',
+				wdmpk : '${udata.wdmpk}'
+			},
+			contextType : "application/json",
+			success : function(result) {
+				console.log("로그1 [" + result + "]");
+				if (result == 1) {
+					$('#ulikeimg').prop("src" , "img/likeaf.png");
+				}else{
+					$('#ulikeimg').prop("src" , "img/likeb.png");					
+				}
+			},
+			error : function(request, status, error) {
+				console.log("code: " + request.status);
+				console.log("message: " + request.responseText);
+				console.log("error: " + error);
+			}
+		});
+	});
 class MyUploadAdapter {
     constructor( loader ) {
     	// 업로드하는 동안 사용할 파일 로더 인스턴스입니다.
