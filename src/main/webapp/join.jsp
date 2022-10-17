@@ -30,8 +30,11 @@
 			$("#userid").focus();
 		});
 		function check() {
-			var userid = $("#userid").val();
+			var userid = $("#userid").value();
 			var RegExp = /^[a-zA-Z0-9]{6,12}$/; // 아이디 유효성 검사
+			var data = {
+					userid : userid
+			};
 			if (userid == "") {
 				alert("아이디를 입력해주세요");
 				$("#userid").focus();
@@ -46,14 +49,13 @@
 				return false;
 			};
 			$.ajax({
-				type : 'GET',
-				url : '${pageContext.request.contextPath}/checkId.do?wdmid=' + userid,
-				data : {
-					userid : userid
-				},
+				type : 'POST',
+				url : 'checkId.do',
+				data : JSON.stringify(data),
+				contextType : "application/json",
 				success : function(result) {
 					console.log("로그1 [" + result + "]");
-					if (result == 1) {
+					if (result == null) {
 						$("#result").text("사용가능한 아이디입니다");
 						$("#result").css("color", "blue");
 						$("#idDuplication").val('idCheck');
