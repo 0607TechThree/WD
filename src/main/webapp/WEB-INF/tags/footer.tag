@@ -14,10 +14,10 @@
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">
                             <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://blog.naver.com/key4ss"><img src="img/naverblog.png" style="width: 30px; height: 30px;"></a></li><!-- 김기훈 -->
+                                <li><a href="https://blog.naver.com/chiho1998"><img src="img/naverblog.png" style="width: 30px; height: 30px;"></a></li><!-- 김치호 -->
+                                <li><a href="https://blog.naver.com/gpdmwajt123"><img src="img/naverblog.png" style="width: 30px; height: 30px;"></a></li><!-- 최동규 -->
+                                <li><a href="https://github.com/0607TechThree/WD"><img src="img/github.png" style="width: 30px; height: 30px;"></a></li><!-- 깃주소 -->
                             </ul>
                     </div>
                 </div>
