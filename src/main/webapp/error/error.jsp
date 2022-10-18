@@ -45,7 +45,7 @@
                 <div class="col-lg-4">
                     <div class="left-content">
                         <div class="inner-content">
-                            <img src="/assets/images/wdwhlogo.png">
+                            <img src="./assets/images/wdwhlogo.png">
                             <div class="main-white-button scroll-to-section">
                                 <a href="main.do" align="center">main go >></a>
                             </div>
@@ -58,7 +58,7 @@
                           <!-- Item -->
                           <div class="item">
                             <div class="img-fill">
-                                <img src="/assets/images/error.jpg" alt="">
+                                <img src="./assets/images/error.jpg" alt="">
                             </div>
                           </div>
                         </div>
