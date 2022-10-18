@@ -153,6 +153,7 @@
 				console.log("로그1 [" + result + "]");
 				if (result == 1) {
 					$('#likeimg').prop("src" , "img/likeaf.png");
+					location.reload();
 				}
 			},
 			error : function(request, status, error) {
@@ -175,8 +176,10 @@
 				console.log("로그1 [" + result + "]");
 				if (result == 1) {
 					$('#ulikeimg').prop("src" , "img/likeaf.png");
+					location.reload();
 				}else{
-					$('#ulikeimg').prop("src" , "img/likeb.png");					
+					$('#ulikeimg').prop("src" , "img/likeb.png");
+					location.reload();
 				}
 			},
 			error : function(request, status, error) {
