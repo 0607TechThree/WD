@@ -70,7 +70,8 @@
 				<header>
 					<h1 style="font-size: 30px;">제목 : ${boarddata.wdbtitle}</h1>
 					<p>작성자 : ${boarddata.wdbwriter}</p>
-					<p>좋아요 : ${boarddata.wdblike}</p>
+					<p class="wdblikere">좋아요 : ${boarddata.wdblike}</p>
+					<input type="hidden" id="wdblikere" value="${boarddata.wdblike}">
 				</header>
 				<a href="#work" class="jumplink pic"> <span
 					class="arrow icon solid fa-chevron-right"><span>See
@@ -141,7 +142,9 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
+	var wdblikere = document.getElementById("wdblikere").value;
 	$('#likeimg').on("click",function() {
+	console.log(wdblikere);
 		$.ajax({
 			type : 'POST',
 			url : 'insertwdlike.do',
@@ -165,6 +168,7 @@
 		});
 	});
 	$('#ulikeimg').on("click",function() {
+	console.log(wdblikere);
 		$.ajax({
 			type : 'POST',
 			url : 'updatewdlike.do',
@@ -177,10 +181,12 @@
 				console.log("로그1 [" + result + "]");
 				if (result == 1) {
 					$('#ulikeimg').prop("src" , "img/likeaf.png");
-					location.reload();
+					$('.wdblikere').text("좋아요 : "+(wdblikere+1));
+					document.getElementById("wdblikere").value = wdblikere++;
 				}else{
 					$('#ulikeimg').prop("src" , "img/likeb.png");
-					location.reload();
+					$('.wdblikere').text("좋아요 : "+(wdblikere-1));
+					document.getElementById("wdblikere").value = wdblikere--;
 				}
 			},
 			error : function(request, status, error) {
