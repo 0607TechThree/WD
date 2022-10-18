@@ -144,8 +144,7 @@ footer {
 			<input id="messageinput" type="text" placeholder="Type a message...">
 			<input type="text" id="sender" value="${udata.wdmid}"
 				style="display: none;">
-			<button type="button" onclick="javascript:send(${udata.wdmid});">메세지
-				전송</button>
+			<button type="button" onclick="javascript:send();">메세지 전송</button>
 		</footer>
 	</div>
 	<script src="assets/js/jquery-2.1.0.min.js"></script>

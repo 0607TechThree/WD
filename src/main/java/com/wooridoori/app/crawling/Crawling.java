@@ -115,20 +115,19 @@ public class Crawling {
 					
 					try {
 						image = ImageIO.read(new URL(imagePath));
+						//이미지 경로를 통해 이미지를 읽은후 image에 담기
 					} catch (MalformedURLException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					int width = image.getWidth();
-					int height = image.getHeight();
+					int width = image.getWidth(); //해당 이미지의 가로길이
+					int height = image.getHeight(); //해당 이미지의 세로길이
 					
 					String fileNm = imageName.substring(57,b)+".jpg";
-					wdimageVO.setWdipickname(fileNm); // 사진이름
-					if(num==1) {
-						wdonedayVO.setWdomainimg(fileNm);
+					wdimageVO.setWdipickname(fileNm); // 사진이름 + jpg를 이미지VO에 세팅
+					if(num==1) { // 만약 가져오는 사진중 첫번째 사진이라면
+						wdonedayVO.setWdomainimg(fileNm); // 해당사진명을 원데이VO에 세팅
 					}
 					try {
 						// 저장할 이미지의 크기와 타입을 잡아줌.
