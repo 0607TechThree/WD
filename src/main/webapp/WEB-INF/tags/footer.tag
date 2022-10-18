@@ -14,10 +14,10 @@
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">
                             <ul class="social-icons">
-                                <li><a href="https://blog.naver.com/key4ss"><img src="img/naverblog.png" style="width: 30px; height: 30px;"></a></li><!-- 김기훈 -->
-                                <li><a href="https://blog.naver.com/chiho1998"><img src="img/naverblog.png" style="width: 30px; height: 30px;"></a></li><!-- 김치호 -->
-                                <li><a href="https://blog.naver.com/gpdmwajt123"><img src="img/naverblog.png" style="width: 30px; height: 30px;"></a></li><!-- 최동규 -->
-                                <li><a href="https://github.com/0607TechThree/WD"><img src="img/github.png" style="width: 30px; height: 30px;"></a></li><!-- 깃주소 -->
+                                <li><a href="javascript:winopenb1()"><img src="img/naverblog.png" style="width: 30px; height: 30px;"></a></li><!-- 김기훈 -->
+                                <li><a href="javascript:winopenb2()"><img src="img/naverblog.png" style="width: 30px; height: 30px;"></a></li><!-- 김치호 -->
+                                <li><a href="javascript:winopenb3()"><img src="img/naverblog.png" style="width: 30px; height: 30px;"></a></li><!-- 최동규 -->
+                                <li><a href="javascript:winopenb4()"><img src="img/github.png" style="width: 30px; height: 30px;"></a></li><!-- 깃주소 -->
                             </ul>
                     </div>
                 </div>
@@ -35,4 +35,19 @@
                 </div>
             </div>
         </div>
+        
+        <script type="text/javascript">
+    	function winopenb1(){
+    		window.open("https://blog.naver.com/key4ss", "","");
+    	}
+    	function winopenb2(){
+    		window.open("https://blog.naver.com/chiho1998", "","");
+    	}
+    	function winopenb3(){
+    		window.open("https://blog.naver.com/gpdmwajt123", "","");
+    	}
+    	function winopenb4(){
+    		window.open("https://github.com/0607TechThree/WD", "","");
+    	}
+        </script>
     </footer>
