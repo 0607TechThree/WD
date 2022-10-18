@@ -464,7 +464,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 	<a href="selectOneWdoneday.do?wdopk=${v.wdopk}">
                     <div class="item onedayitem">
                         <div class='card' style="background-image: url(img/crawling/${v.wdomainimg})">
-                            <div class="price"><h6>${v.wdopk}</h6></div>
+                            <div class="price"><h6></h6></div>
                         </div>
 						<div>
 							<h5>${v.wdoname}</h5>

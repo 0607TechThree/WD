@@ -51,7 +51,8 @@ public class WebSocketChat {
         try {
             for(Session session : WebSocketChat.sessionList) {
                 if(!self.getId().equals(session.getId())) {
-                    session.getBasicRemote().sendText("<"+sender+"> : "+message);
+                	System.out.println("들어오면 sender : " + sender);
+                    session.getBasicRemote().sendText(sender+" : "+message);
                 }
             }
         }catch (Exception e) {
@@ -69,7 +70,7 @@ public class WebSocketChat {
         logger.info("Message From "+sender + ": "+message);
         try {
             final Basic basic=session.getBasicRemote();
-            basic.sendText("<나> : "+message);
+            basic.sendText(sender+" : "+message);
         }catch (Exception e) {
             // TODO: handle exception
             System.out.println(e.getMessage());

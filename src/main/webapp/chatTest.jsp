@@ -5,7 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>WooriDoori - 채팅방</title>
+<!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
 <style type="text/css">
 @import url("https://fonts.googleapis.com/css?family=Karla");
 
@@ -190,7 +193,7 @@ $( document ).ready(function() {
  
  function writeResponse(text){
      var scrollToBottom = (messages.scrollHeight - messages.scrollTop - messages.clientHeight < 80);
-	 if(text.includes("<나>")){
+	 if(text.includes("${udata.wdmid}")){
 		 className = "me";
 		 scrollToBottom = true;
 	 }else{
