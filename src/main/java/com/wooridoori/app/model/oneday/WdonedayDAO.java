@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -26,7 +27,11 @@ public class WdonedayDAO {
 //	}
 	public WdonedayVO selectOneWdoneday(WdonedayVO vo) {
 		Object[] args= {vo.getWdopk()};
-		return jdbcTemplate.queryForObject(sql_selectOne,args,new WdonedayRowMapper());
+		try {	
+			return jdbcTemplate.queryForObject(sql_selectOne,args,new WdonedayRowMapper());
+		} catch (EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 	public List<WdonedayVO> selectAllWdoneday(WdonedayVO vo) {
 		return jdbcTemplate.query(sql_selectAll,new WdonedayRowMapper());
@@ -40,7 +45,11 @@ public class WdonedayDAO {
         return jdbcTemplate.query(sql_selectAll_PG, args, new WdonedayRowMapper());
 	}
 	public Integer total(WdonedayVO vo) {
-		return jdbcTemplate.queryForObject(sql_total,Integer.class);
+		try {	
+			return jdbcTemplate.queryForObject(sql_total,Integer.class);
+		} catch (EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 }
 class WdonedayRowMapper implements RowMapper<WdonedayVO> {
