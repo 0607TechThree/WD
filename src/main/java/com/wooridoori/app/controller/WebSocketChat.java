@@ -51,7 +51,6 @@ public class WebSocketChat {
         try {
             for(Session session : WebSocketChat.sessionList) {
                 if(!self.getId().equals(session.getId())) {
-                	System.out.println("들어오면 sender : " + sender);
                     session.getBasicRemote().sendText(sender+" : "+message);
                 }
             }
