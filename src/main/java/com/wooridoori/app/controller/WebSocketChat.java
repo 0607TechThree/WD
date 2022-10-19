@@ -15,12 +15,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 
+import com.wooridoori.app.chat.ChatDAO2;
+import com.wooridoori.app.chat.ChatVO;
+
 @Controller
 @ServerEndpoint(value="/echo.do")
 public class WebSocketChat {
     
     private static final List<Session> sessionList=new ArrayList<Session>();;
     private static final Logger logger = LoggerFactory.getLogger(WebSocketChat.class);
+    
+    private ChatDAO2 DAO = new ChatDAO2();
     
     public WebSocketChat() {
         // TODO Auto-generated constructor stub
@@ -46,7 +51,8 @@ public class WebSocketChat {
         try {
             for(Session session : WebSocketChat.sessionList) {
                 if(!self.getId().equals(session.getId())) {
-                    session.getBasicRemote().sendText("<상대> : "+message);
+                	System.out.println("들어오면 sender : " + sender);
+                    session.getBasicRemote().sendText(sender+" : "+message);
                 }
             }
         }catch (Exception e) {
@@ -64,7 +70,7 @@ public class WebSocketChat {
         logger.info("Message From "+sender + ": "+message);
         try {
             final Basic basic=session.getBasicRemote();
-            basic.sendText("<나> : "+message);
+            basic.sendText(sender+" : "+message);
         }catch (Exception e) {
             // TODO: handle exception
             System.out.println(e.getMessage());
@@ -81,7 +87,12 @@ public class WebSocketChat {
     public void onClose(Session session) {
         
     	logger.info("Session "+session.getId()+" has ended");
-        
         sessionList.remove(session);
+        
+        if(sessionList.size() == 0) {
+        	ChatVO vo = new ChatVO();
+        	DAO.delete(vo);
+        }
+        
     }
 }

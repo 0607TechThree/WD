@@ -30,5 +30,15 @@ public class WdonedayServiceImpl implements WdonedayService{
 	public List<WdonedayVO> selectAWdoneday(WdonedayVO vo) {
 		return wdonedayDAO.selectAWdoneday(vo);
 	}
+
+
+	public int total(WdonedayVO vo) {
+		return wdonedayDAO.total(vo);
+	}
+
+
+	public List<WdonedayVO> selectPGWdoneday(WdonedayVO vo, int pageNum, int amount) {
+		return wdonedayDAO.selectPGWdoneday(vo,pageNum,amount);
+	}
 	
 }

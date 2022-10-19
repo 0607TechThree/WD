@@ -1,5 +1,5 @@
 CREATE TABLE WDBOARD (
-	wdbpk	int		not null,
+	wdbpk	int	PRIMARY KEY,
 	wdbwriter	varchar(30)		not null,
 	wdbtitle	varchar(120)		not null,
 	wdbcontent	LONG		not null,

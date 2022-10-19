@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>WooriDoori - Check</title>
+<title>WooriDoori - CoupleCheck</title>
 <!-- favicon start -->
 <link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
 <!-- favicon end -->
@@ -16,7 +16,7 @@
 <script type="text/javascript">
 
 $( document ).ready(function() {
-	opener.parent.location.reload();
+	alert("커플정보 입력이 완료되었습니다.");
     window.close();
 });
 

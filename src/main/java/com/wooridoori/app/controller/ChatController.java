@@ -15,7 +15,7 @@ public class ChatController {
 	@RequestMapping("/chatinsert.do")
 	public String insert(ChatVO vo) {
 		chatService.insertChat(vo);
-		return "";
+		return "opensocket.do";
 	}
 	
 	@RequestMapping("/chatdelete.do")

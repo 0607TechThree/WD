@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page errorPage="error/error.jsp" %>	
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -30,7 +31,7 @@
 			$("#userid").focus();
 		});
 		function check() {
-			var userid = $("#userid").val();
+			var userid = document.getElementById("userid").value;
 			var RegExp = /^[a-zA-Z0-9]{6,12}$/; // 아이디 유효성 검사
 			if (userid == "") {
 				alert("아이디를 입력해주세요");
@@ -45,15 +46,17 @@
 				$("#userid").focus();
 				return false;
 			};
+
 			$.ajax({
-				type : 'GET',
-				url : '${pageContext.request.contextPath}/checkId.do?wdmid=' + userid,
+				type : 'POST',
+				url : 'checkId.do',
 				data : {
-					userid : userid
+					wdmid : document.getElementById("userid").value
 				},
+				contextType : "application/json",
 				success : function(result) {
 					console.log("로그1 [" + result + "]");
-					if (result == 1) {
+					if (result == null || result == "") {
 						$("#result").text("사용가능한 아이디입니다");
 						$("#result").css("color", "blue");
 						$("#idDuplication").val('idCheck');
@@ -247,7 +250,7 @@
 				 -->
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>이메일</div></td>
-					<td><input required  class="jointablevalue" name="wdmemail"
+					<td><input required  class="jointablevalue" name="wdmemail" id="userm"
 						placeholder="woodoo@wooridoori.com"></td>
 				</tr>
 				<tr class="tablebordertop">

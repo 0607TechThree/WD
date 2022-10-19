@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page errorPage="error/error.jsp" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,7 +129,7 @@
 		var naverLogin = new naver.LoginWithNaverId(
 				{
 					clientId: "oX_Kd3_jRt98OWIDVini",
-					callbackUrl: "http://localhost:8088/app/NewFile1.jsp",
+					callbackUrl: "http://localhost:8088/app/callback.jsp?location=${location}",
 					isPopup: false, /* 팝업을 통한 연동처리 여부 */
 					loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
 				}
@@ -156,11 +157,10 @@
                         url: '/v2/user/me',
                         success: (res) => {
                             const kakao_account = res.kakao_account;
-                            alert('로그인 성공');
                             var email = kakao_account.email;
                             console.log(email);
                             
-                            window.location.replace("http://localhost:8088/app/snslogin.do?kemail="+email);
+                            window.location.replace("http://localhost:8088/app/snslogin.do?kemail="+email+"&location=${location}");
                         }
                     });
                 },

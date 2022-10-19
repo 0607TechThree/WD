@@ -2,22 +2,23 @@ package com.wooridoori.app.chat;
 
 public class ChatVO {
 	int chatpk;
-	int chatpw;
+	String chatpw;
 	public int getChatpk() {
 		return chatpk;
 	}
 	public void setChatpk(int chatpk) {
 		this.chatpk = chatpk;
 	}
-	public int getChatpw() {
+	public String getChatpw() {
 		return chatpw;
 	}
-	public void setChatpw(int chatpw) {
+	public void setChatpw(String chatpw) {
 		this.chatpw = chatpw;
 	}
 	@Override
 	public String toString() {
 		return "ChatVO [chatpk=" + chatpk + ", chatpw=" + chatpw + "]";
 	}
+
 	
 }

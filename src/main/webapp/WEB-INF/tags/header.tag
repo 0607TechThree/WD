@@ -39,7 +39,6 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                           	<li class="scroll-to-section"><a href="javascript:winopen()">chat</a></li>
                            	<li class="scroll-to-section"><a href="board.do">blog</a></li>
                            	<li class="scroll-to-section"><a href="oneday.do">onedayclass</a></li>
                         	<c:if test="${udata == null}">

@@ -49,7 +49,7 @@ public class WdonedayVO {
 				+ wdoaddress + ", wdosubject=" + wdosubject + ", wdomainimg=" + wdomainimg + "]";
 	}
 	
-	//
+	/*
 	
     private int page =1; //현재 페이지 (get)
     private int totalCount; //row 전체의 수 (get)
@@ -104,7 +104,7 @@ public class WdonedayVO {
         endPage = ((int)Math.ceil(page/(double)displayPage))*displayPage;
         System.out.println("endPage : " + endPage);
         
-        beginPage = endPage - (displayPage - 1);
+        beginPage = endPage - (displayPage + 1);
         System.out.println("beginPage : " + beginPage);
         
         int totalPage = (int)Math.ceil(totalCount/(double)displayRow);
@@ -120,4 +120,5 @@ public class WdonedayVO {
         System.out.println("totalPage : " + totalPage);
         
     }
+    */
 }

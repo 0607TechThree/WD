@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page errorPage="error/error.jsp" %>	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>WooriDoori - 채팅방</title>
+<!-- favicon start -->
+<link rel="icon" type="image/x-icon" href="img/wdfavicon.png" />
+<!-- favicon end -->
 <style type="text/css">
 @import url("https://fonts.googleapis.com/css?family=Karla");
 
@@ -143,8 +147,7 @@ footer {
 			<input id="messageinput" type="text" placeholder="Type a message...">
 			<input type="text" id="sender" value="${udata.wdmid}"
 				style="display: none;">
-			<button type="button" onclick="javascript:send(${udata.wdmid});">메세지
-				전송</button>
+			<button type="button" onclick="javascript:send();">메세지 전송</button>
 		</footer>
 	</div>
 	<script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -190,7 +193,7 @@ $( document ).ready(function() {
  
  function writeResponse(text){
      var scrollToBottom = (messages.scrollHeight - messages.scrollTop - messages.clientHeight < 80);
-	 if(text.includes("<나>")){
+	 if(text.includes("${udata.wdmid}")){
 		 className = "me";
 		 scrollToBottom = true;
 	 }else{

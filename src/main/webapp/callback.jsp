@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page errorPage="error/error.jsp" %>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "oX_Kd3_jRt98OWIDVini",
-			callbackUrl: "http://localhost:8088/app/NewFile1.jsp",
+			callbackUrl: "http://localhost:8088/app/callback.jsp",
 			isPopup: false,
 			callbackHandle: true
 			/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
@@ -29,6 +30,7 @@ var naverLogin = new naver.LoginWithNaverId(
 			if (status) {
 				/* (5) 필수적으로 받아야하는 프로필 정보가 있다면 callback처리 시점에 체크 */
 				var email = naverLogin.user.getEmail();
+				var location = 
 				console.log(email); // 사용자 이메일 정보를 받을수 있습니다.
         		console.log(naverLogin.user); //사용자 정보를 받을수 있습니다.
                 if( email == undefined || email == null) {
@@ -37,7 +39,7 @@ var naverLogin = new naver.LoginWithNaverId(
 					naverLogin.reprompt();
 					return;
 				}
-				window.location.replace("snslogin.do?nemail="+email);
+				window.location.replace("snslogin.do?nemail="+email+"&location=${param.location}");
 			} else {
 				console.log("callback 처리에 실패하였습니다.");
 			}

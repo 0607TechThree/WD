@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page errorPage="error/error.jsp" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="wd" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE HTML>
@@ -18,6 +19,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets2/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets2/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="./css/oneday.css" />
 		<style type="text/css">
 		.tiles article > .image {
 				-moz-transition: -moz-transform 0.5s ease;
@@ -75,8 +77,26 @@
 									</a>
 								</article>
 								</c:forEach>
-								
 							</section>
+							
+							<div class="botbtn">
+							<hr>
+								<!-- 2. 이전버튼 활성화 여부 -->
+	               				<c:if test="${pageVO.prev}">
+                        			<li><a href="oneday.do?pageNum=${pageVO.pageNum - 1}&amount=${pageVO.amount}" class="prvbtn">이전</a></li>
+								</c:if>
+								                        		
+                        		<!-- 1. 페이지번호 처리 -->
+                        		<c:forEach var="num" begin="${pageVO.startPage}" end="${pageVO.endPage}">
+	                        		<li  class="${pageVO.pageNum eq num ? 'active' : ''}">
+	                        			<a href="oneday.do?pageNum=${num}&amount=${pageVO.amount}" >[${num}]</a></li>
+                        		</c:forEach>
+                        		
+                        		<!-- 3. 다음버튼 활성화 여부 -->
+                        		<c:if test="${pageVO.next}">
+                        			<li><a href="oneday.do?pageNum=${pageVO.pageNum + 1}&amount=${pageVO.amount}" class="nxtbtn">다음</a></li>
+                        		</c:if>
+							</div>
 						</div>
 					</div>
 			</div>

@@ -7,4 +7,6 @@ public interface WdonedayService {
 	WdonedayVO selectOneWdoneday(WdonedayVO vo);
 	List<WdonedayVO> selectAllWdoneday(WdonedayVO vo);
 	List<WdonedayVO> selectAWdoneday(WdonedayVO vo);
+	List<WdonedayVO> selectPGWdoneday(WdonedayVO vo,int pageNum, int amount);
+	int total(WdonedayVO vo);
 }

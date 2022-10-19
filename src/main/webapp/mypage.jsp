@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page errorPage="error/error.jsp" %>	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="wd" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
@@ -29,6 +30,16 @@
 	height: 70px;
 	text-align: center;
 	border-bottom:1px solid black;
+}
+
+.mybtn{
+	background-color: rgb(240,99,99);
+	border: none;
+	border-radius: 7px;
+	color: white;
+	padding: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 </style> 
@@ -67,13 +78,10 @@
 	    		<h3 style="color:rgb(240,99,99);">회원정보</h3>
 	    		<input type="hidden" name="wdmpk" value="${udata.wdmpk}">
 	    		<p>아이디 : ${udata.wdmid}</p>
-	    		<br>
 	    		<p>
 	    		닉네임 : <input type="text" name="wdmnick" value="${udata.wdmnick}">
 	    		</p>
-	    		<br>
 	    		<p>이메일 : ${udata.wdmemail}</p>
-	    		<br>
 	    		<p>엠비티아이 : ${udata.wdmmbti}
 	    		<select name="wdmmbti">
 					<option>ESTJ</option>
@@ -95,19 +103,21 @@
 					<option>모른다</option>
 				</select>
 	    		</p>
+	    		<p>VIP 신청여부 : 
+	    			<c:if test="${udata.wdmvip == 0}">X</c:if>
+	    			<c:if test="${udata.wdmvip == 1}">O</c:if>
+	    		</p>
 	    		<br>
-	    		<p>VIP 신청여부 : ${udata.wdmvip}</p>
-	    		<center>
-			    	<input type="submit" value="수정하기"><button onclick="memberdelete()">계정탈퇴</button>
-	    		</center>
+			    <input type="submit" value="수정하기" class="mybtn">&nbsp;<button class="mybtn" onclick="memberdelete()">계정탈퇴</button>
+	    		
 	   		</form>
 	    	</div>
 	    </div>
 	  </div>
 	  <!-- 나의정보종료 -->
 	  <!-- 커플정보시작 -->
-	  <c:if test="${coupledata != null}">
 	  <!-- 받아오는 데이터는 coupleinfo -->
+	  <c:if test="${coupleinfo != null}">
 	  <div id="fragment-2">
 		<div id="mypagecouple">
 			<div id="mycoupleimg">
@@ -117,18 +127,16 @@
 	    		<h3 style="color:rgb(240,99,99);">커플정보</h3>
 	    		<br>
 	    		<p>우리 : ${coupleinfo.wdcwoori}</p>
-	    		<br>
 	    		<p>두리 : ${coupleinfo.wdcdoori}</p>
-	    		<br>
 	    		<p>만난날짜 : ${coupleinfo.wdcdate}</p>
 	    		<br>
 	    		<p>* 커플정보 삭제 시 자동 로그아웃 됩니다</p>
-	    		<button onclick="coupledelete()">커플정보삭제하기</button>
+	    		<button onclick="coupledelete()" class="mybtn">이별하기</button>
 	    	</div>
 		</div>
-	  </div>
+	  </div>	  
 	  </c:if>
-	  <c:if test="${coupledata == null}">
+	  <c:if test="${coupleinfo == null}">
 	  <div id="fragment-2">
 		<div id="mypagecouple">
 			<div id="mycoupleimg">
@@ -142,11 +150,12 @@
 	    		<p>커플 신청 버튼을 통해 상대방에게 신청할 수 있습니다!</p>
 	    		<br>
 	    		<p></p>
-	    		<button onclick="javascript:couplemail()">커플신청하기</button>
+	    		<button onclick="javascript:couplemail()" class="mybtn">커플신청하기</button>
 	    	</div>
-		</div>
+	  	</div>
 	  </div>
 	  </c:if>
+	  
 	  <!-- 커플정보종료 -->
 	  <!-- VIP정보시작 -->
 	  <div id="fragment-3">
@@ -187,7 +196,7 @@
 		  			</div>
 		  			<div>
 		  				<c:if test="${udata.wdmvip == 0}">
-			  				VIP등급으로 전환 (결제하기) <button onclick="javascript:kakaopayopen()">결제하기</button>
+			  				VIP등급으로 전환 (10,000원) <button class="mybtn" onclick="javascript:kakaopayopen()">결제하기</button>
 		  				</c:if>
 		  				
 		  			</div>
@@ -209,7 +218,7 @@ function kakaopayopen(){
 }
 
 function couplemail(){
-	window.open("couplecheck.jsp","","width=500, height=600");
+	window.open("mail.jsp","","width=500, height=600");
 }
 
 function coupledelete(){
@@ -224,7 +233,7 @@ function coupledelete(){
 }
 
 function memberdelete(){
-	if(confirm("정말 탈퇴하시겠습니까!?"))
+	if(confirm("정말 회원 탈퇴를 진행하시겠습니까!?"))
 	{
 		location.href="deleteWdmember.do?wdmid=${udata.wdmid}&wdmpw=${udata.wdmpw}";
 	}
