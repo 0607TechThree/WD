@@ -193,7 +193,7 @@ $( document ).ready(function() {
  
  function writeResponse(text){
      var scrollToBottom = (messages.scrollHeight - messages.scrollTop - messages.clientHeight < 80);
-	 if(text.includes("${udata.wdmid}")){
+	 if(text.includes("<나>")){
 		 className = "me";
 		 scrollToBottom = true;
 	 }else{
