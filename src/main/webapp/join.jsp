@@ -56,11 +56,11 @@
 				contextType : "application/json",
 				success : function(result) {
 					console.log("로그1 [" + result + "]");
-					if (result == null || result == "") {
+					if (result == 0) {
 						$("#result").text("사용가능한 아이디입니다");
 						$("#result").css("color", "blue");
 						$("#idDuplication").val('idCheck');
-					} else {
+					}else{
 						$("#result").text("이미 사용중인 아이디입니다");
 						$("#result").css("color", "red");
 					}

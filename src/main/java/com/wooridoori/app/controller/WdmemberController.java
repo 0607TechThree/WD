@@ -112,10 +112,13 @@ public class WdmemberController {
 	
 	@ResponseBody
 	@RequestMapping(value="/checkId.do",method=RequestMethod.POST, produces = "application/json; charset=utf-8")
-	public WdmemberVO checkId(WdmemberVO vo) {	
+	public String checkId(WdmemberVO vo) {	
 		System.out.println(vo);
 		vo=WdmemberService.checkId(vo);
-		return vo;
+		if(vo == null) {
+			return "0";
+		}
+		return "1";
 	}
 	
 }
