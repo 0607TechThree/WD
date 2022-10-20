@@ -29,7 +29,7 @@ public class WdboardDAO {
 	final String sql_update_LD="UPDATE WDBOARD SET WDBLIKE=WDBLIKE-1 WHERE WDBPK=?";
 	final String sql_selectAll="SELECT * FROM WDBOARD ORDER BY WDBPK DESC";
 	final String sql_searchTitle="SELECT * FROM WDBOARD WHERE WDBTITLE LIKE '%'||?||'%' ORDER BY WDBPK DESC";
-	final String sql_searchWriter="SELECT * FROM WDBOARD WHERE WDBCONTENT LIKE '%'||?||'%' ORDER BY WDBPK DESC";
+	final String sql_searchWriter="SELECT * FROM WDBOARD WHERE WDBWRITER LIKE '%'||?||'%' ORDER BY WDBPK DESC";
 	
 	void insertWdboard(WdboardVO vo) {
 		jdbcTemplate.update(sql_insert, vo.getWdbwriter(),vo.getWdbtitle(),vo.getWdbcontent(),vo.getWdbopen());	
@@ -65,8 +65,8 @@ public class WdboardDAO {
 		if(vo.getWdbtitle() != null) {
 			Object[] args= {vo.getWdbtitle()};			
 			return jdbcTemplate.query(sql_searchTitle,args,new WdboardRowMapper());
-		}else if(vo.getWdbtitle() != null) {
-			Object[] args= {vo.getWdbtitle()};			
+		}else if(vo.getWdbwriter() != null) {
+			Object[] args= {vo.getWdbwriter()};			
 			return jdbcTemplate.query(sql_searchWriter,args,new WdboardRowMapper());
 		}else {
 			return jdbcTemplate.query(sql_selectAll,new WdboardRowMapper());
