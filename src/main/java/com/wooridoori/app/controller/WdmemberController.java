@@ -53,7 +53,7 @@ public class WdmemberController {
 	}
 	
 	@RequestMapping("/snslogin.do")
-	public String snslogin(WdmemberVO vo, HttpSession session,Model model,HttpServletRequest request) {
+	public String snslogin(WdmemberVO vo,WdcoupleVO cvo, HttpSession session,Model model,HttpServletRequest request) {
 		String paramkemail = null;
 		String paramnemail = null;
 		//System.out.println("이게뭐임 1 : " + request.getParameter("location"));
@@ -74,6 +74,13 @@ public class WdmemberController {
 			return "joinfirst.jsp";
 		}else {
 			session.setAttribute("udata", vo); // 로그인한 회원정보
+			cvo.setWdcwoori(vo.getWdmid());
+			cvo.setWdcdoori(vo.getWdmid());
+			if(wdcoupleService.selectOneW(cvo) != null) {	
+				session.setAttribute("coupledata", WdmemberService.selectOneC(wdcoupleService.selectOneW(cvo).getWdcdoori()));
+			}else if(wdcoupleService.selectOneD(cvo) != null){
+				session.setAttribute("coupledata", WdmemberService.selectOneC(wdcoupleService.selectOneD(cvo).getWdcwoori()));
+			}
 			return paramLocation;
 		}
 	}
